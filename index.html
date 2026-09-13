@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="sunset">
+<head>
+  <meta charset="UTF-8">
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabricio Albarracín — Marketing, Video Dinámico &amp; Dirección Visual</title>
+
+  <!-- Google Fonts: Instrument Sans & Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════
+       1. VARIABLES & SISTEMA DE DISEÑO CON "VIDA" & PALETAS DINÁMICAS
+       ═══════════════════════════════════════════════════════════════════ */
+    :root {
+      /* Tema por defecto: SUNSET GOLD (Cálido, artístico, cinematográfico) */
+      --bg-base: #f7f3ee;
+      --bg-gradient: linear-gradient(135deg, #fbf8f5 0%, #f3ede4 50%, #eee5d8 100%);
+      --orb-1: rgba(251, 146, 60, 0.45);   /* Naranja solar */
+      --orb-2: rgba(245, 158, 11, 0.38);   /* Ámbar dorado */
+      --orb-3: rgba(168, 85, 247, 0.28);   /* Toque violeta místico */
+      --orb-4: rgba(16, 185, 129, 0.22);   /* Esmeralda suave */
+      --ambient-glow: rgba(245, 158, 11, 0.16);
+
+      --ink: #111418;
+      --ink-muted: #4b5563;
+      --ink-light: #6b7280;
+      --card-dark: #16141a;
+      --card-dark-glass: rgba(22, 20, 26, 0.88);
+      --card-light: #ffffff;
+      --card-light-glass: rgba(255, 255, 255, 0.85);
+
+      --border-subtle: rgba(17, 20, 24, 0.08);
+      --border-card: rgba(17, 20, 24, 0.12);
+
+      /* Identidades cromáticas por columna */
+      --ia-glow: #8b5cf6;
+      --ia-grad: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+      --edit-glow: #f59e0b;
+      --edit-grad: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      --flyer-glow: #10b981;
+      --flyer-grad: linear-gradient(135deg, #10b981 0%, #e6fc04 100%);
+
+      --accent-green: #25d366;
+      --accent-blue: #2563eb;
+      --accent-yellow: #facc15;
+      --linkedin-blue: #0a66c2;
+
+      --pad-x: clamp(1.25rem, 5vw, 4rem);
+      --radius-lg: 24px;
+      --radius-pill: 100px;
+    }
+
+    /* TEMA CYBER AURORA (Nocturno, vibrante, futurista) */
+    html[data-theme="cyber"] {
+      --bg-base: #0c0d14;
+      --bg-gradient: linear-gradient(135deg, #090a0f 0%, #121324 50%, #0c0e1a 100%);
+      --orb-1: rgba(139, 92, 246, 0.45);  /* Violeta */
+      --orb-2: rgba(6, 182, 212, 0.38);   /* Cian neón */
+      --orb-3: rgba(236, 72, 153, 0.35);  /* Fucsia */
+      --orb-4: rgba(37, 211, 102, 0.25);  /* Lima */
+      --ambient-glow: rgba(139, 92, 246, 0.22);
+      --ink: #f8fafc;
+      --ink-muted: #94a3b8;
+      --ink-light: #64748b;
+      --card-dark: #12131f;
+      --card-dark-glass: rgba(18, 19, 31, 0.9);
+      --card-light: #181a2e;
+      --card-light-glass: rgba(24, 26, 46, 0.88);
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-card: rgba(255, 255, 255, 0.15);
+    }
+
+    /* TEMA FRESH EMERALD (Vibrante, ecológico, alta conversión) */
+    html[data-theme="emerald"] {
+      --bg-base: #f0f7f3;
+      --bg-gradient: linear-gradient(135deg, #f4faf6 0%, #e8f4ed 50%, #dcf0e4 100%);
+      --orb-1: rgba(16, 185, 129, 0.42);  /* Esmeralda */
+      --orb-2: rgba(230, 252, 4, 0.35);   /* Lima neón */
+      --orb-3: rgba(6, 182, 212, 0.32);   /* Cian */
+      --orb-4: rgba(245, 158, 11, 0.25);  /* Oro */
+      --ambient-glow: rgba(16, 185, 129, 0.18);
+      --ink: #0f172a;
+      --ink-muted: #334155;
+      --ink-light: #64748b;
+      --card-dark: #0f1b15;
+      --card-dark-glass: rgba(15, 27, 21, 0.9);
+      --card-light: #ffffff;
+      --card-light-glass: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(15, 27, 21, 0.08);
+      --border-card: rgba(15, 27, 21, 0.12);
+    }
+
+    /* TEMA CLASSIC STUDIO (Editorial neutro, elegante de revista) */
+    html[data-theme="studio"] {
+      --bg-base: #eee9e0;
+      --bg-gradient: linear-gradient(135deg, #f4f0e8 0%, #ece6dc 50%, #e5ded3 100%);
+      --orb-1: rgba(217, 119, 6, 0.28);
+      --orb-2: rgba(180, 83, 9, 0.22);
+      --orb-3: rgba(100, 116, 139, 0.2);
+      --orb-4: rgba(234, 179, 8, 0.2);
+      --ambient-glow: rgba(217, 119, 6, 0.12);
+      --ink: #111418;
+      --ink-muted: #4a5568;
+      --ink-light: #718096;
+      --card-dark: #1e191d;
+      --card-dark-glass: rgba(30, 25, 29, 0.9);
+      --card-light: #fdfbf7;
+      --card-light-glass: rgba(253, 251, 247, 0.88);
+      --border-subtle: rgba(17, 20, 24, 0.09);
+      --border-card: rgba(17, 20, 24, 0.14);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* NUEVO CURSOR MODERNO CON DESTELLOS DE CLIC (VECTORSTOCK) */
+    body, a, button, input, select {
+      cursor: url('assets/cursor_spark.png') 13 11, auto !important;
+    }
+
+    a, button, .play-circle, .carousel-arrow, .gallery-card, .vibe-btn, .pill-link, .lightbox-nav-btn, .lightbox-close-btn, .expand-card-indicator {
+      cursor: url('assets/cursor_spark.png') 13 11, pointer !important;
+    }
+
+    body {
+      background: var(--bg-base);
+      color: var(--ink);
+      font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+      position: relative;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FONDO DINÁMICO: AURORA MESH ORBS + PAISAJE ARTÍSTICO + NIEBLA
+       ═══════════════════════════════════════════════════════════════════ */
+    .dynamic-artistic-background {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bg-gradient-layer {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-gradient);
+      transition: background 0.5s ease;
+    }
+
+    /* 4 Orbes de Luz Fluida en Movimiento Continuo */
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+      will-change: transform;
+    }
+
+    html[data-theme="cyber"] .aurora-orb {
+      mix-blend-mode: screen;
+      opacity: 0.65;
+    }
+
+    .orb-1 {
+      top: -15%;
+      left: -10%;
+      width: clamp(380px, 50vw, 750px);
+      height: clamp(380px, 50vw, 750px);
+      background: radial-gradient(circle, var(--orb-1) 0%, transparent 70%);
+      animation: driftOrb1 24s ease-in-out infinite alternate;
+    }
+
+    .orb-2 {
+      top: 25%;
+      right: -15%;
+      width: clamp(400px, 55vw, 850px);
+      height: clamp(400px, 55vw, 850px);
+      background: radial-gradient(circle, var(--orb-2) 0%, transparent 70%);
+      animation: driftOrb2 28s ease-in-out infinite alternate;
+    }
+
+    .orb-3 {
+      bottom: -10%;
+      left: 15%;
+      width: clamp(350px, 45vw, 700px);
+      height: clamp(350px, 45vw, 700px);
+      background: radial-gradient(circle, var(--orb-3) 0%, transparent 70%);
+      animation: driftOrb3 32s ease-in-out infinite alternate;
+    }
+
+    .orb-4 {
+      top: 50%;
+      left: 40%;
+      width: clamp(300px, 40vw, 600px);
+      height: clamp(300px, 40vw, 600px);
+      background: radial-gradient(circle, var(--orb-4) 0%, transparent 70%);
+      animation: driftOrb4 26s ease-in-out infinite alternate;
+    }
+
+    @keyframes driftOrb1 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(15vw, 12vh) scale(1.15); }
+      100% { transform: translate(8vw, 25vh) scale(0.95); }
+    }
+
+    @keyframes driftOrb2 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-18vw, 15vh) scale(1.2); }
+      100% { transform: translate(-10vw, -10vh) scale(0.9); }
+    }
+
+    @keyframes driftOrb3 {
+      0% { transform: translate(0, 0) scale(0.95); }
+      50% { transform: translate(12vw, -18vh) scale(1.18); }
+      100% { transform: translate(-8vw, -10vh) scale(1.05); }
+    }
+
+    @keyframes driftOrb4 {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-15vw, 18vh) rotate(180deg); }
+      100% { transform: translate(10vw, -12vh) rotate(360deg); }
+    }
+
+    /* Resplandor interactivo suave que sigue el mouse */
+    .mouse-ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--ambient-glow) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      filter: blur(40px);
+      mix-blend-mode: overlay;
+      z-index: 1;
+    }
+
+    /* Siluetas de Montañas Artísticas con Profundidad */
+    .mountains-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 380px;
+      opacity: 0.26;
+      animation: driftMountains 65s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    html[data-theme="cyber"] .mountains-svg {
+      opacity: 0.15;
+    }
+
+    @keyframes driftMountains {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-18%); }
+    }
+
+    /* Capa de Niebla y Nubes */
+    .mist-layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 220%;
+      height: 480px;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+      animation: driftClouds 40s linear infinite alternate;
+      z-index: 3;
+    }
+
+    html[data-theme="cyber"] .mist-layer {
+      background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    }
+
+    @keyframes driftClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-35%); }
+    }
+
+    /* Textura de Grano Sutil Editorial */
+    .grain-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    /* MASCOTA FLOTANTE (COMPANION DISCRETO SIN MOSTRAR NÚMEROS) */
+    .floating-companion {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 68px;
+      height: 68px;
+      z-index: 999;
+      pointer-events: auto;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.22));
+      animation: companionFloat 4.5s ease-in-out infinite;
+    }
+
+    .floating-companion:hover {
+      transform: scale(1.16) rotate(5deg);
+    }
+
+    .floating-companion img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .companion-tooltip {
+      position: absolute;
+      right: 78px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #000000;
+      color: #ffffff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .floating-companion:hover .companion-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(-4px);
+    }
+
+    @keyframes companionFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-9px) rotate(-3deg); }
+    }
+
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding-left: var(--pad-x);
+      padding-right: var(--pad-x);
+      position: relative;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       2. TOP NAVBAR: CON SELECTOR DE AMBIENTE Y BOTONES CON "VIDA"
+       ═══════════════════════════════════════════════════════════════════ */
+    .top-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .brand-badge {
+      background: rgba(0, 0, 0, 0.06);
+      color: var(--ink-muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.05em;
+      border: 1px solid var(--border-subtle);
+    }
+
+    html[data-theme="cyber"] .brand-badge {
+      background: rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+    }
+
+    /* Selector de Vibe de Color (Ambiente) */
+    .vibe-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(12px);
+      padding: 3px 6px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+    }
+
+    html[data-theme="cyber"] .vibe-switcher {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .vibe-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--ink-light);
+      padding: 0 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .vibe-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .vibe-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .vibe-btn.active {
+      transform: scale(1.15);
+      box-shadow: 0 0 0 2px var(--ink);
+    }
+
+    .vibe-btn.sunset { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+    .vibe-btn.cyber  { background: linear-gradient(135deg, #8b5cf6, #06b6d4); }
+    .vibe-btn.emerald{ background: linear-gradient(135deg, #10b981, #e6fc04); }
+    .vibe-btn.studio { background: linear-gradient(135deg, #78716c, #d6d3d1); }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pills-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* 🌟 BOTONES PASTILLA CON "VIDA" (ESTILO OBSIDIAN GLASS & GLOW CROMÁTICO) */
+    .pill-link {
+      background: linear-gradient(135deg, #1c1d24 0%, #0e1014 100%);
+      color: #ffffff;
+      padding: 0.62rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pill-link::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(30deg);
+      transition: transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    .pill-link:hover::before {
+      transform: rotate(30deg) translate(280%, -50%);
+    }
+
+    .pill-link:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .pill-link:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    /* Acento individual para darles vida única */
+    .pill-drive:hover {
+      border-color: rgba(59, 130, 246, 0.8);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
+      color: #93c5fd;
+    }
+
+    .pill-videos:hover {
+      border-color: rgba(245, 158, 11, 0.8);
+      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.4);
+      color: #fde68a;
+    }
+
+    .pill-cv:hover {
+      border-color: rgba(168, 85, 247, 0.8);
+      box-shadow: 0 10px 24px rgba(168, 85, 247, 0.4);
+      color: #e9d5ff;
+    }
+
+    /* Botón Grande CONTACTAME WhatsApp */
+    .btn-top-contactame {
+      background: var(--accent-green);
+      color: #000000;
+      padding: 0.65rem 1.6rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.42);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-top-contactame::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(30deg);
+      animation: buttonShine 4.5s infinite;
+    }
+
+    @keyframes buttonShine {
+      0%, 75% { left: -60%; }
+      100% { left: 140%; }
+    }
+
+    .btn-top-contactame:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55);
+    }
+
+    /* Logo LinkedIn Oficial */
+    .btn-top-linkedin {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--linkedin-blue);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 16px rgba(10, 102, 194, 0.32);
+      flex-shrink: 0;
+    }
+
+    .btn-top-linkedin:hover {
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 8px 22px rgba(10, 102, 194, 0.45);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       3. HEADER: HERO CON STATUS RADAR Y SELLO CREATIVO GIRATORIO
+       ═══════════════════════════════════════════════════════════════════ */
+    .header-section {
+      padding-top: 3.2rem;
+      padding-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .profile-info {
+      max-width: 820px;
+    }
+
+    /* Radar de Estado en Vivo */
+    .status-radar-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(37, 211, 102, 0.12);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      color: #15803d;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    html[data-theme="cyber"] .status-radar-pill {
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.15);
+      border-color: rgba(74, 222, 128, 0.3);
+    }
+
+    .radar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      position: relative;
+    }
+
+    .radar-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #22c55e;
+      animation: radarPulse 2s ease-out infinite;
+    }
+
+    @keyframes radarPulse {
+      0% { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    .profile-info h1 {
+      font-size: clamp(2rem, 3.4vw, 2.9rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .profile-info h1 span.gradient-text {
+      background: linear-gradient(135deg, #111418 20%, #2563eb 60%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    html[data-theme="cyber"] .profile-info h1 span.gradient-text {
+      background: linear-gradient(135deg, #ffffff 20%, #38bdf8 60%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .profile-bio {
+      font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+      color: var(--ink-muted);
+      line-height: 1.65;
+      max-width: 80ch;
+    }
+
+    /* Sello Giratorio de Agencia Creativa */
+    .rotating-studio-seal {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: rotateSeal 25s linear infinite;
+      user-select: none;
+    }
+
+    @keyframes rotateSeal {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .rotating-studio-seal svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--ink);
+      opacity: 0.82;
+    }
+
+    .seal-center-icon {
+      position: absolute;
+      font-size: 1.4rem;
+      color: var(--edit-glow);
+    }
+
+    @media (max-width: 840px) {
+      .rotating-studio-seal { display: none; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       4. SECCIÓN 3 COLUMNAS: VIDEOS IA, VIDEOS EDIT, FLYERS / STORIES
+       ═══════════════════════════════════════════════════════════════════ */
+    .videos-section {
+      padding-top: 1.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .video-columns-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.2rem, 2.4vw, 2.2rem);
+    }
+
+    .video-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .col-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .col-title {
+      font-size: clamp(1.45rem, 2.1vw, 1.85rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    /* Badges de estilo por columna */
+    .col-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .col-tag.tag-ia {
+      background: rgba(139, 92, 246, 0.15);
+      color: #8b5cf6;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .col-tag.tag-edit {
+      background: rgba(245, 158, 11, 0.15);
+      color: #d97706;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .col-tag.tag-flyers {
+      background: rgba(16, 185, 129, 0.15);
+      color: #059669;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    /* Tarjeta Vertical con Borde Gradiente Resplandeciente */
+    .video-card-vibrant {
+      background: var(--card-dark);
+      border-radius: 28px;
+      aspect-ratio: 9 / 14;
+      max-height: 520px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-card-vibrant::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 30px;
+      padding: 2px;
+      background: transparent;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      transition: background 0.3s ease;
+      z-index: 6;
+    }
+
+    /* Glow temático en hover */
+    .col-ia .video-card-vibrant:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(139, 92, 246, 0.38);
+    }
+    .col-ia .video-card-vibrant:hover::before {
+      background: var(--ia-grad);
+    }
+
+    .col-edit .video-card-vibrant:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(245, 158, 11, 0.38);
+    }
+    .col-edit .video-card-vibrant:hover::before {
+      background: var(--edit-grad);
+    }
+
+    .col-flyers .video-card-vibrant:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(16, 185, 129, 0.38);
+    }
+    .col-flyers .video-card-vibrant:hover::before {
+      background: var(--flyer-grad);
+    }
+
+    .video-player-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    .video-player-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-player-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .video-card-vibrant:hover .video-player-frame img {
+      transform: scale(1.05);
+    }
+
+    /* Indicador flotante en Flyer / Stories para abrir pantalla completa */
+    .card-zoom-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 5;
+      transition: background 0.2s ease, transform 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .video-card-vibrant:hover .card-zoom-badge {
+      background: #000000;
+      transform: scale(1.05);
+    }
+
+    /* Flechas Interactivas de Cambio (← / →) */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 800;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      z-index: 5;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .carousel-arrow.prev { left: 12px; }
+    .carousel-arrow.next { right: 12px; }
+
+    /* Overlay Central con Play Button & Visualizer */
+    .card-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      pointer-events: none;
+      z-index: 2;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+      transition: opacity 0.3s ease;
+    }
+
+    .card-play-overlay.is-hidden {
+      opacity: 0;
+    }
+
+    .play-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      padding-left: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      pointer-events: auto;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .play-circle:hover {
+      transform: scale(1.18);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.65);
+    }
+
+    /* Ecualizador animado de audio al hover */
+    .audio-wave-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 14px;
+    }
+
+    .wave-bar {
+      width: 3px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+      animation: audioPulse 1.2s ease-in-out infinite alternate;
+    }
+    .wave-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .wave-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
+    .wave-bar:nth-child(3) { height: 9px; animation-delay: 0.2s; }
+    .wave-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
+
+    @keyframes audioPulse {
+      0% { height: 4px; }
+      100% { height: 14px; }
+    }
+
+    .badge-metrics {
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Selector de videos / flyers */
+    .col-video-selector {
+      display: flex;
+      gap: 6px;
+      margin-top: 0.2rem;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      justify-content: center;
+      flex-wrap: wrap;
+      border: 1px solid var(--border-subtle);
+    }
+
+    html[data-theme="cyber"] .col-video-selector {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .video-switch-btn {
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      background: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .video-switch-btn:hover {
+      color: var(--ink);
+    }
+
+    .video-switch-btn.active {
+      background: var(--ink);
+      color: var(--bg-base);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    html[data-theme="cyber"] .video-switch-btn.active {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .col-description {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      text-align: center;
+      padding: 0 0.5rem;
+      min-height: 2.6em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       5. SECCIÓN SKILLS (3 TARJETAS CON VIDA Y DETALLE CROMÁTICO)
+       ═══════════════════════════════════════════════════════════════════ */
+    .skills-section {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    .section-headline {
+      font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.6rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.2rem, 2.4vw, 2rem);
+    }
+
+    .skill-card-box {
+      background: var(--card-light);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: clamp(1.6rem, 2.4vw, 2.1rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .skill-card-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .skill-card-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    }
+
+    .skill-card-box.card-commercial:hover::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+    .skill-card-box.card-video:hover::before      { background: linear-gradient(90deg, #8b5cf6, #06b6d4); }
+    .skill-card-box.card-web:hover::before        { background: linear-gradient(90deg, #10b981, #e6fc04); }
+
+    .skill-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .skill-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .card-commercial .skill-icon-wrap { background: rgba(245, 158, 11, 0.12); color: #d97706; }
+    .card-video .skill-icon-wrap      { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+    .card-web .skill-icon-wrap        { background: rgba(16, 185, 129, 0.12); color: #059669; }
+
+    .skill-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-card-box h3 {
+      font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .skill-card-box p {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       6. SECCIÓN "UN POCO DE MI" (TARJETA OSCURA CON PROFUNDIDAD)
+       ═══════════════════════════════════════════════════════════════════ */
+    .about-me-section {
+      padding-top: 1rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .about-card-dark {
+      background: var(--card-dark);
+      color: #ffffff;
+      border-radius: 36px;
+      padding: clamp(2.2rem, 5vw, 4rem);
+      max-width: 1040px;
+      margin: 0 auto;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card-dark::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(50px);
+    }
+
+    .about-card-dark h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .about-lead {
+      font-size: clamp(1rem, 1.15vw, 1.1rem);
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 1.6rem;
+      max-width: 75ch;
+    }
+
+    .about-bullets {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      font-size: clamp(0.92rem, 1.05vw, 1rem);
+      color: #e2e8f0;
+      line-height: 1.65;
+    }
+
+    .about-bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1rem 1.4rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.2s ease;
+    }
+
+    .about-bullet-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .about-bullet-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .about-bullet-item strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       7. SECCIÓN PROYECTOS: TODAS LAS 17 FOTOS DIRECTAS (AMPLIABLES)
+       ═══════════════════════════════════════════════════════════════════ */
+    .projects-section {
+      padding-top: 2rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .projects-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gallery-counter-pill {
+      background: var(--ink);
+      color: var(--bg-base);
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    html[data-theme="cyber"] .gallery-counter-pill {
+      background: #1e2038;
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .gallery-card {
+      background: var(--card-light);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+    }
+
+    .gallery-card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #15151c;
+      position: relative;
+    }
+
+    .gallery-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-card:hover .gallery-card-img img {
+      transform: scale(1.08);
+    }
+
+    /* Chip de categoría flotante sobre la foto */
+    .card-floating-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 2;
+    }
+
+    /* Indicador hover de lupa para ampliar */
+    .expand-card-indicator {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 3;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .gallery-card:hover .expand-card-indicator {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .badge-fuse   { background: rgba(37, 99, 235, 0.88); color: #ffffff; }
+    .badge-sweet  { background: rgba(236, 72, 153, 0.88); color: #ffffff; }
+    .badge-textil { background: rgba(16, 185, 129, 0.88); color: #ffffff; }
+
+    .gallery-card-info {
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .gallery-card-cat {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .cat-fuse   { color: var(--accent-blue); }
+    .cat-sweet  { color: #ec4899; }
+    .cat-textil { color: #059669; }
+
+    .gallery-card-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       8. SECCIÓN CURRICULUM & BOTÓN GIGANTE CONTACTAME
+       ═══════════════════════════════════════════════════════════════════ */
+    .cv-section {
+      padding-top: 1rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .cv-download-banner {
+      background: var(--card-light);
+      border: 1px solid var(--border-card);
+      border-radius: 26px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-download-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent-blue), var(--ia-glow));
+    }
+
+    .btn-download-cv {
+      background: var(--ink);
+      color: var(--bg-base);
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    html[data-theme="cyber"] .btn-download-cv {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .btn-download-cv:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    /* BOTÓN GIGANTE CONTÁCTATE (SIN MOSTRAR NÚMERO PRIVADO DIRECTAMENTE) */
+    .cta-giant-section {
+      padding-top: 3rem;
+      padding-bottom: 6.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .btn-giant-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: var(--accent-green);
+      color: #000000;
+      font-size: clamp(1.45rem, 2.8vw, 2.3rem);
+      font-weight: 900;
+      padding: clamp(1.2rem, 2.2vw, 1.85rem) clamp(2.6rem, 5.5vw, 4.8rem);
+      border-radius: var(--radius-pill);
+      box-shadow: 0 18px 45px rgba(37, 211, 102, 0.42);
+      letter-spacing: -0.01em;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-giant-contact::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(30deg);
+      animation: buttonShine 3.8s infinite;
+    }
+
+    .btn-giant-contact:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 24px 55px rgba(37, 211, 102, 0.55);
+    }
+
+    .cta-subtext {
+      margin-top: 1.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .footer-note {
+      text-align: center;
+      padding-bottom: 2.5rem;
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       9. LIGHTBOX MODAL EN PANTALLA COMPLETA (ALTA RESOLUCIÓN)
+       ═══════════════════════════════════════════════════════════════════ */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(8, 10, 15, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+
+    .lightbox-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 10002;
+    }
+
+    .lightbox-close-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 10002;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      transform: translateY(-50%) scale(1.12);
+    }
+
+    .lightbox-nav-btn.prev { left: 28px; }
+    .lightbox-nav-btn.next { right: 28px; }
+
+    .lightbox-content-wrap {
+      max-width: 90vw;
+      max-height: 82vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .lightbox-image {
+      max-width: 90vw;
+      max-height: 76vh;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    .lightbox-caption-bar {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .lightbox-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .lightbox-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .lightbox-counter {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 960px) {
+      .top-nav-bar { flex-direction: column; align-items: flex-start; }
+      .nav-right-actions { width: 100%; justify-content: flex-start; }
+      .video-columns-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .lightbox-nav-btn { width: 44px; height: 44px; font-size: 1.2rem; }
+      .lightbox-nav-btn.prev { left: 12px; }
+      .lightbox-nav-btn.next { right: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FONDO DINÁMICO: AURORA MESH ORBS + PAISAJE ARTÍSTICO + NIEBLA
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="dynamic-artistic-background" aria-hidden="true">
+    <div class="bg-gradient-layer"></div>
+    <div class="aurora-orb orb-1"></div>
+    <div class="aurora-orb orb-2"></div>
+    <div class="aurora-orb orb-3"></div>
+    <div class="aurora-orb orb-4"></div>
+
+    <!-- Luz interactiva que sigue el ratón -->
+    <div class="mouse-ambient-glow" id="mouseGlow"></div>
+
+    <!-- Siluetas de Montañas Artísticas con Movimiento Suave -->
+    <svg class="mountains-svg" viewBox="0 0 1440 380" fill="none" preserveAspectRatio="none">
+      <path d="M0,280 C200,210 380,290 580,230 C780,170 980,260 1200,210 C1340,180 1440,240 1440,240 L1440,380 L0,380 Z" fill="#8c7e70"/>
+      <path d="M0,310 C240,260 480,320 720,270 C960,220 1200,300 1440,260 L1440,380 L0,380 Z" fill="#75675a"/>
+      <path d="M0,340 C300,310 600,350 900,310 C1200,270 1350,330 1440,320 L1440,380 L0,380 Z" fill="#5f5145"/>
+    </svg>
+
+    <div class="mist-layer"></div>
+    <div class="grain-overlay"></div>
+  </div>
+
+  <!-- MASCOTA FLOTANTE (CONTACTO DISCRETO SIN MOSTRAR NÚMEROS) -->
+  <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar" target="_blank" rel="noopener noreferrer" class="floating-companion" title="¡Escríbeme por WhatsApp!">
+    <img src="assets/monkey_character.png" alt="Mascota Monito">
+    <span class="companion-tooltip">¡Conversemos! 💬</span>
+  </a>
+
+  <div class="container">
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         1. TOP NAVBAR: NOMBRE + SELECTOR DE VIBE + BOTONES CON VIDA
+         ═════════════════════════════════════════════════════════════════ -->
+    <nav class="top-nav-bar" aria-label="Barra de navegación principal">
+      <!-- Izquierda: Nombre y Selector de Ambiente -->
+      <div class="nav-brand">
+        <span class="brand-name">Fabricio Jeremy Albarracín Sotelo</span>
+        <span class="brand-badge">PORTAFOLIO 2026</span>
+
+        <!-- Selector de Color / Atmósfera Dinámica -->
+        <div class="vibe-switcher" title="Cambiar vibración de color">
+          <span class="vibe-label">VIBE</span>
+          <button class="vibe-btn sunset active" onclick="setVibe('sunset')" title="Atardecer Cálido (Sunset)"></button>
+          <button class="vibe-btn cyber" onclick="setVibe('cyber')" title="Aurora Cyber (Nocturno Neón)"></button>
+          <button class="vibe-btn emerald" onclick="setVibe('emerald')" title="Fresh Emerald (Verde Creativo)"></button>
+          <button class="vibe-btn studio" onclick="setVibe('studio')" title="Classic Studio (Editorial)"></button>
+        </div>
+      </div>
+
+      <!-- Derecha: Acciones agrupadas con botones llenos de vida -->
+      <div class="nav-right-actions">
+        <div class="pills-group">
+          <!-- Ver Proyectos -> Google Drive -->
+          <a href="https://drive.google.com/drive/folders/1i5rMRfMymMEiQYe4cggkSXRqVbqcLTlO?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pill-link pill-drive" title="Abrir carpeta completa en Google Drive">
+            <span>✦ Ver Proyectos ↗</span>
+          </a>
+          <!-- Videos/reels -> Desplazamiento a carrusel -->
+          <a href="#videos" class="pill-link pill-videos" title="Ver edición de videos">
+            <span>🎬 Videos / reels</span>
+          </a>
+          <!-- Curriculum -> Descarga de PDF -->
+          <a href="assets/cv/CV_FabricioJeremy.pdf" download class="pill-link pill-cv" title="Descargar Curriculum Vitae en PDF">
+            <span>📄 curriculum 📥</span>
+          </a>
+        </div>
+
+        <!-- Botón Grande CONTACTAME WhatsApp -->
+        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar" target="_blank" rel="noopener noreferrer" class="btn-top-contactame">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          CONTACTAME
+        </a>
+
+        <!-- Logo LinkedIn Oficial -->
+        <a href="https://www.linkedin.com/in/fabricio-sotelo-89347826a/" target="_blank" rel="noopener noreferrer" class="btn-top-linkedin" title="Visitar mi perfil en LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         2. HEADER: PERFIL, BIO & SELLO GIRATORIO
+         ═════════════════════════════════════════════════════════════════ -->
+    <header class="header-section">
+      <div class="profile-info">
+        <!-- Radar de estado activo -->
+        <div class="status-radar-pill">
+          <span class="radar-dot"></span>
+          DISPONIBLE PARA PROYECTOS B2B &amp; NUEVOS RETOS
+        </div>
+
+        <h1>
+          • <span class="gradient-text">Practicante de marketing</span>
+        </h1>
+        <p class="profile-bio">
+          Estudiante de último ciclo de Marketing con experiencia práctica en gestión B2B, prospección de leads y manejo de sistema CRM y ERP análisis de KPIs, con conocimientos en marketing digital, Meta Ads, con 4 años en rubro textil en el área de producción y calidad, conocimiento de estándares, Busco ampliar mis conocimientos en área comercial o digital.
+        </p>
+      </div>
+
+      <!-- Sello Creativo Giratorio de Estudio -->
+      <div class="rotating-studio-seal" aria-hidden="true" title="Fabricio Sotelo · Creative Marketing">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+          </defs>
+          <text font-size="9.2" font-weight="800" letter-spacing="1.8">
+            <textPath href="#circlePath">
+              ✦ FABRICIO SOTELO ✦ MARKETING B2B ✦ VIDEO &amp; ADS
+            </textPath>
+          </text>
+        </svg>
+        <span class="seal-center-icon">✦</span>
+      </div>
+    </header>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         3. SECCIÓN 3 COLUMNAS: VIDEOS IA, VIDEOS EDIT, FLYERS / STORIES
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="videos-section" id="videos">
+      <div class="video-columns-grid">
+
+        <!-- COLUMNA 1: Videos IA (Acento Violeta / Cian) -->
+        <div class="video-col col-ia">
+          <div class="col-header">
+            <h2 class="col-title">Videos IA</h2>
+            <span class="col-tag tag-ia">✦ IA Generativa</span>
+          </div>
+
+          <div class="video-card-vibrant" id="cardIA">
+            <!-- Flechas interactivas de cambio -->
+            <button class="carousel-arrow prev" onclick="stepCarousel('IA', -1)" aria-label="Video anterior">←</button>
+            <button class="carousel-arrow next" onclick="stepCarousel('IA', 1)" aria-label="Siguiente video">→</button>
+
+            <div class="video-player-frame">
+              <video id="videoIA" controls playsinline preload="metadata">
+                <source src="assets/videos/Generate_a_cinematic_advertisi.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-play-overlay" id="overlayIA" onclick="playVideo('videoIA', 'overlayIA')">
+              <div class="play-circle">▶</div>
+              <div class="badge-metrics">
+                <div class="audio-wave-bars">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+                <span>Edición Dinámica &amp; Métricas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selector de spots IA -->
+          <div class="col-video-selector" id="pillsIA">
+            <button class="video-switch-btn active" onclick="setSlideIA(0)">Spot 1</button>
+            <button class="video-switch-btn" onclick="setSlideIA(1)">Spot 2</button>
+            <button class="video-switch-btn" onclick="setSlideIA(2)">Spot 3</button>
+          </div>
+          <p class="col-description" id="descIA">Spot Cinematográfico 16:9 con composición visual refinada.</p>
+        </div>
+
+        <!-- COLUMNA 2: Videos edit (Acento Ámbar / Fuego - SIN PITCH B2B REPETIDO) -->
+        <div class="video-col col-edit">
+          <div class="col-header">
+            <h2 class="col-title">Videos edit</h2>
+            <span class="col-tag tag-edit">🔥 Ritmo &amp; Retención</span>
+          </div>
+
+          <div class="video-card-vibrant" id="cardEdit">
+            <!-- Flechas interactivas de cambio -->
+            <button class="carousel-arrow prev" onclick="stepCarousel('Edit', -1)" aria-label="Video anterior">←</button>
+            <button class="carousel-arrow next" onclick="stepCarousel('Edit', 1)" aria-label="Siguiente video">→</button>
+
+            <div class="video-player-frame">
+              <video id="videoEdit" controls playsinline preload="metadata">
+                <source src="assets/videos/0911.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-play-overlay" id="overlayEdit" onclick="playVideo('videoEdit', 'overlayEdit')">
+              <div class="play-circle">▶</div>
+              <div class="badge-metrics">
+                <div class="audio-wave-bars">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+                <span>Edición Dinámica &amp; Métricas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selector de videos edit (Solo los 3 edits únicos, Pitch B2B eliminado) -->
+          <div class="col-video-selector" id="pillsEdit">
+            <button class="video-switch-btn active" onclick="setSlideEdit(0)">Edit 01</button>
+            <button class="video-switch-btn" onclick="setSlideEdit(1)">Edit 02</button>
+            <button class="video-switch-btn" onclick="setSlideEdit(2)">Secuencia</button>
+          </div>
+          <p class="col-description" id="descEdit">Edición comercial y ritmo dinámico publicitario.</p>
+        </div>
+
+        <!-- COLUMNA 3: Flyers / Stories (AMPLIABLE EN PANTALLA COMPLETA AL CLIC) -->
+        <div class="video-col col-flyers">
+          <div class="col-header">
+            <h2 class="col-title">Flyers / Stories</h2>
+            <span class="col-tag tag-flyers">🎨 Conversión Visual</span>
+          </div>
+
+          <div class="video-card-vibrant" id="cardFlyers">
+            <!-- Botón indicador de ampliar en esquina -->
+            <button class="card-zoom-badge" onclick="openFlyerLightbox()" title="Ver en pantalla completa">
+              <span>🔍 Ampliar</span>
+            </button>
+
+            <!-- Flechas interactivas de cambio -->
+            <button class="carousel-arrow prev" onclick="stepCarousel('Flyers', -1)" aria-label="Flyer anterior">←</button>
+            <button class="carousel-arrow next" onclick="stepCarousel('Flyers', 1)" aria-label="Siguiente flyer">→</button>
+
+            <!-- Al hacer clic en el frame o imagen se abre la pantalla completa -->
+            <div class="video-player-frame" id="frameFlyers" onclick="openFlyerLightbox()" title="Haz clic para ver en pantalla completa" style="cursor: pointer;">
+              <img id="imgFlyers" src="assets/proyectos/story.png" alt="Flyer preview">
+            </div>
+            <div class="card-play-overlay" id="overlayFlyers" style="pointer-events: none;">
+              <span class="badge-metrics" style="margin-top: auto; margin-bottom: 24px;">Diseño Gráfico &amp; Conversión</span>
+            </div>
+          </div>
+
+          <!-- Selector de flyers y stories -->
+          <div class="col-video-selector" id="pillsFlyers">
+            <button class="video-switch-btn active" onclick="setSlideFlyers(0)">Story 1</button>
+            <button class="video-switch-btn" onclick="setSlideFlyers(1)">Story 2</button>
+            <button class="video-switch-btn" onclick="setSlideFlyers(2)">Flyer 1</button>
+            <button class="video-switch-btn" onclick="setSlideFlyers(3)">Flyer 2</button>
+          </div>
+          <p class="col-description" id="descFlyers">Story creativo de elaboración artesanal Sweet Factory.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         4. SECCIÓN SKILLS (3 TARJETAS CON VIDA Y DETALLE CROMÁTICO)
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="skills-section">
+      <h2 class="section-headline">
+        <span>Skills</span>
+      </h2>
+
+      <div class="skills-grid">
+        <!-- Card 1: Comercial -->
+        <div class="skill-card-box card-commercial">
+          <div class="skill-top-bar">
+            <span class="skill-tag">Comercial</span>
+            <div class="skill-icon-wrap">📊</div>
+          </div>
+          <h3>Estrategia &amp; Ventas</h3>
+          <p>Análisis de mercado, embudos comerciales, conocimiento en Meta Ads, Meta Suite, canales digitales, CRM &amp; ERP.</p>
+        </div>
+
+        <!-- Card 2: Audiovisual -->
+        <div class="skill-card-box card-video">
+          <div class="skill-top-bar">
+            <span class="skill-tag">Audiovisual</span>
+            <div class="skill-icon-wrap">🎬</div>
+          </div>
+          <h3>Edición de Video Dinámica</h3>
+          <p>Videos para Reels, TikTok y YouTube Shorts con ritmo ágil, storytelling y alta retención para enganchar a la audiencia.</p>
+        </div>
+
+        <!-- Card 3: Web & Conversión -->
+        <div class="skill-card-box card-web">
+          <div class="skill-top-bar">
+            <span class="skill-tag">Web &amp; Conversión</span>
+            <div class="skill-icon-wrap">⚡</div>
+          </div>
+          <h3>Diseño Web &amp; Landing Pages</h3>
+          <p>Páginas modernas diseñadas en Figma y desarrolladas con código limpio para convertir visitantes en clientes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         5. SECCIÓN "UN POCO DE MI" (TARJETA OSCURA CON PROFUNDIDAD)
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="about-me-section">
+      <div class="about-card-dark">
+        <h2>Un poco de mi ✦</h2>
+        <p class="about-lead">
+          Detrás de cada proyecto visual y estratégico, soy alguien guiado por la curiosidad y el detalle:
+        </p>
+
+        <div class="about-bullets">
+          <div class="about-bullet-item">
+            <span class="about-bullet-icon">⚡</span>
+            <div>
+              <strong>Lo que me mueve:</strong> Crear y transformar. Disfruto tanto armar un video digital con ritmo como cortar y reconstruir ropa a mano.
+            </div>
+          </div>
+          <div class="about-bullet-item">
+            <span class="about-bullet-icon">🧠</span>
+            <div>
+              <strong>Mi mentalidad:</strong> Autodidacta, analítico y disciplinado. Me gusta entender cómo funcionan las cosas por dentro, desde un algoritmo hasta una costura.
+            </div>
+          </div>
+          <div class="about-bullet-item">
+            <span class="about-bullet-icon">🎮</span>
+            <div>
+              <strong>Fuera del monitor:</strong> Fan de los universos bien contados (videojuegos, anime y literatura), el entrenamiento diario y las conversaciones con valor.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         6. SECCIÓN PROYECTOS (TODAS LAS 17 FOTOS AMPLIABLES EN LIGHTBOX)
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="projects-section" id="proyectos">
+      <div class="projects-header-row">
+        <h2 class="section-headline" style="margin-bottom: 0;">Proyectos &amp; Trabajos Destacados</h2>
+        <div class="gallery-counter-pill">
+          <span>17 Trabajos Completos · Clic para ampliar</span>
+        </div>
+      </div>
+
+      <!-- Galería completa con TODAS las 17 fotos -->
+      <div class="gallery-grid" id="galleryContainer">
+
+        <!-- 1. FUSE 00.png -->
+        <div class="gallery-card" onclick="openGalleryLightbox(0)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-fuse">FUSE</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/00.png" alt="FUSE Apparel branding" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
+            <div class="gallery-card-title">Brand Identity &amp; Tags</div>
+          </div>
+        </div>
+
+        <!-- 2. FUSE Hoodie 1 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(1)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-fuse">FUSE</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_%20(1).png" alt="FUSE Hoodie Black" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
+            <div class="gallery-card-title">Hoodie Oversized Heavyweight</div>
+          </div>
+        </div>
+
+        <!-- 3. FUSE Colección -->
+        <div class="gallery-card" onclick="openGalleryLightbox(2)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-fuse">FUSE</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_.png" alt="FUSE Streetwear Concept" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
+            <div class="gallery-card-title">Colección Urbana Minimalista</div>
+          </div>
+        </div>
+
+        <!-- 4. FUSE Moldería -->
+        <div class="gallery-card" onclick="openGalleryLightbox(3)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-fuse">FUSE</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_xrah6yxrah6yxrah.png" alt="FUSE Moldería Boxy" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
+            <div class="gallery-card-title">Corte Boxy Fit 100% Pima</div>
+          </div>
+        </div>
+
+        <!-- 5. FUSE Polo Pima Front -->
+        <div class="gallery-card" onclick="openGalleryLightbox(4)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-fuse">FUSE</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_yvtutlyvtutlyvtu.png" alt="FUSE T-shirt Front" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
+            <div class="gallery-card-title">Polo Pima 24/1 Peinado</div>
+          </div>
+        </div>
+
+        <!-- 6. FUSE Tejido Detalle -->
+        <div class="gallery-card" onclick="openGalleryLightbox(5)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-fuse">FUSE</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_z5zsgvz5zsgvz5zs.png" alt="FUSE Fabric Detail" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
+            <div class="gallery-card-title">Densidad de Tejido 220 GSM</div>
+          </div>
+        </div>
+
+        <!-- 7. Sweet Factory Ingredientes -->
+        <div class="gallery-card" onclick="openGalleryLightbox(6)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_cr4clicr4clicr4c.png" alt="Sweet Factory Ingredientes" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
+            <div class="gallery-card-title">Ingredientes de Primera Calidad</div>
+          </div>
+        </div>
+
+        <!-- 8. Sweet Factory Momento -->
+        <div class="gallery-card" onclick="openGalleryLightbox(7)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_tg8v9atg8v9atg8v.png" alt="Sweet Factory Momentos" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
+            <div class="gallery-card-title">Más que un Postre, una Experiencia</div>
+          </div>
+        </div>
+
+        <!-- 9. Sweet Factory Detalle -->
+        <div class="gallery-card" onclick="openGalleryLightbox(8)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/Gemini_Generated_Image_e2pmd3e2pmd3e2pm.png" alt="Sweet Factory Personalizado" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
+            <div class="gallery-card-title">Personalizamos Cada Detalle</div>
+          </div>
+        </div>
+
+        <!-- 10. Sweet Factory Story 1 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(9)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/story.png" alt="Sweet Factory Story 1" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
+            <div class="gallery-card-title">Story: Elaboración Artesanal</div>
+          </div>
+        </div>
+
+        <!-- 11. Sweet Factory Story 2 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(10)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/story.png2.png" alt="Sweet Factory Story 2" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
+            <div class="gallery-card-title">Story: Reserva con Anticipación</div>
+          </div>
+        </div>
+
+        <!-- 12. Taller Textil 1 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(11)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-textil">Textil</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.35.50%20AM.jpeg" alt="Taller Costura 1" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
+            <div class="gallery-card-title">Inspección de Costura en Línea</div>
+          </div>
+        </div>
+
+        <!-- 13. Taller Textil 2 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(12)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-textil">Textil</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.36.00%20AMsds.jpeg" alt="Taller Costura 2" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
+            <div class="gallery-card-title">Mesa de Corte y Medidas</div>
+          </div>
+        </div>
+
+        <!-- 14. Taller Textil 3 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(13)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-textil">Textil</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.36.01%20AM.jpeg" alt="Taller Costura 3" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
+            <div class="gallery-card-title">Lectura de Fichas Técnicas</div>
+          </div>
+        </div>
+
+        <!-- 15. Taller Textil 4 -->
+        <div class="gallery-card" onclick="openGalleryLightbox(14)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-textil">Textil</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.36.01%20AMfd.jpeg" alt="Taller Costura 4" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
+            <div class="gallery-card-title">Control de Acabados Finales</div>
+          </div>
+        </div>
+
+        <!-- 16. Taller Textil ds.jpeg -->
+        <div class="gallery-card" onclick="openGalleryLightbox(15)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-textil">Textil</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/ds.jpeg" alt="Detalle de confección" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
+            <div class="gallery-card-title">Detalle de Remalle de 5 Hilos</div>
+          </div>
+        </div>
+
+        <!-- 17. Taller Textil fdfdfd.jpeg -->
+        <div class="gallery-card" onclick="openGalleryLightbox(16)" title="Clic para ver en tamaño completo">
+          <div class="gallery-card-img">
+            <span class="card-floating-badge badge-textil">Textil</span>
+            <div class="expand-card-indicator">🔍 Ampliar</div>
+            <img src="assets/proyectos/fdfdfd.jpeg" alt="Supervisión en Planta" loading="lazy">
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
+            <div class="gallery-card-title">Supervisión en Planta Texgroup</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         7. SECCIÓN CURRICULUM
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="cv-section" id="curriculum">
+      <div class="cv-download-banner">
+        <div>
+          <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 4px; color: var(--ink);">Curriculum Vitae</h3>
+          <p style="color: var(--ink-muted); font-size: 0.95rem;">Fabricio Jeremy Albarracín Sotelo · Marketing USIL &amp; Producción Textil B2B</p>
+        </div>
+        <a href="assets/cv/CV_FabricioJeremy.pdf" download class="btn-download-cv">
+          Descargar CV (PDF) 📥
+        </a>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         8. BOTÓN GIGANTE "CONTÁCTATE" (DISCRETO, SIN EXPOSITOR DIRECTO DEL NÚMERO)
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="cta-giant-section">
+      <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar" target="_blank" rel="noopener noreferrer" class="btn-giant-contact">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Contáctate 💬
+      </a>
+      <!-- Privacidad garantizada: no expone el número en texto plano -->
+      <p class="cta-subtext">Inicia una conversación directa · Respuesta inmediata</p>
+    </section>
+
+    <footer class="footer-note">
+      <p>Fabricio Albarracín · Portafolio 2026 · Diseñado para alta conversión</p>
+    </footer>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       LIGHTBOX MODAL (VISUALIZACIÓN COMPLETA PARA FLYERS Y FOTOS)
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Visualizador en pantalla completa">
+    <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Cerrar visor">✕</button>
+    <button class="lightbox-nav-btn prev" onclick="stepLightbox(-1)" aria-label="Imagen anterior">←</button>
+    <button class="lightbox-nav-btn next" onclick="stepLightbox(1)" aria-label="Siguiente imagen">→</button>
+
+    <div class="lightbox-content-wrap" onclick="event.stopPropagation()">
+      <img id="lightboxImg" class="lightbox-image" src="" alt="Vista en alta resolución">
+      <div class="lightbox-caption-bar">
+        <span id="lightboxBadge" class="lightbox-badge badge-fuse">Categoría</span>
+        <span id="lightboxTitle" class="lightbox-title">Título de la imagen</span>
+        <span id="lightboxCounter" class="lightbox-counter">(1 / 17)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // ═══════════════════════════════════════════════════════════════════
+    // 1. SELECTOR DE VIBE / ATMÓSFERA DE COLOR DINÁMICA
+    // ═══════════════════════════════════════════════════════════════════
+    function setVibe(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      document.querySelectorAll('.vibe-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.classList.contains(themeName));
+      });
+      try {
+        localStorage.setItem('fabricio_vibe', themeName);
+      } catch (e) {}
+    }
+
+    try {
+      const saved = localStorage.getItem('fabricio_vibe');
+      if (saved) setVibe(saved);
+    } catch(e) {}
+
+    // ═══════════════════════════════════════════════════════════════════
+    // 2. LUZ AMBIENTAL SUAVE QUE SIGUE EL MOUSE
+    // ═══════════════════════════════════════════════════════════════════
+    const glowEl = document.getElementById('mouseGlow');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateGlow() {
+      currentX += (mouseX - currentX) * 0.08;
+      currentY += (mouseY - currentY) * 0.08;
+      if (glowEl) {
+        glowEl.style.left = `${currentX}px`;
+        glowEl.style.top = `${currentY}px`;
+      }
+      requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    // ═══════════════════════════════════════════════════════════════════
+    // 3. DATOS & LÓGICA DE LOS 3 CAROUSELS (PITCH B2B ELIMINADO)
+    // ═══════════════════════════════════════════════════════════════════
+    const slidesIA = [
+      { src: "assets/videos/Generate_a_cinematic_advertisi.mp4", desc: "Spot Cinematográfico 16:9 con composición visual refinada." },
+      { src: "assets/videos/haz_otro_y_añadele_esta_iamgen.mp4", desc: "Variación creativa de anuncio publicitario con IA." },
+      { src: "assets/proyectos/video-1191845960677382.mp4", desc: "Corte publicitario dinámico de alta conversión comercial." }
+    ];
+
+    // Se eliminó el repetido Pitch B2B
+    const slidesEdit = [
+      { src: "assets/videos/0911.mp4", desc: "Edición comercial y ritmo dinámico publicitario." },
+      { src: "assets/videos/911.mp4", desc: "Montaje dinámico con cortes ágiles de alta retención." },
+      { src: "assets/videos/Secuencia%2001.mp4", desc: "Secuencia publicitaria completa con tratamiento de color." }
+    ];
+
+    const slidesFlyers = [
+      { src: "assets/proyectos/story.png", title: "Elaboración Artesanal", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Story creativo de elaboración artesanal Sweet Factory." },
+      { src: "assets/proyectos/story.png2.png", title: "Reserva con Anticipación", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Story publicitario enfocado en pedidos anticipados." },
+      { src: "assets/proyectos/Gemini_Generated_Image_cr4clicr4clicr4c.png", title: "Ingredientes de Primera Calidad", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Flyer promocional: Selección de ingredientes de primera calidad." },
+      { src: "assets/proyectos/Gemini_Generated_Image_tg8v9atg8v9atg8v.png", title: "Momentos Dulces & Postres", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Flyer promocional: Momentos dulces y postres para eventos." }
+    ];
+
+    let currentIdxIA = 0;
+    let currentIdxEdit = 0;
+    let currentIdxFlyers = 0;
+
+    function playVideo(videoId, overlayId) {
+      const vid = document.getElementById(videoId);
+      const overlay = document.getElementById(overlayId);
+      if (vid) {
+        vid.play();
+        if (overlay) overlay.classList.add('is-hidden');
+      }
+    }
+
+    // Columna IA
+    function setSlideIA(idx) {
+      currentIdxIA = (idx + slidesIA.length) % slidesIA.length;
+      const vid = document.getElementById('videoIA');
+      const desc = document.getElementById('descIA');
+      const overlay = document.getElementById('overlayIA');
+
+      if (vid) {
+        vid.src = slidesIA[currentIdxIA].src;
+        vid.load();
+        if (overlay) overlay.classList.remove('is-hidden');
+      }
+      if (desc) desc.textContent = slidesIA[currentIdxIA].desc;
+
+      const btns = document.querySelectorAll('#pillsIA .video-switch-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === currentIdxIA));
+    }
+
+    // Columna Edit
+    function setSlideEdit(idx) {
+      currentIdxEdit = (idx + slidesEdit.length) % slidesEdit.length;
+      const vid = document.getElementById('videoEdit');
+      const desc = document.getElementById('descEdit');
+      const overlay = document.getElementById('overlayEdit');
+
+      if (vid) {
+        vid.src = slidesEdit[currentIdxEdit].src;
+        vid.load();
+        if (overlay) overlay.classList.remove('is-hidden');
+      }
+      if (desc) desc.textContent = slidesEdit[currentIdxEdit].desc;
+
+      const btns = document.querySelectorAll('#pillsEdit .video-switch-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === currentIdxEdit));
+    }
+
+    // Columna Flyers
+    function setSlideFlyers(idx) {
+      currentIdxFlyers = (idx + slidesFlyers.length) % slidesFlyers.length;
+      const img = document.getElementById('imgFlyers');
+      const desc = document.getElementById('descFlyers');
+
+      if (img) img.src = slidesFlyers[currentIdxFlyers].src;
+      if (desc) desc.textContent = slidesFlyers[currentIdxFlyers].desc;
+
+      const btns = document.querySelectorAll('#pillsFlyers .video-switch-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === currentIdxFlyers));
+    }
+
+    // Flechas de carrusel
+    function stepCarousel(col, dir) {
+      if (col === 'IA') {
+        setSlideIA(currentIdxIA + dir);
+      } else if (col === 'Edit') {
+        setSlideEdit(currentIdxEdit + dir);
+      } else if (col === 'Flyers') {
+        setSlideFlyers(currentIdxFlyers + dir);
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // 4. DATOS DE LOS 17 PROYECTOS & LIGHTBOX MODAL FULLSCREEN
+    // ═══════════════════════════════════════════════════════════════════
+    const galleryItems = [
+      { src: "assets/proyectos/00.png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Brand Identity & Tags" },
+      { src: "assets/proyectos/Gemini_Generated_Image_ (1).png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Hoodie Oversized Heavyweight" },
+      { src: "assets/proyectos/Gemini_Generated_Image_.png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Colección Urbana Minimalista" },
+      { src: "assets/proyectos/Gemini_Generated_Image_xrah6yxrah6yxrah.png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Corte Boxy Fit 100% Pima" },
+      { src: "assets/proyectos/Gemini_Generated_Image_yvtutlyvtutlyvtu.png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Polo Pima 24/1 Peinado" },
+      { src: "assets/proyectos/Gemini_Generated_Image_z5zsgvz5zsgvz5zs.png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Densidad de Tejido 220 GSM" },
+      { src: "assets/proyectos/Gemini_Generated_Image_cr4clicr4clicr4c.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Ingredientes de Primera Calidad" },
+      { src: "assets/proyectos/Gemini_Generated_Image_tg8v9atg8v9atg8v.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Más que un Postre, una Experiencia" },
+      { src: "assets/proyectos/Gemini_Generated_Image_e2pmd3e2pmd3e2pm.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Personalizamos Cada Detalle" },
+      { src: "assets/proyectos/story.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Story: Elaboración Artesanal" },
+      { src: "assets/proyectos/story.png2.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Story: Reserva con Anticipación" },
+      { src: "assets/proyectos/WhatsApp Image 2026-05-06 at 9.35.50 AM.jpeg", cat: "Producción Textil", badgeClass: "badge-textil", title: "Inspección de Costura en Línea" },
+      { src: "assets/proyectos/WhatsApp Image 2026-05-06 at 9.36.00 AMsds.jpeg", cat: "Producción Textil", badgeClass: "badge-textil", title: "Mesa de Corte y Medidas" },
+      { src: "assets/proyectos/WhatsApp Image 2026-05-06 at 9.36.01 AM.jpeg", cat: "Producción Textil", badgeClass: "badge-textil", title: "Lectura de Fichas Técnicas" },
+      { src: "assets/proyectos/WhatsApp Image 2026-05-06 at 9.36.01 AMfd.jpeg", cat: "Producción Textil", badgeClass: "badge-textil", title: "Control de Acabados Finales" },
+      { src: "assets/proyectos/ds.jpeg", cat: "Producción Textil", badgeClass: "badge-textil", title: "Detalle de Remalle de 5 Hilos" },
+      { src: "assets/proyectos/fdfdfd.jpeg", cat: "Producción Textil", badgeClass: "badge-textil", title: "Supervisión en Planta Texgroup" }
+    ];
+
+    let lightboxMode = 'gallery'; // 'gallery' o 'flyers'
+    let currentLightboxIdx = 0;
+
+    const modalEl = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImg');
+    const modalBadge = document.getElementById('lightboxBadge');
+    const modalTitle = document.getElementById('lightboxTitle');
+    const modalCounter = document.getElementById('lightboxCounter');
+
+    function openFlyerLightbox() {
+      lightboxMode = 'flyers';
+      currentLightboxIdx = currentIdxFlyers;
+      renderLightbox();
+      modalEl.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openGalleryLightbox(idx) {
+      lightboxMode = 'gallery';
+      currentLightboxIdx = idx;
+      renderLightbox();
+      modalEl.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function renderLightbox() {
+      const list = (lightboxMode === 'flyers') ? slidesFlyers : galleryItems;
+      const item = list[currentLightboxIdx];
+      if (!item) return;
+
+      modalImg.src = item.src;
+      modalTitle.textContent = item.title;
+      modalBadge.textContent = item.cat;
+      modalBadge.className = 'lightbox-badge ' + item.badgeClass;
+      modalCounter.textContent = `(${currentLightboxIdx + 1} de ${list.length})`;
+    }
+
+    function closeLightbox() {
+      modalEl.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function stepLightbox(dir) {
+      const list = (lightboxMode === 'flyers') ? slidesFlyers : galleryItems;
+      currentLightboxIdx = (currentLightboxIdx + dir + list.length) % list.length;
+      renderLightbox();
+    }
+
+    // Cerrar al hacer clic en el fondo
+    modalEl.addEventListener('click', (e) => {
+      if (e.target === modalEl) closeLightbox();
+    });
+
+    // Soporte para teclas de teclado: Escape, Flecha Izquierda, Flecha Derecha
+    window.addEventListener('keydown', (e) => {
+      if (!modalEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') stepLightbox(-1);
+      if (e.key === 'ArrowRight') stepLightbox(1);
+    });
+  </script>
+</body>
+</html>
