@@ -319,92 +319,110 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       MASCOTA FLOTANTE INTERACTIVA (CÁPSULA, NUBE DE RESILIENCIA & WHATSAPP)
+       HUB FLOTANTE: MONITO PENSADOR (WHATSAPP OCULTO) + CÁPSULA HYPE
        ═══════════════════════════════════════════════════════════════════ */
-    .floating-mascot-container {
+    .mascot-interactive-hub {
       position: fixed;
-      bottom: 30px;
-      right: 28px;
+      bottom: 24px;
+      right: 24px;
       z-index: 9999;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      gap: 12px;
       pointer-events: none;
     }
 
-    /* Nube de Pensamiento / Diálogo de Resiliencia (Viktor Frankl) */
-    .mascot-speech-cloud {
-      background: #0b0b0e;
+    /* 1. Nube de Pensamiento Cómic (Solo la frase pura) */
+    .mascot-thought-cloud {
       background: rgba(14, 14, 18, 0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1.5px solid #e6fc04;
-      border-radius: 16px;
-      padding: 10px 14px;
-      width: clamp(240px, 80vw, 300px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 18px rgba(230, 252, 4, 0.22);
-      margin-bottom: 22px;
+      border-radius: 20px;
+      padding: 14px 18px;
+      width: clamp(240px, 78vw, 300px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(230, 252, 4, 0.22);
       position: relative;
       pointer-events: auto;
       cursor: pointer;
-      animation: cloudFloat 4.5s ease-in-out infinite;
+      margin-bottom: 26px;
+      margin-right: 8px;
+      animation: cloudHover 4.5s ease-in-out infinite;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
-    .mascot-speech-cloud:hover {
+    .mascot-thought-cloud:hover {
       transform: translateY(-3px) scale(1.02);
       border-color: #ffffff;
     }
 
-    /* Colita de la nube de diálogo apuntando hacia la cabeza del monito */
-    .mascot-speech-cloud::after {
-      content: "";
+    /* Burbujitas o O de pensamiento que conectan la nube a la cabeza del monito */
+    .thought-dot {
       position: absolute;
-      bottom: -9px;
-      right: 44px;
-      width: 0;
-      height: 0;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-top: 9px solid #e6fc04;
+      border-radius: 50%;
+      background: rgba(14, 14, 18, 0.96);
+      border: 1.5px solid #e6fc04;
+      box-shadow: 0 0 10px rgba(230, 252, 4, 0.25);
+    }
+    .thought-dot.dot-lg {
+      width: 14px;
+      height: 14px;
+      bottom: -18px;
+      right: 48px;
+    }
+    .thought-dot.dot-sm {
+      width: 8px;
+      height: 8px;
+      bottom: -28px;
+      right: 40px;
     }
 
-    .cloud-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-      margin-bottom: 4px;
-    }
-
-    .cloud-book-tag {
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #e6fc04;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .cloud-counter {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: #94a3b8;
-    }
-
-    .cloud-quote {
+    .thought-quote {
       font-family: 'Instrument Serif', Georgia, serif;
       font-style: italic;
-      font-size: 0.94rem;
-      line-height: 1.35;
+      font-size: 1.05rem;
+      line-height: 1.38;
       color: #ffffff;
       margin: 0;
+      text-align: center;
       transition: opacity 0.2s ease;
     }
 
-    /* Cápsula de WhatsApp con el Monito de pie */
+    /* 2. Monito sentado separado (Contacto Oculto WhatsApp) */
+    .mascot-zen-avatar {
+      position: relative;
+      display: inline-block;
+      width: 68px;
+      height: 76px;
+      margin-right: 26px;
+      margin-bottom: -6px;
+      cursor: pointer;
+      pointer-events: auto;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
+      animation: monkeyBob 3.6s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    .mascot-zen-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .mascot-zen-avatar:hover {
+      transform: translateY(-5px) scale(1.12) rotate(4deg);
+      filter: drop-shadow(0 8px 24px rgba(230, 252, 4, 0.6));
+    }
+
+    .mascot-zen-avatar:active {
+      transform: scale(0.95);
+    }
+
+    /* 3. Cápsula de abajo (Hype & Confeti como antes) */
     .floating-mascot-pill {
       background: #0b0b0e;
       background: rgba(11, 11, 14, 0.94);
@@ -412,7 +430,7 @@
       -webkit-backdrop-filter: blur(16px);
       border: 2px solid #e6fc04;
       border-radius: 9999px;
-      padding: 10px 22px 10px 18px;
+      padding: 9px 20px 9px 16px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -420,14 +438,13 @@
       user-select: none;
       pointer-events: auto;
       position: relative;
-      text-decoration: none;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(230, 252, 4, 0.28);
       transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .floating-mascot-pill:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.8), 0 0 28px rgba(230, 252, 4, 0.45);
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.75), 0 0 28px rgba(230, 252, 4, 0.45);
       border-color: #facc15;
     }
 
@@ -435,27 +452,8 @@
       transform: translateY(0) scale(0.97);
     }
 
-    /* Avatar del Monito PARADO orgulloso sobre la cápsula */
-    .mascot-perched-avatar {
-      position: absolute;
-      bottom: calc(100% - 8px);
-      right: 32px;
-      width: 58px;
-      height: 58px;
-      pointer-events: none;
-      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-      filter: drop-shadow(0 4px 14px rgba(230, 252, 4, 0.6));
-    }
-
-    .mascot-perched-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
     .mascot-pill-icon {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1;
       display: inline-block;
     }
@@ -463,22 +461,28 @@
     .mascot-pill-text {
       font-family: 'Plus Jakarta Sans', 'Instrument Sans', -apple-system, sans-serif;
       font-weight: 800;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: #e6fc04;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       white-space: nowrap;
       text-shadow: 0 0 12px rgba(230, 252, 4, 0.35);
+      transition: color 0.2s ease;
     }
 
     .mascot-pill-hint {
       font-size: 0.85rem;
-      opacity: 0.85;
+      opacity: 0.8;
       animation: sparkPulse 1.8s ease-in-out infinite;
     }
 
-    @keyframes cloudFloat {
+    @keyframes cloudHover {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes monkeyBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
     @keyframes sparkPulse {
@@ -1830,27 +1834,29 @@
     <div class="grain-overlay"></div>
   </div>
 
-  <!-- MASCOTA FLOTANTE INTERACTIVA (NUBE DE RESILIENCIA + MONITO DE PIE + WHATSAPP) -->
-  <div class="floating-mascot-container">
-    <!-- Nube de Diálogo / Pensamiento con Frases de Viktor Frankl -->
-    <div class="mascot-speech-cloud" id="mascotCloud" role="button" tabindex="0" title="Haz clic para ver la siguiente frase de resiliencia">
-      <div class="cloud-header">
-        <span class="cloud-book-tag">📖 Viktor Frankl · Resiliencia</span>
-        <span class="cloud-counter" id="cloudCounter">1/3</span>
-      </div>
-      <p class="cloud-quote" id="cloudQuote">"A quien tiene un porqué para vivir, casi cualquier cómo le resulta soportable."</p>
+  <!-- COMPONENTE FLOTANTE: MONITO PENSADOR (WHATSAPP OCULTO) + CÁPSULA HYPE (CONFETI) -->
+  <div class="mascot-interactive-hub">
+    
+    <!-- 1. Nube de Pensamiento tipo cómic (Solo la frase pura) -->
+    <div class="mascot-thought-cloud" id="mascotCloud" role="button" tabindex="0" title="Haz clic para ver la siguiente frase">
+      <p class="thought-quote" id="cloudQuote">"A quien tiene un porqué para vivir, casi cualquier cómo le resulta soportable."</p>
+      <!-- Burbujitas de pensamiento o O -->
+      <span class="thought-dot dot-lg"></span>
+      <span class="thought-dot dot-sm"></span>
     </div>
 
-    <!-- Cápsula con el Monito parado arriba que abre WhatsApp directamente -->
-    <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto" target="_blank" rel="noopener noreferrer" class="floating-mascot-pill" id="mascot-pill" title="¡Escríbeme por WhatsApp con un clic!">
-      <!-- Avatar del Monito parado orgulloso sobre el borde de la cápsula -->
-      <div class="mascot-perched-avatar" id="mascot-avatar">
-        <img src="assets/monkey_character.png" alt="Mascota Monito">
-      </div>
-      <span class="mascot-pill-icon">💬</span>
-      <span id="mascot-text" class="mascot-pill-text">¡Hablemos por WhatsApp! ⚡</span>
-      <span class="mascot-pill-hint">✨</span>
+    <!-- 2. Monito sentado separado (Contacto secreto a WhatsApp al tocarlo) -->
+    <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto" target="_blank" rel="noopener noreferrer" class="mascot-zen-avatar" id="mascotZen" title="¡Haz clic en mí!">
+      <img src="assets/monkey_zen.png" alt="Mascota Monito">
     </a>
+
+    <!-- 3. Cápsula de abajo (Hype & Rendimiento Máximo con Confeti como antes) -->
+    <div class="floating-mascot-pill" id="mascot-pill" role="button" tabindex="0" title="¡Haz clic para celebrar!">
+      <span class="mascot-pill-icon">🐵</span>
+      <span id="mascot-text" class="mascot-pill-text">¡Rendimiento Máximo! ⚡</span>
+      <span class="mascot-pill-hint">✨</span>
+    </div>
+
   </div>
 
   <div class="container">
@@ -2773,9 +2779,7 @@
       "«Al hombre se le puede arrebatar todo salvo la última de las libertades: la elección de su propia actitud.»"
     ];
     let quoteIndex = 0;
-
     const cloudQuote = document.getElementById('cloudQuote');
-    const cloudCounter = document.getElementById('cloudCounter');
     const mascotCloud = document.getElementById('mascotCloud');
 
     function advanceQuote() {
@@ -2787,12 +2791,9 @@
           cloudQuote.style.opacity = '1';
         }, 180);
       }
-      if (cloudCounter) {
-        cloudCounter.textContent = `${quoteIndex + 1}/${franklQuotes.length}`;
-      }
     }
 
-    // Rotación automática de citas cada 7 segundos para que la nube viva
+    // Rotación automática de citas cada 7 segundos
     setInterval(advanceQuote, 7000);
 
     // Al hacer clic en la propia nube: cambia de frase y suena
@@ -2804,29 +2805,44 @@
       });
     }
 
-    // Al hacer clic en la cápsula del monito: celebra, gira, lanza confeti y abre WhatsApp
+    // Monito secreto: al tocarlo celebra, gira y abre WhatsApp
+    const mascotZen = document.getElementById('mascotZen');
+    if (mascotZen) {
+      mascotZen.addEventListener('click', (e) => {
+        playAthleticSfx(660, 0.12, 'sine', 0.1);
+        setTimeout(() => playAthleticSfx(880, 0.16, 'sine', 0.12), 80);
+        launchConfetti(e.clientX, e.clientY);
+        mascotZen.style.transform = 'scale(1.25) rotate(360deg)';
+        setTimeout(() => {
+          mascotZen.style.transform = 'scale(1) rotate(0deg)';
+        }, 450);
+      });
+    }
+
+    // Cápsula de abajo: Hype, confeti y cambio de frases motivacionales (sin WhatsApp)
     const mascotPill = document.getElementById('mascot-pill');
-    const mascotAvatar = document.getElementById('mascot-avatar');
+    const mascotText = document.getElementById('mascot-text');
+    let cheerIndex = 0;
+    const cheers = [
+      "¡Rendimiento Máximo! ⚡",
+      "¡El mono te apoya! 🐒",
+      "¡Meta Ads en 3.8x! 🚀",
+      "Impossible is Nothing 🔥",
+      "¡A romper métricas! 🎯",
+      "Dirección Visual Activa 🎬",
+      "Storytelling de Alto Impacto ⚡",
+      "¡Conversión en cada clic! 💎"
+    ];
 
     if (mascotPill) {
       mascotPill.addEventListener('click', (e) => {
-        // Sonido de celebración festivo de 2 notas
+        e.stopPropagation();
+        cheerIndex = (cheerIndex + 1) % cheers.length;
+        if (mascotText) mascotText.innerText = cheers[cheerIndex];
+
         playAthleticSfx(660, 0.12, 'sine', 0.1);
-        setTimeout(() => playAthleticSfx(880, 0.16, 'sine', 0.12), 80);
-
-        // Explosión de confeti
+        setTimeout(() => playAthleticSfx(880, 0.15, 'sine', 0.1), 80);
         launchConfetti(e.clientX, e.clientY);
-
-        // Giro y brinco 360° del monito
-        if (mascotAvatar) {
-          mascotAvatar.style.transform = 'scale(1.45) rotate(360deg)';
-          setTimeout(() => {
-            mascotAvatar.style.transform = 'scale(1) rotate(0deg)';
-          }, 450);
-        }
-
-        // Avanzar frase
-        advanceQuote();
       });
     }
   </script>
