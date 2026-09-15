@@ -16,14 +16,14 @@
        1. VARIABLES & SISTEMA DE DISEÑO CON "VIDA" & PALETAS DINÁMICAS
        ═══════════════════════════════════════════════════════════════════ */
     :root {
-      /* Tema por defecto: SUNSET GOLD (Cálido, artístico, cinematográfico) */
-      --bg-base: #f7f3ee;
-      --bg-gradient: linear-gradient(135deg, #fbf8f5 0%, #f3ede4 50%, #eee5d8 100%);
-      --orb-1: rgba(251, 146, 60, 0.45);   /* Naranja solar */
-      --orb-2: rgba(245, 158, 11, 0.38);   /* Ámbar dorado */
-      --orb-3: rgba(168, 85, 247, 0.28);   /* Toque violeta místico */
-      --orb-4: rgba(16, 185, 129, 0.22);   /* Esmeralda suave */
-      --ambient-glow: rgba(245, 158, 11, 0.16);
+      /* Tema por defecto: CANVAS MODERNO (Blanco nítido, ultra contraste con tipografía) */
+      --bg-base: #ffffff;
+      --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #f1f5f9 100%);
+      --orb-1: rgba(251, 146, 60, 0.14);   /* Sutil brillo solar */
+      --orb-2: rgba(245, 158, 11, 0.12);   /* Sutil resplandor ámbar */
+      --orb-3: rgba(168, 85, 247, 0.10);   /* Sutil resplandor violeta */
+      --orb-4: rgba(16, 185, 129, 0.08);   /* Sutil resplandor esmeralda */
+      --ambient-glow: rgba(245, 158, 11, 0.08);
 
       --ink: #111418;
       --ink-muted: #4b5563;
@@ -273,13 +273,13 @@
       left: 0;
       width: 200%;
       height: 380px;
-      opacity: 0.26;
+      opacity: 0.10;
       animation: driftMountains 65s ease-in-out infinite alternate;
       z-index: 2;
     }
 
     html[data-theme="cyber"] .mountains-svg {
-      opacity: 0.15;
+      opacity: 0.12;
     }
 
     @keyframes driftMountains {
@@ -294,7 +294,7 @@
       left: 0;
       width: 220%;
       height: 480px;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
       animation: driftClouds 40s linear infinite alternate;
       z-index: 3;
     }
@@ -312,14 +312,14 @@
     .grain-overlay {
       position: absolute;
       inset: 0;
-      opacity: 0.035;
+      opacity: 0.03;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       z-index: 4;
       pointer-events: none;
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       HUB FLOTANTE: MONITO PENSADOR (WHATSAPP OCULTO) + CÁPSULA HYPE
+       HUB FLOTANTE: CÁPSULA HYPE (CONFETI & RENDIMIENTO MÁXIMO)
        ═══════════════════════════════════════════════════════════════════ */
     .mascot-interactive-hub {
       position: fixed;
@@ -333,96 +333,7 @@
       pointer-events: none;
     }
 
-    /* 1. Nube de Pensamiento Cómic (Solo la frase pura) */
-    .mascot-thought-cloud {
-      background: rgba(14, 14, 18, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1.5px solid #e6fc04;
-      border-radius: 20px;
-      padding: 14px 18px;
-      width: clamp(240px, 78vw, 300px);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(230, 252, 4, 0.22);
-      position: relative;
-      pointer-events: auto;
-      cursor: pointer;
-      margin-bottom: 26px;
-      margin-right: 8px;
-      animation: cloudHover 4.5s ease-in-out infinite;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .mascot-thought-cloud:hover {
-      transform: translateY(-3px) scale(1.02);
-      border-color: #ffffff;
-    }
-
-    /* Burbujitas o O de pensamiento que conectan la nube a la cabeza del monito */
-    .thought-dot {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(14, 14, 18, 0.96);
-      border: 1.5px solid #e6fc04;
-      box-shadow: 0 0 10px rgba(230, 252, 4, 0.25);
-    }
-    .thought-dot.dot-lg {
-      width: 14px;
-      height: 14px;
-      bottom: -18px;
-      right: 48px;
-    }
-    .thought-dot.dot-sm {
-      width: 8px;
-      height: 8px;
-      bottom: -28px;
-      right: 40px;
-    }
-
-    .thought-quote {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.38;
-      color: #ffffff;
-      margin: 0;
-      text-align: center;
-      transition: opacity 0.2s ease;
-    }
-
-    /* 2. Monito sentado separado (Contacto Oculto WhatsApp) */
-    .mascot-zen-avatar {
-      position: relative;
-      display: inline-block;
-      width: 68px;
-      height: 76px;
-      margin-right: 26px;
-      margin-bottom: -6px;
-      cursor: pointer;
-      pointer-events: auto;
-      text-decoration: none;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
-      animation: monkeyBob 3.6s ease-in-out infinite;
-      z-index: 10;
-    }
-
-    .mascot-zen-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .mascot-zen-avatar:hover {
-      transform: translateY(-5px) scale(1.12) rotate(4deg);
-      filter: drop-shadow(0 8px 24px rgba(230, 252, 4, 0.6));
-    }
-
-    .mascot-zen-avatar:active {
-      transform: scale(0.95);
-    }
-
-    /* 3. Cápsula de abajo (Hype & Confeti como antes) */
+    /* Cápsula de abajo (Hype & Confeti interactivo) */
     .floating-mascot-pill {
       background: #0b0b0e;
       background: rgba(11, 11, 14, 0.94);
@@ -473,16 +384,6 @@
       font-size: 0.85rem;
       opacity: 0.8;
       animation: sparkPulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes cloudHover {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes monkeyBob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
     }
 
     @keyframes sparkPulse {
@@ -1446,26 +1347,29 @@
 
     .gallery-card {
       background: var(--card-light);
-      border-radius: 22px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
       border: 1px solid var(--border-subtle);
-      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
       display: flex;
       flex-direction: column;
       position: relative;
+      cursor: pointer;
     }
 
     .gallery-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-6px) scale(1.02);
       box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+      border-color: rgba(17, 20, 24, 0.2);
     }
 
     .gallery-card-img {
       width: 100%;
+      height: 100%;
       aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: #15151c;
+      background: #121318;
       position: relative;
     }
 
@@ -1474,7 +1378,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.45s ease;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .gallery-card:hover .gallery-card-img img {
@@ -1825,38 +1729,22 @@
 
     <!-- Siluetas de Montañas Artísticas con Movimiento Suave -->
     <svg class="mountains-svg" viewBox="0 0 1440 380" fill="none" preserveAspectRatio="none">
-      <path d="M0,280 C200,210 380,290 580,230 C780,170 980,260 1200,210 C1340,180 1440,240 1440,240 L1440,380 L0,380 Z" fill="#8c7e70"/>
-      <path d="M0,310 C240,260 480,320 720,270 C960,220 1200,300 1440,260 L1440,380 L0,380 Z" fill="#75675a"/>
-      <path d="M0,340 C300,310 600,350 900,310 C1200,270 1350,330 1440,320 L1440,380 L0,380 Z" fill="#5f5145"/>
+      <path d="M0,280 C200,210 380,290 580,230 C780,170 980,260 1200,210 C1340,180 1440,240 1440,240 L1440,380 L0,380 Z" fill="#e2e8f0"/>
+      <path d="M0,310 C240,260 480,320 720,270 C960,220 1200,300 1440,260 L1440,380 L0,380 Z" fill="#cbd5e1"/>
+      <path d="M0,340 C300,310 600,350 900,310 C1200,270 1350,330 1440,320 L1440,380 L0,380 Z" fill="#94a3b8"/>
     </svg>
 
     <div class="mist-layer"></div>
     <div class="grain-overlay"></div>
   </div>
 
-  <!-- COMPONENTE FLOTANTE: MONITO PENSADOR (WHATSAPP OCULTO) + CÁPSULA HYPE (CONFETI) -->
+  <!-- COMPONENTE FLOTANTE: CÁPSULA HYPE RENDIMIENTO MÁXIMO (CONFETI & AUDIO) -->
   <div class="mascot-interactive-hub">
-    
-    <!-- 1. Nube de Pensamiento tipo cómic (Solo la frase pura) -->
-    <div class="mascot-thought-cloud" id="mascotCloud" role="button" tabindex="0" title="Haz clic para ver la siguiente frase">
-      <p class="thought-quote" id="cloudQuote">"A quien tiene un porqué para vivir, casi cualquier cómo le resulta soportable."</p>
-      <!-- Burbujitas de pensamiento o O -->
-      <span class="thought-dot dot-lg"></span>
-      <span class="thought-dot dot-sm"></span>
-    </div>
-
-    <!-- 2. Monito sentado separado (Contacto secreto a WhatsApp al tocarlo) -->
-    <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto" target="_blank" rel="noopener noreferrer" class="mascot-zen-avatar" id="mascotZen" title="¡Haz clic en mí!">
-      <img src="assets/monkey_zen.png" alt="Mascota Monito">
-    </a>
-
-    <!-- 3. Cápsula de abajo (Hype & Rendimiento Máximo con Confeti como antes) -->
     <div class="floating-mascot-pill" id="mascot-pill" role="button" tabindex="0" title="¡Haz clic para celebrar!">
-      <span class="mascot-pill-icon">🐵</span>
+      <span class="mascot-pill-icon">⚡</span>
       <span id="mascot-text" class="mascot-pill-text">¡Rendimiento Máximo! ⚡</span>
       <span class="mascot-pill-hint">✨</span>
     </div>
-
   </div>
 
   <div class="container">
@@ -2009,7 +1897,7 @@
 
             <div class="video-player-frame">
               <video id="videoEdit" controls playsinline preload="metadata">
-                <source src="assets/videos/0911.mp4" type="video/mp4">
+                <source src="assets/videos/1.mp4" type="video/mp4">
               </video>
             </div>
             <div class="card-play-overlay" id="overlayEdit" onclick="playVideo('videoEdit', 'overlayEdit')">
@@ -2026,13 +1914,15 @@
             </div>
           </div>
 
-          <!-- Selector de videos edit (Solo los 3 edits únicos, Pitch B2B eliminado) -->
+          <!-- Selector de videos edit (5 videos ordenados del 1 al 5) -->
           <div class="col-video-selector" id="pillsEdit">
             <button class="video-switch-btn active" onclick="setSlideEdit(0)">Edit 01</button>
             <button class="video-switch-btn" onclick="setSlideEdit(1)">Edit 02</button>
-            <button class="video-switch-btn" onclick="setSlideEdit(2)">Secuencia</button>
+            <button class="video-switch-btn" onclick="setSlideEdit(2)">Edit 03</button>
+            <button class="video-switch-btn" onclick="setSlideEdit(3)">Edit 04</button>
+            <button class="video-switch-btn" onclick="setSlideEdit(4)">Edit 05</button>
           </div>
-          <p class="col-description" id="descEdit">Edición comercial y ritmo dinámico publicitario.</p>
+          <p class="col-description" id="descEdit">Edición dinámica 01: Ritmo y retención comercial.</p>
         </div>
 
         <!-- COLUMNA 3: Flyers / Stories (AMPLIABLE EN PANTALLA COMPLETA AL CLIC) -->
@@ -2165,221 +2055,136 @@
         <!-- 1. FUSE 00.png -->
         <div class="gallery-card" onclick="openGalleryLightbox(0)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/00.png" alt="FUSE Apparel branding" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
-            <div class="gallery-card-title">Brand Identity &amp; Tags</div>
           </div>
         </div>
 
         <!-- 2. FUSE Hoodie 1 -->
         <div class="gallery-card" onclick="openGalleryLightbox(1)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_%20(1).png" alt="FUSE Hoodie Black" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
-            <div class="gallery-card-title">Hoodie Oversized Heavyweight</div>
           </div>
         </div>
 
         <!-- 3. FUSE Colección -->
         <div class="gallery-card" onclick="openGalleryLightbox(2)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_.png" alt="FUSE Streetwear Concept" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
-            <div class="gallery-card-title">Colección Urbana Minimalista</div>
           </div>
         </div>
 
         <!-- 4. FUSE Moldería -->
         <div class="gallery-card" onclick="openGalleryLightbox(3)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_xrah6yxrah6yxrah.png" alt="FUSE Moldería Boxy" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
-            <div class="gallery-card-title">Corte Boxy Fit 100% Pima</div>
           </div>
         </div>
 
         <!-- 5. FUSE Polo Pima Front -->
         <div class="gallery-card" onclick="openGalleryLightbox(4)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_yvtutlyvtutlyvtu.png" alt="FUSE T-shirt Front" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
-            <div class="gallery-card-title">Polo Pima 24/1 Peinado</div>
           </div>
         </div>
 
         <!-- 6. FUSE Tejido Detalle -->
         <div class="gallery-card" onclick="openGalleryLightbox(5)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_z5zsgvz5zsgvz5zs.png" alt="FUSE Fabric Detail" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-fuse">FUSE Apparel</div>
-            <div class="gallery-card-title">Densidad de Tejido 220 GSM</div>
           </div>
         </div>
 
         <!-- 7. Sweet Factory Ingredientes -->
         <div class="gallery-card" onclick="openGalleryLightbox(6)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_cr4clicr4clicr4c.png" alt="Sweet Factory Ingredientes" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
-            <div class="gallery-card-title">Ingredientes de Primera Calidad</div>
           </div>
         </div>
 
         <!-- 8. Sweet Factory Momento -->
         <div class="gallery-card" onclick="openGalleryLightbox(7)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_tg8v9atg8v9atg8v.png" alt="Sweet Factory Momentos" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
-            <div class="gallery-card-title">Más que un Postre, una Experiencia</div>
           </div>
         </div>
 
         <!-- 9. Sweet Factory Detalle -->
         <div class="gallery-card" onclick="openGalleryLightbox(8)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/Gemini_Generated_Image_e2pmd3e2pmd3e2pm.png" alt="Sweet Factory Personalizado" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
-            <div class="gallery-card-title">Personalizamos Cada Detalle</div>
           </div>
         </div>
 
         <!-- 10. Sweet Factory Story 1 -->
         <div class="gallery-card" onclick="openGalleryLightbox(9)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/story.png" alt="Sweet Factory Story 1" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
-            <div class="gallery-card-title">Story: Elaboración Artesanal</div>
           </div>
         </div>
 
         <!-- 11. Sweet Factory Story 2 -->
         <div class="gallery-card" onclick="openGalleryLightbox(10)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/story.png2.png" alt="Sweet Factory Story 2" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-sweet">Sweet Factory</div>
-            <div class="gallery-card-title">Story: Reserva con Anticipación</div>
           </div>
         </div>
 
         <!-- 12. Taller Textil 1 -->
         <div class="gallery-card" onclick="openGalleryLightbox(11)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Textil</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.35.50%20AM.jpeg" alt="Taller Costura 1" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
-            <div class="gallery-card-title">Inspección de Costura en Línea</div>
           </div>
         </div>
 
         <!-- 13. Taller Textil 2 -->
         <div class="gallery-card" onclick="openGalleryLightbox(12)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Textil</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.36.00%20AMsds.jpeg" alt="Taller Costura 2" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
-            <div class="gallery-card-title">Mesa de Corte y Medidas</div>
           </div>
         </div>
 
         <!-- 14. Taller Textil 3 -->
         <div class="gallery-card" onclick="openGalleryLightbox(13)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Textil</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.36.01%20AM.jpeg" alt="Taller Costura 3" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
-            <div class="gallery-card-title">Lectura de Fichas Técnicas</div>
           </div>
         </div>
 
         <!-- 15. Taller Textil 4 -->
         <div class="gallery-card" onclick="openGalleryLightbox(14)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Textil</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/WhatsApp%20Image%202026-05-06%20at%209.36.01%20AMfd.jpeg" alt="Taller Costura 4" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
-            <div class="gallery-card-title">Control de Acabados Finales</div>
           </div>
         </div>
 
         <!-- 16. Taller Textil ds.jpeg -->
         <div class="gallery-card" onclick="openGalleryLightbox(15)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Textil</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/ds.jpeg" alt="Detalle de confección" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
-            <div class="gallery-card-title">Detalle de Remalle de 5 Hilos</div>
           </div>
         </div>
 
         <!-- 17. Taller Textil fdfdfd.jpeg -->
         <div class="gallery-card" onclick="openGalleryLightbox(16)" title="Clic para ver en tamaño completo">
           <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Textil</span>
             <div class="expand-card-indicator">🔍 Ampliar</div>
             <img src="assets/proyectos/fdfdfd.jpeg" alt="Supervisión en Planta" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <div class="gallery-card-cat cat-textil">Producción &amp; Calidad</div>
-            <div class="gallery-card-title">Supervisión en Planta Texgroup</div>
           </div>
         </div>
 
@@ -2493,11 +2298,13 @@
       { src: "assets/proyectos/video-1191845960677382.mp4", desc: "Corte publicitario dinámico de alta conversión comercial." }
     ];
 
-    // Se eliminó el repetido Pitch B2B
+    // 5 videos de edición dinámica (ordenados del 1 al 5)
     const slidesEdit = [
-      { src: "assets/videos/0911.mp4", desc: "Edición comercial y ritmo dinámico publicitario." },
-      { src: "assets/videos/911.mp4", desc: "Montaje dinámico con cortes ágiles de alta retención." },
-      { src: "assets/videos/Secuencia%2001.mp4", desc: "Secuencia publicitaria completa con tratamiento de color." }
+      { src: "assets/videos/1.mp4", desc: "Edición dinámica 01: Ritmo y retención comercial." },
+      { src: "assets/videos/2.mp4", desc: "Edición dinámica 02: Contenido de marca y storytelling." },
+      { src: "assets/videos/3.mp4", desc: "Edición dinámica 03: Producto artesanal y detalle visual." },
+      { src: "assets/videos/4.mp4", desc: "Edición dinámica 04: Creatividad audiovisual y composición." },
+      { src: "assets/videos/5.mp4", desc: "Edición dinámica 05: Montaje de impacto y dinamismo." }
     ];
 
     const slidesFlyers = [
@@ -2771,61 +2578,13 @@
     }
 
     // ═══════════════════════════════════════════════════════════════════
-    // 6. CITAS DE RESILIENCIA (VIKTOR FRANKL), CONFETI & WHATSAPP
+    // 6. BOTÓN HYPE: RENDIMIENTO MÁXIMO (CONFETI & AUDIO TÁCTIL)
     // ═══════════════════════════════════════════════════════════════════
-    const franklQuotes = [
-      "«A quien tiene un porqué para vivir, casi cualquier cómo le resulta soportable.»",
-      "«Cuando ya no podemos cambiar una situación, tenemos el desafío de cambiarnos a nosotros mismos.»",
-      "«Al hombre se le puede arrebatar todo salvo la última de las libertades: la elección de su propia actitud.»"
-    ];
-    let quoteIndex = 0;
-    const cloudQuote = document.getElementById('cloudQuote');
-    const mascotCloud = document.getElementById('mascotCloud');
-
-    function advanceQuote() {
-      quoteIndex = (quoteIndex + 1) % franklQuotes.length;
-      if (cloudQuote) {
-        cloudQuote.style.opacity = '0';
-        setTimeout(() => {
-          cloudQuote.textContent = franklQuotes[quoteIndex];
-          cloudQuote.style.opacity = '1';
-        }, 180);
-      }
-    }
-
-    // Rotación automática de citas cada 7 segundos
-    setInterval(advanceQuote, 7000);
-
-    // Al hacer clic en la propia nube: cambia de frase y suena
-    if (mascotCloud) {
-      mascotCloud.addEventListener('click', (e) => {
-        e.stopPropagation();
-        advanceQuote();
-        playAthleticSfx(620, 0.08, 'sine', 0.08);
-      });
-    }
-
-    // Monito secreto: al tocarlo celebra, gira y abre WhatsApp
-    const mascotZen = document.getElementById('mascotZen');
-    if (mascotZen) {
-      mascotZen.addEventListener('click', (e) => {
-        playAthleticSfx(660, 0.12, 'sine', 0.1);
-        setTimeout(() => playAthleticSfx(880, 0.16, 'sine', 0.12), 80);
-        launchConfetti(e.clientX, e.clientY);
-        mascotZen.style.transform = 'scale(1.25) rotate(360deg)';
-        setTimeout(() => {
-          mascotZen.style.transform = 'scale(1) rotate(0deg)';
-        }, 450);
-      });
-    }
-
-    // Cápsula de abajo: Hype, confeti y cambio de frases motivacionales (sin WhatsApp)
     const mascotPill = document.getElementById('mascot-pill');
     const mascotText = document.getElementById('mascot-text');
     let cheerIndex = 0;
     const cheers = [
       "¡Rendimiento Máximo! ⚡",
-      "¡El mono te apoya! 🐒",
       "¡Meta Ads en 3.8x! 🚀",
       "Impossible is Nothing 🔥",
       "¡A romper métricas! 🎯",
