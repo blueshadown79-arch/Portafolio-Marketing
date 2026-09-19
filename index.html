@@ -6,27 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fabricio Albarracín — Marketing, Video Dinámico &amp; Dirección Visual</title>
 
-  <!-- Google tag (gtag.js) con Escudo Anti-Visitas Propias -->
+  <!-- Google Analytics 4 & Microsoft Clarity (con Escudo Anti-Visitas Propias) -->
   <script>
     (function() {
       // 1. Detección de parámetro en URL para activar/desactivar el escudo
       var params = new URLSearchParams(window.location.search);
       if (params.get('admin') === 'fabricio' || params.get('notrack') === '1') {
         localStorage.setItem('fabricio_ignore_analytics', 'true');
-        console.log('🛡️ Escudo Activado: Tus visitas no serán registradas en Google Analytics.');
+        console.log('🛡️ Escudo Activado: Tus visitas no serán registradas en Google Analytics ni en Microsoft Clarity.');
       }
       if (params.get('trackme') === '1') {
         localStorage.removeItem('fabricio_ignore_analytics');
         console.log('📊 Rastreo activado para este navegador.');
       }
 
-      // 2. Si el escudo está activo en este dispositivo, NO cargar Google Analytics
+      // 2. Si el escudo está activo en este dispositivo, NO cargar analítica
       if (localStorage.getItem('fabricio_ignore_analytics') === 'true') {
-        console.log('🛡️ Google Analytics bloqueado para la sesión privada de Fabricio.');
+        console.log('🛡️ Google Analytics y Microsoft Clarity bloqueados para la sesión privada de Fabricio.');
         return;
       }
 
-      // 3. Carga normal para reclutadores y visitantes
+      // 3. Carga normal de Google Analytics 4
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL6PV7LZWK';
@@ -36,6 +36,13 @@
       window.gtag = function(){ dataLayer.push(arguments); };
       gtag('js', new Date());
       gtag('config', 'G-PL6PV7LZWK');
+
+      // 4. Carga normal de Microsoft Clarity (Mapas de calor & Grabación en video)
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "ykzadqlwvb");
     })();
   </script>
 
