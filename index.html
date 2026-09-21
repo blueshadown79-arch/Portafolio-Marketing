@@ -1036,35 +1036,50 @@
       align-items: center;
       justify-content: center;
       gap: 14px;
-      pointer-events: none;
-      z-index: 2;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
-      transition: opacity 0.3s ease;
+      pointer-events: auto;
+      cursor: pointer;
+      z-index: 3;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.45) 100%);
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card-play-overlay.is-hidden {
       opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     .play-circle {
-      width: 60px;
-      height: 60px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: #ffffff;
       color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.45rem;
-      padding-left: 4px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-size: 1.5rem;
+      padding-left: 5px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       pointer-events: auto;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.2s ease;
+      animation: pulsePlay 2.4s infinite;
     }
 
-    .play-circle:hover {
-      transform: scale(1.18);
-      box-shadow: 0 14px 38px rgba(0,0,0,0.65);
+    @keyframes pulsePlay {
+      0% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 0 rgba(255, 255, 255, 0.45); }
+      70% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 14px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+
+    .card-play-overlay:hover .play-circle {
+      transform: scale(1.15);
+      background: #ffffff;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.75);
+    }
+
+    .card-play-overlay:active .play-circle {
+      transform: scale(0.94);
     }
 
     /* Ecualizador animado de audio al hover */
@@ -1895,11 +1910,11 @@
             <button class="carousel-arrow next" onclick="stepCarousel('IA', 1)" aria-label="Siguiente video">→</button>
 
             <div class="video-player-frame">
-              <video id="videoIA" controls playsinline preload="metadata">
+              <video id="videoIA" controls playsinline preload="auto" src="assets/videos/Generate_a_cinematic_advertisi.mp4">
                 <source src="assets/videos/Generate_a_cinematic_advertisi.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="card-play-overlay" id="overlayIA" onclick="playVideo('videoIA', 'overlayIA')">
+            <div class="card-play-overlay" id="overlayIA" onclick="playVideo('videoIA', 'overlayIA')" title="Reproducir video">
               <div class="play-circle">▶</div>
               <div class="badge-metrics">
                 <div class="audio-wave-bars">
@@ -1935,11 +1950,11 @@
             <button class="carousel-arrow next" onclick="stepCarousel('Edit', 1)" aria-label="Siguiente video">→</button>
 
             <div class="video-player-frame">
-              <video id="videoEdit" controls playsinline preload="metadata">
+              <video id="videoEdit" controls playsinline preload="auto" src="assets/videos/1.mp4">
                 <source src="assets/videos/1.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="card-play-overlay" id="overlayEdit" onclick="playVideo('videoEdit', 'overlayEdit')">
+            <div class="card-play-overlay" id="overlayEdit" onclick="playVideo('videoEdit', 'overlayEdit')" title="Reproducir video">
               <div class="play-circle">▶</div>
               <div class="badge-metrics">
                 <div class="audio-wave-bars">
@@ -2349,7 +2364,7 @@
     // ═══════════════════════════════════════════════════════════════════
     const slidesIA = [
       { src: "assets/videos/Generate_a_cinematic_advertisi.mp4", desc: "Spot Cinematográfico 16:9 con composición visual refinada." },
-      { src: "assets/videos/haz_otro_y_añadele_esta_iamgen.mp4", desc: "Variación creativa de anuncio publicitario con IA." },
+      { src: "assets/videos/haz_otro_y_anadele_esta_imagen.mp4", desc: "Variación creativa de anuncio publicitario con IA." },
       { src: "assets/proyectos/video-1191845960677382.mp4", desc: "Corte publicitario dinámico de alta conversión comercial." }
     ];
 
@@ -2376,11 +2391,74 @@
     function playVideo(videoId, overlayId) {
       const vid = document.getElementById(videoId);
       const overlay = document.getElementById(overlayId);
-      if (vid) {
-        vid.play();
-        if (overlay) overlay.classList.add('is-hidden');
+      if (!vid) return;
+
+      // Pausar el otro video si está activo
+      const otherId = (videoId === 'videoIA') ? 'videoEdit' : 'videoIA';
+      const otherVid = document.getElementById(otherId);
+      if (otherVid && !otherVid.paused) {
+        otherVid.pause();
+      }
+
+      if (vid.paused) {
+        const playPromise = vid.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            if (overlay) overlay.classList.add('is-hidden');
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'video_play', { 'video_id': videoId });
+            }
+          }).catch(err => {
+            console.warn('Reproducción con audio restringida, reintentando:', err);
+            vid.muted = true;
+            vid.play().then(() => {
+              if (overlay) overlay.classList.add('is-hidden');
+            }).catch(e => {
+              console.error('Error al reproducir video:', e);
+            });
+          });
+        }
+      } else {
+        vid.pause();
+        if (overlay) overlay.classList.remove('is-hidden');
       }
     }
+
+    // Sincronización automática de eventos de video nativos
+    function initVideoSync() {
+      const pairs = [
+        { vidId: 'videoIA', overlayId: 'overlayIA' },
+        { vidId: 'videoEdit', overlayId: 'overlayEdit' }
+      ];
+
+      pairs.forEach(({ vidId, overlayId }) => {
+        const vid = document.getElementById(vidId);
+        const overlay = document.getElementById(overlayId);
+        if (!vid) return;
+
+        vid.addEventListener('play', () => {
+          if (overlay) overlay.classList.add('is-hidden');
+        });
+
+        vid.addEventListener('pause', () => {
+          if (overlay) overlay.classList.remove('is-hidden');
+        });
+
+        vid.addEventListener('ended', () => {
+          if (overlay) overlay.classList.remove('is-hidden');
+        });
+
+        // Clic directo sobre el video alterna reproducción
+        vid.addEventListener('click', (e) => {
+          const rect = vid.getBoundingClientRect();
+          const clickY = e.clientY - rect.top;
+          if (clickY < rect.height - 45) {
+            playVideo(vidId, overlayId);
+          }
+        });
+      });
+    }
+    initVideoSync();
 
     // Columna IA
     function setSlideIA(idx) {
@@ -2390,6 +2468,8 @@
       const overlay = document.getElementById('overlayIA');
 
       if (vid) {
+        vid.pause();
+        vid.currentTime = 0;
         vid.src = slidesIA[currentIdxIA].src;
         vid.load();
         if (overlay) overlay.classList.remove('is-hidden');
@@ -2408,6 +2488,8 @@
       const overlay = document.getElementById('overlayEdit');
 
       if (vid) {
+        vid.pause();
+        vid.currentTime = 0;
         vid.src = slidesEdit[currentIdxEdit].src;
         vid.load();
         if (overlay) overlay.classList.remove('is-hidden');
