@@ -39,7 +39,7 @@
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cfilter id='g'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='0.6'/%3E%3C/filter%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='rgba(0,0,0,0.55)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 4 1, auto !important;
     }
 
-    a, button, .play-circle, .carousel-arrow, .video-bubble, .mirror-pill, .mirror-btn-contactame, .btn-mirror-linkedin, .bg-toggle-pill {
+    a, button, .play-circle, .carousel-arrow, .video-bubble, .mirror-pill, .mirror-btn-contactame, .btn-mirror-tiktok, .bg-toggle-pill {
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cfilter id='g'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='0.6'/%3E%3C/filter%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='rgba(0,0,0,0.55)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 4 1, pointer !important;
     }
 
@@ -198,11 +198,11 @@
       transform: translateY(-2px) scale(1.03);
     }
 
-    .btn-mirror-linkedin {
+    .btn-mirror-tiktok {
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: rgba(10, 102, 194, 0.85);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(16px);
       color: #ffffff;
       display: inline-flex;
@@ -210,15 +210,15 @@
       justify-content: center;
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 
-        0 6px 18px rgba(10, 102, 194, 0.35),
+        0 6px 18px rgba(0, 0, 0, 0.4),
         inset 0 1px 1px rgba(255, 255, 255, 0.5);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       flex-shrink: 0;
     }
 
-    .btn-mirror-linkedin:hover {
+    .btn-mirror-tiktok:hover {
       transform: translateY(-2px) scale(1.08);
-      box-shadow: 0 10px 25px rgba(10, 102, 194, 0.55);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), -3px 3px 15px rgba(37,244,238,0.4), 3px -3px 15px rgba(254,44,85,0.4);
     }
 
     /* CV Button Premium */
@@ -963,8 +963,8 @@
       box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
     }
 
-    body.theme-light-nature .btn-mirror-linkedin {
-      background: #0a66c2;
+    body.theme-light-nature .btn-mirror-tiktok {
+      background: #000000;
       color: #ffffff;
       border-color: transparent;
       box-shadow: 0 6px 18px rgba(10, 102, 194, 0.25);
@@ -1170,10 +1170,10 @@
           <span>CONTACTAME</span>
         </a>
 
-        <!-- LinkedIn Espejo -->
-        <a href="https://linkedin.com" target="_blank" class="btn-mirror-linkedin" title="LinkedIn">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        </a>
+        <!-- TikTok Espejo -->
+        <a href="https://www.tiktok.com/@blushadown" target="_blank" class="btn-mirror-tiktok" title="TikTok">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z"/></svg>
+          </a>
       </div>
 
     </nav>
