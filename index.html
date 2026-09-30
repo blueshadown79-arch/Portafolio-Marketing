@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="sunset">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fabricio Albarracín — Estudiante de Marketing</title>
+  <title>Fabricio Jeremy Albarracín Sotelo — Estudiante de Marketing · Portafolio 2026</title>
 
   <!-- Microsoft Clarity Oficial -->
   <script type="text/javascript">
@@ -30,7 +29,7 @@
     }
     if (params.get('trackme') === '1') {
       localStorage.removeItem('fabricio_ignore_analytics');
-      console.log('📊 Rastreo activado.');
+      console.log('📡 Rastreo activado.');
     }
 
     // Escudo: Si es Fabricio, desactivar Google Analytics y detener Clarity
@@ -51,106 +50,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* ═══════════════════════════════════════════════════════════════════
-       1. VARIABLES & SISTEMA DE DISEÑO CON "VIDA" & PALETAS DINÁMICAS
-       ═══════════════════════════════════════════════════════════════════ */
     :root {
-      /* Tema por defecto: CANVAS MODERNO (Blanco nítido, ultra contraste con tipografía) */
-      --bg-base: #ffffff;
-      --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #f1f5f9 100%);
-      --orb-1: rgba(251, 146, 60, 0.14);   /* Sutil brillo solar */
-      --orb-2: rgba(245, 158, 11, 0.12);   /* Sutil resplandor ámbar */
-      --orb-3: rgba(168, 85, 247, 0.10);   /* Sutil resplandor violeta */
-      --orb-4: rgba(16, 185, 129, 0.08);   /* Sutil resplandor esmeralda */
-      --ambient-glow: rgba(245, 158, 11, 0.08);
-
-      --ink: #111418;
-      --ink-muted: #4b5563;
-      --ink-light: #6b7280;
-      --card-dark: #16141a;
-      --card-dark-glass: rgba(22, 20, 26, 0.88);
-      --card-light: #ffffff;
-      --card-light-glass: rgba(255, 255, 255, 0.85);
-
-      --border-subtle: rgba(17, 20, 24, 0.08);
-      --border-card: rgba(17, 20, 24, 0.12);
-
-      /* Identidades cromáticas por columna */
-      --ia-glow: #8b5cf6;
-      --ia-grad: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
-      --edit-glow: #f59e0b;
-      --edit-grad: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-      --flyer-glow: #10b981;
-      --flyer-grad: linear-gradient(135deg, #10b981 0%, #e6fc04 100%);
-
-      --accent-green: #25d366;
-      --accent-blue: #2563eb;
-      --accent-yellow: #facc15;
-      --linkedin-blue: #0a66c2;
-
-      --pad-x: clamp(1.25rem, 5vw, 4rem);
-      --radius-lg: 24px;
-      --radius-pill: 100px;
-    }
-
-    /* TEMA CYBER AURORA (Nocturno, vibrante, futurista) */
-    html[data-theme="cyber"] {
-      --bg-base: #0c0d14;
-      --bg-gradient: linear-gradient(135deg, #090a0f 0%, #121324 50%, #0c0e1a 100%);
-      --orb-1: rgba(139, 92, 246, 0.45);  /* Violeta */
-      --orb-2: rgba(6, 182, 212, 0.38);   /* Cian neón */
-      --orb-3: rgba(236, 72, 153, 0.35);  /* Fucsia */
-      --orb-4: rgba(37, 211, 102, 0.25);  /* Lima */
-      --ambient-glow: rgba(139, 92, 246, 0.22);
-      --ink: #f8fafc;
+      --bg-dark: #04060f;
+      --ink: #ffffff;
       --ink-muted: #94a3b8;
       --ink-light: #64748b;
-      --card-dark: #12131f;
-      --card-dark-glass: rgba(18, 19, 31, 0.9);
-      --card-light: #181a2e;
-      --card-light-glass: rgba(24, 26, 46, 0.88);
-      --border-subtle: rgba(255, 255, 255, 0.12);
-      --border-card: rgba(255, 255, 255, 0.15);
-    }
-
-    /* TEMA FRESH EMERALD (Vibrante, ecológico, alta conversión) */
-    html[data-theme="emerald"] {
-      --bg-base: #f0f7f3;
-      --bg-gradient: linear-gradient(135deg, #f4faf6 0%, #e8f4ed 50%, #dcf0e4 100%);
-      --orb-1: rgba(16, 185, 129, 0.42);  /* Esmeralda */
-      --orb-2: rgba(230, 252, 4, 0.35);   /* Lima neón */
-      --orb-3: rgba(6, 182, 212, 0.32);   /* Cian */
-      --orb-4: rgba(245, 158, 11, 0.25);  /* Oro */
-      --ambient-glow: rgba(16, 185, 129, 0.18);
-      --ink: #0f172a;
-      --ink-muted: #334155;
-      --ink-light: #64748b;
-      --card-dark: #0f1b15;
-      --card-dark-glass: rgba(15, 27, 21, 0.9);
-      --card-light: #ffffff;
-      --card-light-glass: rgba(255, 255, 255, 0.9);
-      --border-subtle: rgba(15, 27, 21, 0.08);
-      --border-card: rgba(15, 27, 21, 0.12);
-    }
-
-    /* TEMA CLASSIC STUDIO (Editorial neutro, elegante de revista) */
-    html[data-theme="studio"] {
-      --bg-base: #eee9e0;
-      --bg-gradient: linear-gradient(135deg, #f4f0e8 0%, #ece6dc 50%, #e5ded3 100%);
-      --orb-1: rgba(217, 119, 6, 0.28);
-      --orb-2: rgba(180, 83, 9, 0.22);
-      --orb-3: rgba(100, 116, 139, 0.2);
-      --orb-4: rgba(234, 179, 8, 0.2);
-      --ambient-glow: rgba(217, 119, 6, 0.12);
-      --ink: #111418;
-      --ink-muted: #4a5568;
-      --ink-light: #718096;
-      --card-dark: #1e191d;
-      --card-dark-glass: rgba(30, 25, 29, 0.9);
-      --card-light: #fdfbf7;
-      --card-light-glass: rgba(253, 251, 247, 0.88);
-      --border-subtle: rgba(17, 20, 24, 0.09);
-      --border-card: rgba(17, 20, 24, 0.14);
+      --accent-green: #25d366;
+      --accent-blue: #38bdf8;
+      --accent-purple: #a855f7;
+      --radius-pill: 100px;
     }
 
     *, *::before, *::after {
@@ -161,26 +69,26 @@
 
     html {
       scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
     }
 
-    /* NUEVO CURSOR MODERNO CON DESTELLOS DE CLIC (VECTORSTOCK) */
+    /* ═══════════════════════════════════════════════════════════════════
+       CURSOR OFICIAL DE TU PORTAFOLIO (CON DESTELLO SPARK)
+       ═══════════════════════════════════════════════════════════════════ */
     body, a, button, input, select {
-      cursor: url('assets/cursor_spark.png') 13 11, auto !important;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cfilter id='g'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='0.6'/%3E%3C/filter%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='rgba(0,0,0,0.55)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 4 1, auto !important;
     }
 
-    a, button, .play-circle, .carousel-arrow, .gallery-card, .vibe-btn, .pill-link, .lightbox-nav-btn, .lightbox-close-btn, .expand-card-indicator {
-      cursor: url('assets/cursor_spark.png') 13 11, pointer !important;
+    a, button, .play-circle, .carousel-arrow, .video-bubble, .mirror-pill, .mirror-btn-contactame, .btn-mirror-linkedin, .bg-toggle-pill {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cfilter id='g'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='0.6'/%3E%3C/filter%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='rgba(0,0,0,0.55)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 4 1, pointer !important;
     }
 
     body {
-      background: var(--bg-base);
+      background-color: var(--bg-dark);
       color: var(--ink);
       font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.5;
       overflow-x: hidden;
       position: relative;
-      transition: background 0.4s ease, color 0.4s ease;
     }
 
     a {
@@ -188,502 +96,297 @@
       text-decoration: none;
     }
 
-    button {
-      font: inherit;
-      color: inherit;
-      background: none;
-      border: none;
-    }
-
     /* ═══════════════════════════════════════════════════════════════════
-       FONDO DINÁMICO: AURORA MESH ORBS + PAISAJE ARTÍSTICO + NIEBLA
+       FONDO DINÁMICO: LLUVIA DE ESTRELLAS ASCENDENTE (DE ABAJO HACIA ARRIBA)
        ═══════════════════════════════════════════════════════════════════ */
-    .dynamic-artistic-background {
+    .space-canvas-wrapper {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
       overflow: hidden;
+      background: 
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(56, 189, 248, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 60% at 80% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 65%),
+        #04060f;
     }
 
-    .bg-gradient-layer {
+    #spaceCanvas {
       position: absolute;
       inset: 0;
-      background: var(--bg-gradient);
-      transition: background 0.5s ease;
+      width: 100%;
+      height: 100%;
     }
 
-    /* 4 Orbes de Luz Fluida en Movimiento Continuo */
-    .aurora-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(85px);
-      opacity: 0.85;
-      mix-blend-mode: multiply;
-      will-change: transform;
-    }
-
-    html[data-theme="cyber"] .aurora-orb {
-      mix-blend-mode: screen;
-      opacity: 0.65;
-    }
-
-    .orb-1 {
-      top: -15%;
-      left: -10%;
-      width: clamp(380px, 50vw, 750px);
-      height: clamp(380px, 50vw, 750px);
-      background: radial-gradient(circle, var(--orb-1) 0%, transparent 70%);
-      animation: driftOrb1 24s ease-in-out infinite alternate;
-    }
-
-    .orb-2 {
-      top: 25%;
-      right: -15%;
-      width: clamp(400px, 55vw, 850px);
-      height: clamp(400px, 55vw, 850px);
-      background: radial-gradient(circle, var(--orb-2) 0%, transparent 70%);
-      animation: driftOrb2 28s ease-in-out infinite alternate;
-    }
-
-    .orb-3 {
-      bottom: -10%;
-      left: 15%;
-      width: clamp(350px, 45vw, 700px);
-      height: clamp(350px, 45vw, 700px);
-      background: radial-gradient(circle, var(--orb-3) 0%, transparent 70%);
-      animation: driftOrb3 32s ease-in-out infinite alternate;
-    }
-
-    .orb-4 {
-      top: 50%;
-      left: 40%;
-      width: clamp(300px, 40vw, 600px);
-      height: clamp(300px, 40vw, 600px);
-      background: radial-gradient(circle, var(--orb-4) 0%, transparent 70%);
-      animation: driftOrb4 26s ease-in-out infinite alternate;
-    }
-
-    @keyframes driftOrb1 {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(15vw, 12vh) scale(1.15); }
-      100% { transform: translate(8vw, 25vh) scale(0.95); }
-    }
-
-    @keyframes driftOrb2 {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-18vw, 15vh) scale(1.2); }
-      100% { transform: translate(-10vw, -10vh) scale(0.9); }
-    }
-
-    @keyframes driftOrb3 {
-      0% { transform: translate(0, 0) scale(0.95); }
-      50% { transform: translate(12vw, -18vh) scale(1.18); }
-      100% { transform: translate(-8vw, -10vh) scale(1.05); }
-    }
-
-    @keyframes driftOrb4 {
-      0% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(-15vw, 18vh) rotate(180deg); }
-      100% { transform: translate(10vw, -12vh) rotate(360deg); }
-    }
-
-    /* Resplandor interactivo suave que sigue el mouse */
-    .mouse-ambient-glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--ambient-glow) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      filter: blur(40px);
-      mix-blend-mode: overlay;
-      z-index: 1;
-    }
-
-    /* Siluetas de Montañas Artísticas con Profundidad */
-    .mountains-svg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 380px;
-      opacity: 0.10;
-      animation: driftMountains 65s ease-in-out infinite alternate;
-      z-index: 2;
-    }
-
-    html[data-theme="cyber"] .mountains-svg {
-      opacity: 0.12;
-    }
-
-    @keyframes driftMountains {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-18%); }
-    }
-
-    /* Capa de Niebla y Nubes */
-    .mist-layer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 220%;
-      height: 480px;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
-      animation: driftClouds 40s linear infinite alternate;
-      z-index: 3;
-    }
-
-    html[data-theme="cyber"] .mist-layer {
-      background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-    }
-
-    @keyframes driftClouds {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-35%); }
-    }
-
-    /* Textura de Grano Sutil Editorial */
-    .grain-overlay {
+    .space-vignette {
       position: absolute;
       inset: 0;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      z-index: 4;
+      background: radial-gradient(circle at center, transparent 35%, rgba(4, 6, 15, 0.75) 85%, #04060f 100%);
       pointer-events: none;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       HUB FLOTANTE: CÁPSULA HYPE (CONFETI & RENDIMIENTO MÁXIMO)
-       ═══════════════════════════════════════════════════════════════════ */
-    .mascot-interactive-hub {
+    #cursor-light {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(147, 197, 253, 0.08) 0%, transparent 65%);
+      border-radius: 50%;
       pointer-events: none;
-    }
-
-    /* Cápsula de abajo (Hype & Confeti interactivo) */
-    .floating-mascot-pill {
-      background: #0b0b0e;
-      background: rgba(11, 11, 14, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 2px solid #e6fc04;
-      border-radius: 9999px;
-      padding: 9px 20px 9px 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      user-select: none;
-      pointer-events: auto;
-      position: relative;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(230, 252, 4, 0.28);
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .floating-mascot-pill:hover {
-      transform: translateY(-3px) scale(1.04);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.75), 0 0 28px rgba(230, 252, 4, 0.45);
-      border-color: #facc15;
-    }
-
-    .floating-mascot-pill:active {
-      transform: translateY(0) scale(0.97);
-    }
-
-    .mascot-pill-icon {
-      font-size: 1.1rem;
-      line-height: 1;
-      display: inline-block;
-    }
-
-    .mascot-pill-text {
-      font-family: 'Plus Jakarta Sans', 'Instrument Sans', -apple-system, sans-serif;
-      font-weight: 800;
-      font-size: 0.85rem;
-      color: #e6fc04;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-      text-shadow: 0 0 12px rgba(230, 252, 4, 0.35);
-      transition: color 0.2s ease;
-    }
-
-    .mascot-pill-hint {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      animation: sparkPulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes sparkPulse {
-      0%, 100% { opacity: 0.6; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.25); }
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      mix-blend-mode: screen;
+      transition: opacity 0.3s ease;
     }
 
     .container {
-      max-width: 1260px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding-left: var(--pad-x);
-      padding-right: var(--pad-x);
+      padding-left: clamp(1.25rem, 5vw, 3rem);
+      padding-right: clamp(1.25rem, 5vw, 3rem);
       position: relative;
+      z-index: 10;
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       2. TOP NAVBAR: CON SELECTOR DE AMBIENTE Y BOTONES CON "VIDA"
+       BOTONES CON EFECTO ESPEJO / CRISTALINO LÍQUIDO (BLUR REAL)
+       ═══════════════════════════════════════════════════════════════════ */
+    .mirror-pill {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .mirror-pill::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      transform: skewX(-25deg);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .mirror-pill:hover::before {
+      left: 150%;
+    }
+
+    .mirror-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.38);
+      box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(255, 255, 255, 0.15),
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.65);
+      transform: translateY(-2px) scale(1.02);
+      color: #ffffff;
+    }
+
+    /* Botón CONTACTAME Espejo Verde */
+    .mirror-btn-contactame {
+      background: rgba(37, 211, 102, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: #000000;
+      padding: 0.65rem 1.6rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 
+        0 8px 24px rgba(37, 211, 102, 0.38),
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mirror-btn-contactame:hover {
+      background: rgba(37, 211, 102, 1);
+      box-shadow: 
+        0 12px 32px rgba(37, 211, 102, 0.55),
+        0 0 30px rgba(37, 211, 102, 0.4);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .btn-mirror-linkedin {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(10, 102, 194, 0.85);
+      backdrop-filter: blur(16px);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 6px 18px rgba(10, 102, 194, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-mirror-linkedin:hover {
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 10px 25px rgba(10, 102, 194, 0.55);
+    }
+
+    /* CV Button Premium */
+    .premium-cv-btn {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      box-shadow: 0 8px 25px rgba(251, 191, 36, 0.15), inset 0 1px 1px rgba(255,255,255,0.3);
+      color: #fbbf24 !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premium-cv-btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), transparent);
+      transform: skewX(-25deg);
+      animation: shineBtn 3s infinite;
+    }
+
+    @keyframes shineBtn {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
+    }
+
+    .premium-cv-btn:hover {
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      border-color: rgba(251, 191, 36, 0.8);
+      box-shadow: 0 12px 30px rgba(251, 191, 36, 0.3), inset 0 1px 1px rgba(255,255,255,0.5);
+      color: #fcd34d !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       TOP NAVBAR LIMPIO (CON CONMUTADOR DISCRETO FONDO 1 / FONDO 2)
        ═══════════════════════════════════════════════════════════════════ */
     .top-nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
-      padding-top: 1.6rem;
-      padding-bottom: 1.6rem;
-      border-bottom: 1px solid var(--border-subtle);
+      padding-top: 1.8rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       flex-wrap: wrap;
-      position: relative;
-      z-index: 10;
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      flex-wrap: wrap;
     }
 
     .brand-name {
       font-size: 1.25rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      background: linear-gradient(110deg, #ffffff 40%, #93c5fd 50%, #ffffff 60%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineName 4s linear infinite;
+    }
+
+    @keyframes shineName {
+      to { background-position: 200% center; }
     }
 
     .brand-badge {
-      background: rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
       color: var(--ink-muted);
       font-size: 0.68rem;
       font-weight: 800;
-      padding: 3px 10px;
+      padding: 3px 12px;
       border-radius: var(--radius-pill);
-      letter-spacing: 0.05em;
-      border: 1px solid var(--border-subtle);
+      letter-spacing: 0.06em;
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    html[data-theme="cyber"] .brand-badge {
-      background: rgba(255, 255, 255, 0.1);
-      color: #cbd5e1;
-    }
-
-    /* Selector de Vibe de Color (Ambiente) */
-    .vibe-switcher {
+    /* Selector sutil de Fondo */
+    .bg-toggle-pill {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: rgba(0, 0, 0, 0.05);
-      backdrop-filter: blur(12px);
-      padding: 3px 6px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      padding: 3px 8px;
       border-radius: var(--radius-pill);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink-muted);
     }
 
-    html[data-theme="cyber"] .vibe-switcher {
-      background: rgba(255, 255, 255, 0.08);
+    .bg-btn {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all 0.2s;
     }
 
-    .vibe-label {
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: var(--ink-light);
-      padding: 0 6px;
-      letter-spacing: 0.04em;
+    .bg-btn.active {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
     }
-
-    .vibe-btn {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      position: relative;
-    }
-
-    .vibe-btn:hover {
-      transform: scale(1.2);
-    }
-
-    .vibe-btn.active {
-      transform: scale(1.15);
-      box-shadow: 0 0 0 2px var(--ink);
-    }
-
-    .vibe-btn.sunset { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-    .vibe-btn.cyber  { background: linear-gradient(135deg, #8b5cf6, #06b6d4); }
-    .vibe-btn.emerald{ background: linear-gradient(135deg, #10b981, #e6fc04); }
-    .vibe-btn.studio { background: linear-gradient(135deg, #78716c, #d6d3d1); }
 
     .nav-right-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .pills-group {
-      display: flex;
       gap: 10px;
-      align-items: center;
       flex-wrap: wrap;
-    }
-
-    /* 🌟 BOTONES PASTILLA CON "VIDA" (ESTILO OBSIDIAN GLASS & GLOW CROMÁTICO) */
-    .pill-link {
-      background: linear-gradient(135deg, #1c1d24 0%, #0e1014 100%);
-      color: #ffffff;
-      padding: 0.62rem 1.4rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pill-link::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 50%;
-      height: 200%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
-      transform: rotate(30deg);
-      transition: transform 0.5s ease;
-      pointer-events: none;
-    }
-
-    .pill-link:hover::before {
-      transform: rotate(30deg) translate(280%, -50%);
-    }
-
-    .pill-link:hover {
-      transform: translateY(-3px) scale(1.03);
-    }
-
-    .pill-link:active {
-      transform: translateY(0) scale(0.98);
-    }
-
-    /* Acento individual para darles vida única */
-    .pill-drive:hover {
-      border-color: rgba(59, 130, 246, 0.8);
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
-      color: #93c5fd;
-    }
-
-    .pill-videos:hover {
-      border-color: rgba(245, 158, 11, 0.8);
-      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.4);
-      color: #fde68a;
-    }
-
-    .pill-cv:hover {
-      border-color: rgba(168, 85, 247, 0.8);
-      box-shadow: 0 10px 24px rgba(168, 85, 247, 0.4);
-      color: #e9d5ff;
-    }
-
-    /* Botón Grande CONTACTAME WhatsApp */
-    .btn-top-contactame {
-      background: var(--accent-green);
-      color: #000000;
-      padding: 0.65rem 1.6rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.92rem;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.42);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-top-contactame::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 50%;
-      height: 200%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
-      transform: rotate(30deg);
-      animation: buttonShine 4.5s infinite;
-    }
-
-    @keyframes buttonShine {
-      0%, 75% { left: -60%; }
-      100% { left: 140%; }
-    }
-
-    .btn-top-contactame:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55);
-    }
-
-    /* Logo LinkedIn Oficial */
-    .btn-top-linkedin {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--linkedin-blue);
-      color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 6px 16px rgba(10, 102, 194, 0.32);
-      flex-shrink: 0;
-    }
-
-    .btn-top-linkedin:hover {
-      transform: translateY(-2px) scale(1.08);
-      box-shadow: 0 8px 22px rgba(10, 102, 194, 0.45);
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       3. HEADER: HERO PERFIL, BIO & SELLO GIRATORIO
+       HERO SECTION: INTRODUCCIÓN RESUMIDA & SELLO GIRATORIO
        ═══════════════════════════════════════════════════════════════════ */
     .header-section {
-      padding-top: 3.2rem;
-      padding-bottom: 2.5rem;
+      padding-top: 3.5rem;
+      padding-bottom: 2.8rem;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 2rem;
-      position: relative;
+      gap: 2.5rem;
     }
 
     .profile-info {
@@ -694,22 +397,18 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      background: rgba(37, 211, 102, 0.12);
-      border: 1px solid rgba(37, 211, 102, 0.35);
-      color: #15803d;
-      padding: 5px 14px;
+      background: rgba(34, 197, 94, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      color: #4ade80;
+      padding: 5px 15px;
       border-radius: var(--radius-pill);
       font-size: 0.76rem;
       font-weight: 800;
-      letter-spacing: 0.04em;
-      margin-bottom: 1.1rem;
-      backdrop-filter: blur(10px);
-    }
-
-    html[data-theme="cyber"] .status-radar-pill {
-      color: #4ade80;
-      background: rgba(74, 222, 128, 0.15);
-      border-color: rgba(74, 222, 128, 0.3);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
     }
 
     .radar-dot {
@@ -735,34 +434,36 @@
     }
 
     .profile-info h1 {
-      font-size: clamp(2rem, 3.4vw, 2.9rem);
-      font-weight: 800;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 900;
       letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 1.1rem;
+      color: #ffffff;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
     }
 
     .profile-info h1 span.gradient-text {
-      background: linear-gradient(135deg, #111418 20%, #2563eb 60%, #8b5cf6 100%);
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-
-    html[data-theme="cyber"] .profile-info h1 span.gradient-text {
-      background: linear-gradient(135deg, #ffffff 20%, #38bdf8 60%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 25px rgba(129, 140, 248, 0.3));
     }
 
     .profile-bio {
-      font-size: clamp(0.98rem, 1.2vw, 1.12rem);
-      color: var(--ink-muted);
+      font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+      color: #f1f5f9;
       line-height: 1.65;
-      max-width: 80ch;
+      max-width: 72ch;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
     }
 
-    /* Sello Giratorio de Agencia Creativa */
+    .profile-bio strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Sello Giratorio de Agencia B2B */
     .rotating-studio-seal {
       width: 110px;
       height: 110px;
@@ -783,14 +484,16 @@
     .rotating-studio-seal svg {
       width: 100%;
       height: 100%;
-      fill: var(--ink);
-      opacity: 0.82;
+      fill: #ffffff;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
     }
 
     .seal-center-icon {
       position: absolute;
       font-size: 1.4rem;
-      color: var(--edit-glow);
+      color: #f59e0b;
+      filter: drop-shadow(0 0 8px #f59e0b);
     }
 
     @media (max-width: 840px) {
@@ -798,23 +501,29 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       4. SECCIÓN 3 COLUMNAS: VIDEOS IA, VIDEOS EDIT, FLYERS / STORIES
+       VIDEOS EN VIVO: 3 COLUMNAS ESPEJO + BURBUJAS 1, 2, 3 ACOPLADAS
        ═══════════════════════════════════════════════════════════════════ */
     .videos-section {
-      padding-top: 1.5rem;
-      padding-bottom: 4.5rem;
+      padding-top: 1rem;
+      padding-bottom: 4rem;
     }
 
     .video-columns-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(1.2rem, 2.4vw, 2.2rem);
+      gap: clamp(1.2rem, 2.2vw, 2rem);
+    }
+
+    @media (max-width: 900px) {
+      .video-columns-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .video-col {
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      gap: 1rem;
     }
 
     .col-header {
@@ -825,43 +534,44 @@
     }
 
     .col-title {
-      font-size: clamp(1.45rem, 2.1vw, 1.85rem);
+      font-size: clamp(1.4rem, 2vw, 1.75rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      color: #ffffff;
     }
 
-    /* Badges de estilo por columna */
     .col-tag {
       font-size: 0.72rem;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: var(--radius-pill);
-      letter-spacing: 0.02em;
+      backdrop-filter: blur(12px);
       white-space: nowrap;
     }
 
     .col-tag.tag-ia {
-      background: rgba(139, 92, 246, 0.15);
-      color: #8b5cf6;
-      border: 1px solid rgba(139, 92, 246, 0.3);
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.4);
     }
 
     .col-tag.tag-edit {
       background: rgba(245, 158, 11, 0.15);
-      color: #d97706;
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
     }
 
-    .col-tag.tag-flyers {
-      background: rgba(16, 185, 129, 0.15);
-      color: #059669;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+    .col-tag.tag-reels {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.4);
     }
 
-    /* Tarjeta Vertical con Borde Gradiente Resplandeciente */
-    .video-card-vibrant {
-      background: var(--card-dark);
+    /* Tarjeta Espejo de Video con Blur Real */
+    .video-card-mirror {
+      background: rgba(12, 16, 28, 0.58);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
       border-radius: 28px;
       aspect-ratio: 9 / 14;
       max-height: 520px;
@@ -870,49 +580,21 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.65),
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    .video-card-vibrant::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 30px;
-      padding: 2px;
-      background: transparent;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      transition: background 0.3s ease;
-      z-index: 6;
-    }
-
-    /* Glow temático en hover */
-    .col-ia .video-card-vibrant:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 60px rgba(139, 92, 246, 0.38);
-    }
-    .col-ia .video-card-vibrant:hover::before {
-      background: var(--ia-grad);
-    }
-
-    .col-edit .video-card-vibrant:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 60px rgba(245, 158, 11, 0.38);
-    }
-    .col-edit .video-card-vibrant:hover::before {
-      background: var(--edit-grad);
-    }
-
-    .col-flyers .video-card-vibrant:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 60px rgba(16, 185, 129, 0.38);
-    }
-    .col-flyers .video-card-vibrant:hover::before {
-      background: var(--flyer-grad);
+    .video-card-mirror:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 
+        0 28px 65px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(129, 140, 248, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
     }
 
     .video-player-frame {
@@ -930,103 +612,7 @@
       display: block;
     }
 
-    /* Al maximizar a pantalla completa, mostrar el video completo con barras negras si es necesario, sin recortar */
-    video:fullscreen {
-      object-fit: contain !important;
-      background: #000000 !important;
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-    video:-webkit-full-screen {
-      object-fit: contain !important;
-      background: #000000 !important;
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-    video:-moz-full-screen {
-      object-fit: contain !important;
-      background: #000000 !important;
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-    video:-ms-fullscreen {
-      object-fit: contain !important;
-      background: #000000 !important;
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-    .video-player-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .video-card-vibrant:hover .video-player-frame img {
-      transform: scale(1.05);
-    }
-
-    /* Indicador flotante en Flyer / Stories para abrir pantalla completa */
-    .card-zoom-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 0.74rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      z-index: 5;
-      transition: background 0.2s ease, transform 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .video-card-vibrant:hover .card-zoom-badge {
-      background: #000000;
-      transform: scale(1.05);
-    }
-
-    /* Flechas Interactivas de Cambio (← / →) */
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      color: #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      font-weight: 800;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-      z-index: 5;
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .carousel-arrow:hover {
-      background: #ffffff;
-      transform: translateY(-50%) scale(1.15);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-    }
-
-    .carousel-arrow.prev { left: 12px; }
-    .carousel-arrow.next { right: 12px; }
-
-    /* Overlay Central con Play Button & Visualizer */
+    /* Overlay Central Play */
     .card-play-overlay {
       position: absolute;
       inset: 0;
@@ -1034,157 +620,147 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      pointer-events: auto;
+      gap: 12px;
       cursor: pointer;
       z-index: 3;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.45) 100%);
-      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(to top, rgba(4,6,15,0.85) 0%, rgba(4,6,15,0.15) 50%, rgba(4,6,15,0.35) 100%);
+      transition: opacity 0.3s ease;
     }
 
     .card-play-overlay.is-hidden {
       opacity: 0;
-      visibility: hidden;
       pointer-events: none;
     }
 
     .play-circle {
-      width: 64px;
-      height: 64px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
       color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      padding-left: 5px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      pointer-events: auto;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.2s ease;
-      animation: pulsePlay 2.4s infinite;
-    }
-
-    @keyframes pulsePlay {
-      0% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 0 rgba(255, 255, 255, 0.45); }
-      70% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 14px rgba(255, 255, 255, 0); }
-      100% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 0 rgba(255, 255, 255, 0); }
+      font-size: 1.4rem;
+      padding-left: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 25px rgba(255, 255, 255, 0.35);
+      transition: transform 0.2s ease;
     }
 
     .card-play-overlay:hover .play-circle {
-      transform: scale(1.15);
+      transform: scale(1.14);
       background: #ffffff;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.75);
-    }
-
-    .card-play-overlay:active .play-circle {
-      transform: scale(0.94);
-    }
-
-    /* Ecualizador animado de audio al hover */
-    .audio-wave-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      height: 14px;
-    }
-
-    .wave-bar {
-      width: 3px;
-      background: var(--accent-yellow);
-      border-radius: 2px;
-      animation: audioPulse 1.2s ease-in-out infinite alternate;
-    }
-    .wave-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
-    .wave-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
-    .wave-bar:nth-child(3) { height: 9px; animation-delay: 0.2s; }
-    .wave-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
-
-    @keyframes audioPulse {
-      0% { height: 4px; }
-      100% { height: 14px; }
-    }
-
-    .badge-metrics {
-      background: rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 6px 16px;
-      border-radius: var(--radius-pill);
-      letter-spacing: 0.02em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Selector de videos / flyers */
-    .col-video-selector {
-      display: flex;
-      gap: 6px;
-      margin-top: 0.2rem;
-      background: rgba(0, 0, 0, 0.05);
-      padding: 4px;
-      border-radius: var(--radius-pill);
-      justify-content: center;
-      flex-wrap: wrap;
-      border: 1px solid var(--border-subtle);
-    }
-
-    html[data-theme="cyber"] .col-video-selector {
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .video-switch-btn {
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--ink-muted);
-      background: transparent;
-      transition: all 0.2s ease;
-    }
-
-    .video-switch-btn:hover {
-      color: var(--ink);
-    }
-
-    .video-switch-btn.active {
-      background: var(--ink);
-      color: var(--bg-base);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-
-    html[data-theme="cyber"] .video-switch-btn.active {
-      background: #ffffff;
-      color: #000000;
-    }
-
-    .col-description {
-      font-size: 0.9rem;
-      color: var(--ink-muted);
-      line-height: 1.45;
-      text-align: center;
-      padding: 0 0.5rem;
-      min-height: 2.6em;
+      box-shadow: 0 14px 40px rgba(255, 255, 255, 0.5);
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       5. SECCIÓN SKILLS (3 TARJETAS CON VIDA Y DETALLE CROMÁTICO)
+       BURBUJAS CRISTALINAS 1, 2, 3 ACOPLADAS AL ENTORNO
+       ═══════════════════════════════════════════════════════════════════ */
+    .video-bubbles-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: rgba(10, 14, 24, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      align-self: center;
+    }
+
+    .video-bubble {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .video-bubble:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    .video-bubble.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      transform: scale(1.08);
+    }
+
+    .video-bottom-info {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(10, 14, 24, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .audio-dots {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+    }
+
+    .audio-dots span {
+      width: 3px;
+      height: 8px;
+      background: #facc15;
+      border-radius: 2px;
+      animation: audioPulse 1.2s infinite alternate;
+    }
+
+    .audio-dots span:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+    .audio-dots span:nth-child(3) { animation-delay: 0.4s; height: 6px; }
+
+    @keyframes audioPulse {
+      0% { transform: scaleY(0.4); }
+      100% { transform: scaleY(1.2); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SECCIÓN DE CIERRE: SKILLS ESPEJO CRISTALINAS (TERMINA AQUÍ)
        ═══════════════════════════════════════════════════════════════════ */
     .skills-section {
       padding-top: 2rem;
-      padding-bottom: 4rem;
+      padding-bottom: 5.5rem;
     }
 
     .section-headline {
-      font-size: clamp(1.9rem, 2.8vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 1.6rem;
-      color: var(--ink);
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      color: #ffffff;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1193,1528 +769,1268 @@
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(1.2rem, 2.4vw, 2rem);
+      gap: 1.5rem;
     }
 
-    .skill-card-box {
-      background: var(--card-light);
-      border: 1px solid var(--border-card);
-      border-radius: 24px;
-      padding: clamp(1.6rem, 2.4vw, 2.1rem);
+    @media (max-width: 900px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mirror-card {
+      background: rgba(12, 16, 28, 0.52);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 26px;
+      padding: 2rem 1.8rem;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.25),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.04);
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      justify-content: space-between;
     }
 
-    .skill-card-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: transparent;
-      transition: background 0.3s ease;
+    .mirror-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 22px 50px rgba(0, 0, 0, 0.65),
+        0 0 30px rgba(147, 197, 253, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.45);
     }
-
-    .skill-card-box:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-    }
-
-    .skill-card-box.card-commercial:hover::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
-    .skill-card-box.card-video:hover::before      { background: linear-gradient(90deg, #8b5cf6, #06b6d4); }
-    .skill-card-box.card-web:hover::before        { background: linear-gradient(90deg, #10b981, #e6fc04); }
 
     .skill-top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 1.2rem;
     }
-
-    .skill-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-
-    .card-commercial .skill-icon-wrap { background: rgba(245, 158, 11, 0.12); color: #d97706; }
-    .card-video .skill-icon-wrap      { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
-    .card-web .skill-icon-wrap        { background: rgba(16, 185, 129, 0.12); color: #059669; }
 
     .skill-tag {
       font-size: 0.72rem;
       font-weight: 800;
-      color: var(--ink-light);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-    }
-
-    .skill-card-box h3 {
-      font-size: clamp(1.25rem, 1.7vw, 1.5rem);
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-    }
-
-    .skill-card-box p {
-      font-size: 0.92rem;
-      color: var(--ink-muted);
-      line-height: 1.55;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       6. SECCIÓN "UN POCO DE MI" (TARJETA OSCURA CON PROFUNDIDAD)
-       ═══════════════════════════════════════════════════════════════════ */
-    .about-me-section {
-      padding-top: 1rem;
-      padding-bottom: 4.5rem;
-    }
-
-    .about-card-dark {
-      background: var(--card-dark);
-      color: #ffffff;
-      border-radius: 36px;
-      padding: clamp(2.2rem, 5vw, 4rem);
-      max-width: 1040px;
-      margin: 0 auto;
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.32);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-card-dark::after {
-      content: "";
-      position: absolute;
-      top: -30%;
-      right: -20%;
-      width: 380px;
-      height: 380px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
-      pointer-events: none;
-      filter: blur(50px);
-    }
-
-    .about-card-dark h2 {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .about-lead {
-      font-size: clamp(1rem, 1.15vw, 1.1rem);
-      color: #cbd5e1;
-      line-height: 1.65;
-      margin-bottom: 1.6rem;
-      max-width: 75ch;
-    }
-
-    .about-bullets {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.1rem;
-      font-size: clamp(0.92rem, 1.05vw, 1rem);
-      color: #e2e8f0;
-      line-height: 1.65;
-    }
-
-    .about-bullet-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 1rem 1.4rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: background 0.2s ease;
-    }
-
-    .about-bullet-item:hover {
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .about-bullet-icon {
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .about-bullet-item strong {
-      color: #ffffff;
-      font-weight: 700;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       7. SECCIÓN PROYECTOS: TODAS LAS 17 FOTOS DIRECTAS (AMPLIABLES)
-       ═══════════════════════════════════════════════════════════════════ */
-    .projects-section {
-      padding-top: 2rem;
-      padding-bottom: 4.5rem;
-    }
-
-    .projects-header-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 1.8rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .gallery-counter-pill {
-      background: var(--ink);
-      color: var(--bg-base);
-      font-size: 0.8rem;
-      font-weight: 800;
-      padding: 6px 14px;
+      padding: 4px 12px;
       border-radius: var(--radius-pill);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      backdrop-filter: blur(10px);
     }
 
-    html[data-theme="cyber"] .gallery-counter-pill {
-      background: #1e2038;
+    .card-commercial .skill-tag {
+      background: rgba(56, 189, 248, 0.12);
       color: #38bdf8;
       border: 1px solid rgba(56, 189, 248, 0.3);
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 1.4rem;
+    .card-video .skill-tag {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
     }
 
-    .gallery-card {
-      background: var(--card-light);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--border-subtle);
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      cursor: pointer;
+    .card-tech .skill-tag {
+      background: rgba(168, 85, 247, 0.12);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.3);
     }
 
-    .gallery-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
-      border-color: rgba(17, 20, 24, 0.2);
+    .skill-icon-wrap {
+      font-size: 1.5rem;
     }
 
-    .gallery-card-img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: #121318;
-      position: relative;
-    }
-
-    .gallery-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .gallery-card:hover .gallery-card-img img {
-      transform: scale(1.08);
-    }
-
-    /* Chip de categoría flotante sobre la foto */
-    .card-floating-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      font-size: 0.68rem;
+    .mirror-card h3 {
+      font-size: 1.35rem;
       font-weight: 800;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      backdrop-filter: blur(8px);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 2;
-    }
-
-    /* Indicador hover de lupa para ampliar */
-    .expand-card-indicator {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
       color: #ffffff;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      font-size: 0.72rem;
-      font-weight: 700;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      z-index: 3;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .gallery-card:hover .expand-card-indicator {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .badge-fuse   { background: rgba(37, 99, 235, 0.88); color: #ffffff; }
-    .badge-sweet  { background: rgba(236, 72, 153, 0.88); color: #ffffff; }
-    .badge-textil { background: rgba(16, 185, 129, 0.88); color: #ffffff; }
-
-    .gallery-card-info {
-      padding: 1.1rem 1.3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .gallery-card-cat {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .cat-fuse   { color: var(--accent-blue); }
-    .cat-sweet  { color: #ec4899; }
-    .cat-textil { color: #059669; }
-
-    .gallery-card-title {
-      font-size: 1.02rem;
-      font-weight: 800;
-      color: var(--ink);
-      line-height: 1.35;
+      margin-bottom: 0.6rem;
       letter-spacing: -0.01em;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       8. SECCIÓN CURRICULUM & BOTÓN GIGANTE CONTACTAME
-       ═══════════════════════════════════════════════════════════════════ */
-    .cv-section {
-      padding-top: 1rem;
-      padding-bottom: 3.5rem;
+    .mirror-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.55;
     }
 
-    .cv-download-banner {
-      background: var(--card-light);
-      border: 1px solid var(--border-card);
-      border-radius: 26px;
-      padding: 2rem 2.5rem;
+    .mirror-card.card-wide {
+      grid-column: span 3;
+      background: linear-gradient(135deg, rgba(16, 20, 36, 0.75) 0%, rgba(10, 13, 24, 0.85) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        inset 0 1px 2px rgba(255, 255, 255, 0.35);
+    }
+
+    @media (max-width: 900px) {
+      .mirror-card.card-wide { grid-column: span 1; }
+    }
+
+    .mirror-card.card-wide p { color: #cbd5e1; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FOOTER FINAL LIMPIO
+       ═══════════════════════════════════════════════════════════════════ */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3rem 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1.5rem;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
-      position: relative;
-      overflow: hidden;
+      color: #64748b;
+      font-size: 0.88rem;
     }
 
-    .cv-download-banner::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 6px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--accent-blue), var(--ia-glow));
-    }
-
-    .btn-download-cv {
-      background: var(--ink);
-      color: var(--bg-base);
-      font-size: 0.95rem;
-      font-weight: 800;
-      padding: 0.85rem 2rem;
-      border-radius: var(--radius-pill);
-      display: inline-flex;
+    .footer-actions {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    html[data-theme="cyber"] .btn-download-cv {
-      background: #ffffff;
-      color: #000000;
-    }
-
-    .btn-download-cv:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-    }
-
-    /* BOTÓN GIGANTE CONTÁCTATE (SIN MOSTRAR NÚMERO PRIVADO DIRECTAMENTE) */
-    .cta-giant-section {
-      padding-top: 3rem;
-      padding-bottom: 6.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .btn-giant-contact {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      background: var(--accent-green);
-      color: #000000;
-      font-size: clamp(1.45rem, 2.8vw, 2.3rem);
-      font-weight: 900;
-      padding: clamp(1.2rem, 2.2vw, 1.85rem) clamp(2.6rem, 5.5vw, 4.8rem);
-      border-radius: var(--radius-pill);
-      box-shadow: 0 18px 45px rgba(37, 211, 102, 0.42);
-      letter-spacing: -0.01em;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-giant-contact::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 50%;
-      height: 200%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
-      transform: rotate(30deg);
-      animation: buttonShine 3.8s infinite;
-    }
-
-    .btn-giant-contact:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 24px 55px rgba(37, 211, 102, 0.55);
-    }
-
-    .cta-subtext {
-      margin-top: 1.4rem;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--ink-muted);
-    }
-
-    .footer-note {
-      text-align: center;
-      padding-bottom: 2.5rem;
-      font-size: 0.85rem;
-      color: var(--ink-light);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       9. LIGHTBOX MODAL EN PANTALLA COMPLETA (ALTA RESOLUCIÓN)
-       ═══════════════════════════════════════════════════════════════════ */
-    .lightbox-modal {
+    /* Modal Video Fullscreen */
+    #videoModal {
       position: fixed;
       inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(8, 10, 15, 0.94);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      z-index: 10000;
-      display: flex;
-      flex-direction: column;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      display: none;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      padding: 20px;
+      padding: 1.5rem;
     }
 
-    .lightbox-modal.is-open {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    #videoModal.active { display: flex; }
 
-    .lightbox-close-btn {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: background 0.2s ease, transform 0.2s ease;
-      z-index: 10002;
-    }
-
-    .lightbox-close-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.1);
-    }
-
-    .lightbox-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.14);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      font-weight: 800;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: background 0.2s ease, transform 0.2s ease;
-      z-index: 10002;
-    }
-
-    .lightbox-nav-btn:hover {
-      background: #ffffff;
-      color: #000000;
-      transform: translateY(-50%) scale(1.12);
-    }
-
-    .lightbox-nav-btn.prev { left: 28px; }
-    .lightbox-nav-btn.next { right: 28px; }
-
-    .lightbox-content-wrap {
-      max-width: 90vw;
-      max-height: 82vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .modal-box {
       position: relative;
+      width: 100%;
+      max-width: 440px;
+      background: #080a14;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255,255,255,0.3);
     }
 
-    .lightbox-image {
-      max-width: 90vw;
-      max-height: 76vh;
-      object-fit: contain;
-      border-radius: 16px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-      transition: transform 0.2s ease;
-      display: block;
-    }
-
-    .lightbox-caption-bar {
-      margin-top: 16px;
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 10;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
       justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover { background: #fff; color: #000; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       TEMA CLARO: NATURALEZA SERENA (MÁXIMA TRANQUILIDAD & ALTO CONTRASTE)
+       ═══════════════════════════════════════════════════════════════════ */
+    body.theme-light-nature {
+      --bg-dark: #f8fafc;
+      --ink: #0f172a;
+      --ink-muted: #475569;
+      --ink-light: #64748b;
+      color: #0f172a;
+    }
+
+    body.theme-light-nature .top-nav-bar {
+      border-bottom-color: rgba(15, 23, 42, 0.08);
+    }
+
+    body.theme-light-nature .brand-name {
+      color: #0f172a;
+      text-shadow: none;
+    }
+
+    body.theme-light-nature .brand-badge {
+      background: rgba(15, 23, 42, 0.06);
+      color: #334155;
+      border-color: rgba(15, 23, 42, 0.1);
+    }
+
+    body.theme-light-nature .bg-toggle-pill {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(15, 23, 42, 0.1);
+      color: #475569;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    body.theme-light-nature .bg-btn {
+      color: #475569;
+    }
+
+    body.theme-light-nature .bg-btn.active {
+      background: #0f172a;
       color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
     }
 
-    .lightbox-badge {
-      font-size: 0.74rem;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    body.theme-light-nature .mirror-pill {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: rgba(255, 255, 255, 0.95);
+      color: #0f172a;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), inset 0 1px 1px #ffffff;
     }
 
-    .lightbox-title {
-      font-size: 1.1rem;
+    body.theme-light-nature .mirror-pill:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #0f172a;
+      color: #0f172a;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+    }
+
+    body.theme-light-nature .btn-mirror-linkedin {
+      background: #0a66c2;
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 6px 18px rgba(10, 102, 194, 0.25);
+    }
+
+    body.theme-light-nature .mirror-btn-contactame {
+      background: #16a34a;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+    }
+
+    body.theme-light-nature .status-radar-pill {
+      background: rgba(22, 163, 74, 0.1);
+      border-color: rgba(22, 163, 74, 0.3);
+      color: #15803d;
+      box-shadow: none;
+    }
+
+    body.theme-light-nature .profile-info h1 {
+      color: #0f172a;
+      text-shadow: none;
+    }
+
+    body.theme-light-nature .profile-info h1 span.gradient-text {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 60%, #0f766e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: none;
+    }
+
+    body.theme-light-nature .profile-bio {
+      color: #334155;
+      text-shadow: none;
+    }
+
+    body.theme-light-nature .profile-bio strong {
+      color: #0f172a;
+    }
+
+    body.theme-light-nature .rotating-studio-seal {
+      filter: invert(0.9) brightness(0.2);
+    }
+
+    body.theme-light-nature .col-title {
+      color: #0f172a;
+    }
+
+    body.theme-light-nature .col-tag {
+      background: rgba(255, 255, 255, 0.75);
+      border-color: rgba(15, 23, 42, 0.08);
+      color: #334155;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    body.theme-light-nature .video-card-mirror {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), inset 0 1px 1px #ffffff;
+    }
+
+    body.theme-light-nature .video-bottom-info {
+      background: rgba(255, 255, 255, 0.92);
+      border-color: rgba(15, 23, 42, 0.08);
+      color: #1e293b;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    body.theme-light-nature .video-bottom-info span {
+      color: #1e293b;
       font-weight: 700;
-      color: #f8fafc;
     }
 
-    .lightbox-counter {
-      font-size: 0.85rem;
-      color: #94a3b8;
+    body.theme-light-nature .video-bubbles-bar {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
     }
 
-    @media (max-width: 960px) {
-      .top-nav-bar { flex-direction: column; align-items: flex-start; }
-      .nav-right-actions { width: 100%; justify-content: flex-start; }
-      .video-columns-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .lightbox-nav-btn { width: 44px; height: 44px; font-size: 1.2rem; }
-      .lightbox-nav-btn.prev { left: 12px; }
-      .lightbox-nav-btn.next { right: 12px; }
+    body.theme-light-nature .video-bubble {
+      background: rgba(15, 23, 42, 0.06);
+      color: #334155;
+      border-color: rgba(15, 23, 42, 0.1);
+    }
+
+    body.theme-light-nature .video-bubble.active {
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+    }
+
+    body.theme-light-nature .section-headline {
+      color: #0f172a;
+    }
+
+    body.theme-light-nature .mirror-card {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(255, 255, 255, 0.95);
+      color: #1e293b;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07), inset 0 1px 1px #ffffff;
+    }
+
+    body.theme-light-nature .mirror-card h3 {
+      color: #0f172a;
+    }
+
+    body.theme-light-nature .mirror-card p,
+    body.theme-light-nature .mirror-card.card-wide p {
+      color: #334155;
+    }
+
+    body.theme-light-nature .card-stat-number {
+      color: #0f172a;
+    }
+
+    body.theme-light-nature .card-stat-label {
+      color: #64748b;
+    }
+
+    body.theme-light-nature .skill-badge {
+      background: rgba(15, 23, 42, 0.05);
+      border-color: rgba(15, 23, 42, 0.1);
+      color: #1e293b;
+    }
+
+    body.theme-light-nature .card-metric-tag {
+      background: rgba(22, 163, 74, 0.1);
+      border-color: rgba(22, 163, 74, 0.3);
+      color: #15803d;
     }
   </style>
 </head>
 <body>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       FONDO DINÁMICO: AURORA MESH ORBS + PAISAJE ARTÍSTICO + NIEBLA
+       FONDO INTERCAMBIABLE: FONDO 2 (LLUVIA ASCENDENTE) O FONDO 1 (CONSTELACIONES)
        ═══════════════════════════════════════════════════════════════════ -->
-  <div class="dynamic-artistic-background" aria-hidden="true">
-    <div class="bg-gradient-layer"></div>
-    <div class="aurora-orb orb-1"></div>
-    <div class="aurora-orb orb-2"></div>
-    <div class="aurora-orb orb-3"></div>
-    <div class="aurora-orb orb-4"></div>
-
-    <!-- Luz interactiva que sigue el ratón -->
-    <div class="mouse-ambient-glow" id="mouseGlow"></div>
-
-    <!-- Siluetas de Montañas Artísticas con Movimiento Suave -->
-    <svg class="mountains-svg" viewBox="0 0 1440 380" fill="none" preserveAspectRatio="none">
-      <path d="M0,280 C200,210 380,290 580,230 C780,170 980,260 1200,210 C1340,180 1440,240 1440,240 L1440,380 L0,380 Z" fill="#e2e8f0"/>
-      <path d="M0,310 C240,260 480,320 720,270 C960,220 1200,300 1440,260 L1440,380 L0,380 Z" fill="#cbd5e1"/>
-      <path d="M0,340 C300,310 600,350 900,310 C1200,270 1350,330 1440,320 L1440,380 L0,380 Z" fill="#94a3b8"/>
-    </svg>
-
-    <div class="mist-layer"></div>
-    <div class="grain-overlay"></div>
+  <div class="space-canvas-wrapper">
+    <canvas id="spaceCanvas"></canvas>
+    <div class="space-vignette"></div>
   </div>
-
-  <!-- COMPONENTE FLOTANTE: CÁPSULA HYPE RENDIMIENTO MÁXIMO (CONFETI & AUDIO) -->
-  <div class="mascot-interactive-hub">
-    <div class="floating-mascot-pill" id="mascot-pill" role="button" tabindex="0" title="¡Haz clic para celebrar!">
-      <span class="mascot-pill-icon">⚡</span>
-      <span id="mascot-text" class="mascot-pill-text">¡Rendimiento Máximo! ⚡</span>
-      <span class="mascot-pill-hint">✨</span>
-    </div>
-  </div>
+  <div id="cursor-light"></div>
 
   <div class="container">
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         1. TOP NAVBAR: NOMBRE + SELECTOR DE VIBE + BOTONES CON VIDA
-         ═════════════════════════════════════════════════════════════════ -->
-    <nav class="top-nav-bar" aria-label="Barra de navegación principal">
-      <!-- Izquierda: Nombre y Selector de Ambiente -->
+    
+    <!-- ═══════════════════════════════════════════════════════════════════
+         NAVBAR LIMPIO CON CONMUTADOR DE FONDO
+         ═══════════════════════════════════════════════════════════════════ -->
+    <nav class="top-nav-bar">
+      
       <div class="nav-brand">
         <span class="brand-name">Fabricio Jeremy Albarracín Sotelo</span>
         <span class="brand-badge">PORTAFOLIO 2026</span>
-
-        <!-- Selector de Color / Atmósfera Dinámica -->
-        <div class="vibe-switcher" title="Cambiar vibración de color">
-          <span class="vibe-label">VIBE</span>
-          <button class="vibe-btn sunset active" onclick="setVibe('sunset')" title="Atardecer Cálido (Sunset)"></button>
-          <button class="vibe-btn cyber" onclick="setVibe('cyber')" title="Aurora Cyber (Nocturno Neón)"></button>
-          <button class="vibe-btn emerald" onclick="setVibe('emerald')" title="Fresh Emerald (Verde Creativo)"></button>
-          <button class="vibe-btn studio" onclick="setVibe('studio')" title="Classic Studio (Editorial)"></button>
-        </div>
       </div>
 
-      <!-- Derecha: Acciones agrupadas con botones llenos de vida -->
       <div class="nav-right-actions">
-        <div class="pills-group">
-          <!-- Ver Proyectos -> Google Drive -->
-          <a href="https://drive.google.com/drive/folders/1i5rMRfMymMEiQYe4cggkSXRqVbqcLTlO?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pill-link pill-drive" title="Abrir carpeta completa en Google Drive">
-            <span>✦ Ver Proyectos ↗</span>
-          </a>
-          <!-- Videos/reels -> Desplazamiento a carrusel -->
-          <a href="#videos" class="pill-link pill-videos" title="Ver edición de videos">
-            <span>🎬 Videos / reels</span>
-          </a>
-          <!-- Curriculum -> Descarga de PDF -->
-          <a href="assets/cv/CV_Fabricio_Jeremy_Albarracin.pdf" download class="pill-link pill-cv" title="Descargar Curriculum Vitae en PDF" onclick="if(typeof window.gtag==='function') window.gtag('event','download_cv',{'location':'top_navbar'});">
-            <span>📄 curriculum 📥</span>
-          </a>
-        </div>
-
-        <!-- Botón Grande CONTACTAME WhatsApp -->
-        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar" target="_blank" rel="noopener noreferrer" class="btn-top-contactame" onclick="if(typeof window.gtag==='function') window.gtag('event','click_whatsapp',{'location':'top_navbar'});">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-          </svg>
-          CONTACTAME
+        <a href="#videos" class="mirror-pill">
+          <span>🎬 Videos / reels</span>
         </a>
 
-        <!-- Logo LinkedIn Oficial -->
-        <a href="https://www.linkedin.com/in/fabricio-sotelo-89347826a/" target="_blank" rel="noopener noreferrer" class="btn-top-linkedin" title="Visitar mi perfil en LinkedIn">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
-          </svg>
+        <a href="file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/cv/CV_Fabricio_Albarracin_Sotelo.pdf" target="_blank" class="mirror-pill premium-cv-btn">
+          <span>📄 curriculum 📥</span>
+        </a>
+
+        <!-- Botón Espejo Verde Vibrante CONTACTAME -->
+        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="mirror-btn-contactame">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.825z"/></svg>
+          <span>CONTACTAME</span>
+        </a>
+
+        <!-- LinkedIn Espejo -->
+        <a href="https://linkedin.com" target="_blank" class="btn-mirror-linkedin" title="LinkedIn">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
       </div>
+
     </nav>
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         2. HEADER: HERO PERFIL, BIO & SELLO GIRATORIO
-         ═════════════════════════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════════
+         HERO SECTION: INTRODUCCIÓN RESUMIDA & SELLO GIRATORIO
+         ═══════════════════════════════════════════════════════════════════ -->
     <header class="header-section">
+      
       <div class="profile-info">
-        <!-- Radar de estado activo -->
+        <!-- Badge Verde Espejo -->
         <div class="status-radar-pill">
           <span class="radar-dot"></span>
-          DISPONIBLE PARA PROYECTOS B2B &amp; NUEVOS RETOS
+          <span>DISPONIBLE PARA PROYECTOS B2B & NUEVOS RETOS</span>
         </div>
 
-        <h1>• <span class="gradient-text">Estudiante de marketing</span></h1>
+        <!-- Título Principal -->
+        <h1>
+          <span>▪ Estudiante</span> <span class="gradient-text">de marketing</span>
+        </h1>
+
+        <!-- Introducción Resumida y Limpia -->
         <p class="profile-bio">
-          Estudiante de último ciclo de Marketing con experiencia práctica en gestión B2B, prospección de leads y manejo de sistema CRM y ERP análisis de KPIs, con conocimientos en marketing digital, Meta Ads, con 4 años en rubro textil en el área de producción y calidad, conocimiento de estándares, Busco ampliar mis conocimientos en área comercial o digital.
+          Estudiante de Marketing con experiencia práctica en <strong>gestión B2B, prospección CRM</strong> (Salesforce, HubSpot) y <strong>creación de contenido audiovisual de alto impacto</strong> (TikTok, Reels, CapCut). Cuenta con 4 años de rigor operativo textil aportando <strong>disciplina técnica, orden y cumplimiento de metas</strong> en entornos comerciales y digitales.
         </p>
       </div>
 
-      <!-- Sello Creativo Giratorio de Estudio -->
-      <div class="rotating-studio-seal" aria-hidden="true" title="Fabricio Sotelo · Creative Marketing">
+      <!-- Sello Giratorio de Agencia B2B -->
+      <div class="rotating-studio-seal">
         <svg viewBox="0 0 100 100">
           <defs>
-            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+            <path id="sealPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
           </defs>
-          <text font-size="9.2" font-weight="800" letter-spacing="1.8">
-            <textPath href="#circlePath">
-              ✦ FABRICIO SOTELO ✦ MARKETING B2B ✦ VIDEO &amp; ADS
+          <text font-size="8.8" font-weight="800" letter-spacing="2.2">
+            <textPath xlink:href="#sealPath" startOffset="50%" text-anchor="middle">
+              MARKETING B2B · FABRICIO SOTELO ·
             </textPath>
           </text>
         </svg>
-        <span class="seal-center-icon">✦</span>
+        <div class="seal-center-icon">✦</div>
       </div>
+
     </header>
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         3. SECCIÓN 3 COLUMNAS: VIDEOS IA, VIDEOS EDIT, FLYERS / STORIES
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="videos-section" id="videos">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         VIDEOS EN VIVO: 3 COLUMNAS ESPEJO + BURBUJAS 1, 2, 3 ACOPLADAS
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="videos" class="videos-section">
+      
       <div class="video-columns-grid">
-
-        <!-- COLUMNA 1: Videos IA (Acento Violeta / Cian) -->
+        
+        <!-- COLUMNA 1: VIDEOS IA -->
         <div class="video-col col-ia">
           <div class="col-header">
             <h2 class="col-title">Videos IA</h2>
             <span class="col-tag tag-ia">✦ IA Generativa</span>
           </div>
 
-          <div class="video-card-vibrant" id="cardIA">
-            <!-- Flechas interactivas de cambio -->
-            <button class="carousel-arrow prev" onclick="stepCarousel('IA', -1)" aria-label="Video anterior">←</button>
-            <button class="carousel-arrow next" onclick="stepCarousel('IA', 1)" aria-label="Siguiente video">→</button>
-
+          <div class="video-card-mirror" id="card-ia">
+            
             <div class="video-player-frame">
-              <video id="videoIA" controls playsinline preload="auto" src="assets/videos/Generate_a_cinematic_advertisi.mp4">
-                <source src="assets/videos/Generate_a_cinematic_advertisi.mp4" type="video/mp4">
-              </video>
+              <video id="video-ia" loop playsinline muted autoplay src="file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20ia/1.mp4"></video>
             </div>
-            <div class="card-play-overlay" id="overlayIA" onclick="playVideo('videoIA', 'overlayIA')" title="Reproducir video">
+
+            <!-- Overlay Play Button -->
+            <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-ia').src, 'Videos IA — Spot Cinemático')">
               <div class="play-circle">▶</div>
-              <div class="badge-metrics">
-                <div class="audio-wave-bars">
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                </div>
-                <span>Edición Dinámica &amp; Métricas</span>
-              </div>
+            </div>
+
+            <!-- Pill Info Inferior -->
+            <div class="video-bottom-info">
+              <div class="audio-dots"><span></span><span></span><span></span></div>
+              <span id="label-ia">Spot Cinemático 16:9 · Dirección Visual</span>
             </div>
           </div>
 
-          <!-- Selector de spots IA -->
-          <div class="col-video-selector" id="pillsIA">
-            <button class="video-switch-btn active" onclick="setSlideIA(0)">Spot 1</button>
-            <button class="video-switch-btn" onclick="setSlideIA(1)">Spot 2</button>
-            <button class="video-switch-btn" onclick="setSlideIA(2)">Spot 3</button>
+          <!-- Burbujas DEBAJO de la tarjeta -->
+          <div class="video-bubbles-bar" id="bubbles-ia">
+            <button class="video-bubble active" onclick="jumpToVideo('ia', 0)">1</button>
+            <button class="video-bubble" onclick="jumpToVideo('ia', 1)">2</button>
+            <button class="video-bubble" onclick="jumpToVideo('ia', 2)">3</button>
+            <button class="video-bubble" onclick="jumpToVideo('ia', 3)">4</button>
           </div>
-          <p class="col-description" id="descIA">Spot Cinematográfico 16:9 con composición visual refinada.</p>
         </div>
 
-        <!-- COLUMNA 2: Videos edit (Acento Ámbar / Fuego - SIN PITCH B2B REPETIDO) -->
+        <!-- COLUMNA 2: VIDEOS EDIT -->
         <div class="video-col col-edit">
           <div class="col-header">
             <h2 class="col-title">Videos edit</h2>
             <span class="col-tag tag-edit">🔥 Ritmo &amp; Retención</span>
           </div>
 
-          <div class="video-card-vibrant" id="cardEdit">
-            <!-- Flechas interactivas de cambio -->
-            <button class="carousel-arrow prev" onclick="stepCarousel('Edit', -1)" aria-label="Video anterior">←</button>
-            <button class="carousel-arrow next" onclick="stepCarousel('Edit', 1)" aria-label="Siguiente video">→</button>
-
+          <div class="video-card-mirror" id="card-edit">
+            
             <div class="video-player-frame">
-              <video id="videoEdit" controls playsinline preload="auto" src="assets/videos/1.mp4">
-                <source src="assets/videos/1.mp4" type="video/mp4">
-              </video>
+              <video id="video-edit" loop playsinline muted autoplay src="file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20edit/1.mp4"></video>
             </div>
-            <div class="card-play-overlay" id="overlayEdit" onclick="playVideo('videoEdit', 'overlayEdit')" title="Reproducir video">
+
+            <!-- Overlay Play Button -->
+            <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-edit').src, 'Videos Edit — Edición Dinámica')">
               <div class="play-circle">▶</div>
-              <div class="badge-metrics">
-                <div class="audio-wave-bars">
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                </div>
-                <span>Edición Dinámica &amp; Métricas</span>
-              </div>
+            </div>
+
+            <div class="video-bottom-info">
+              <div class="audio-dots"><span></span><span></span><span></span></div>
+              <span id="label-edit">Cortes Comerciales de Alto Impacto</span>
             </div>
           </div>
 
-          <!-- Selector de videos edit (5 videos ordenados del 1 al 5) -->
-          <div class="col-video-selector" id="pillsEdit">
-            <button class="video-switch-btn active" onclick="setSlideEdit(0)">Edit 01</button>
-            <button class="video-switch-btn" onclick="setSlideEdit(1)">Edit 02</button>
-            <button class="video-switch-btn" onclick="setSlideEdit(2)">Edit 03</button>
-            <button class="video-switch-btn" onclick="setSlideEdit(3)">Edit 04</button>
-            <button class="video-switch-btn" onclick="setSlideEdit(4)">Edit 05</button>
+          <!-- Burbujas DEBAJO de la tarjeta -->
+          <div class="video-bubbles-bar" id="bubbles-edit">
+            <button class="video-bubble active" onclick="jumpToVideo('edit', 0)">1</button>
+            <button class="video-bubble" onclick="jumpToVideo('edit', 1)">2</button>
+            <button class="video-bubble" onclick="jumpToVideo('edit', 2)">3</button>
+            <button class="video-bubble" onclick="jumpToVideo('edit', 3)">4</button>
           </div>
-          <p class="col-description" id="descEdit">Edición dinámica 01: Producto artesanal y detalle visual.</p>
         </div>
 
-        <!-- COLUMNA 3: Flyers / Stories (AMPLIABLE EN PANTALLA COMPLETA AL CLIC) -->
-        <div class="video-col col-flyers">
+        <!-- COLUMNA 3: REELS META ADS & TIKTOK -->
+        <div class="video-col col-reels">
           <div class="col-header">
-            <h2 class="col-title">Flyers / Stories</h2>
-            <span class="col-tag tag-flyers">🎨 Conversión Visual</span>
+            <h2 class="col-title">Reels &amp; Ads</h2>
+            <span class="col-tag tag-reels">⚡ Hook 3s &amp; Pauta</span>
           </div>
 
-          <div class="video-card-vibrant" id="cardFlyers">
-            <!-- Botón indicador de ampliar en esquina -->
-            <button class="card-zoom-badge" onclick="openFlyerLightbox()" title="Ver en pantalla completa">
-              <span>🔍 Ampliar</span>
-            </button>
-
-            <!-- Flechas interactivas de cambio -->
-            <button class="carousel-arrow prev" onclick="stepCarousel('Flyers', -1)" aria-label="Flyer anterior">←</button>
-            <button class="carousel-arrow next" onclick="stepCarousel('Flyers', 1)" aria-label="Siguiente flyer">→</button>
-
-            <!-- Al hacer clic en el frame o imagen se abre la pantalla completa -->
-            <div class="video-player-frame" id="frameFlyers" onclick="openFlyerLightbox()" title="Haz clic para ver en pantalla completa" style="cursor: pointer;">
-              <img id="imgFlyers" src="assets/proyectos/story.png" alt="Flyer preview">
+          <div class="video-card-mirror" id="card-reels">
+            
+            <div class="video-player-frame">
+              <video id="video-reels" loop playsinline muted autoplay src="file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/Reels/1.mp4"></video>
             </div>
-            <div class="card-play-overlay" id="overlayFlyers" style="pointer-events: none;">
-              <span class="badge-metrics" style="margin-top: auto; margin-bottom: 24px;">Diseño Gráfico &amp; Conversión</span>
+
+            <!-- Overlay Play Button -->
+            <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-reels').src, 'Reels &amp; Ads — Campaña Vertical')">
+              <div class="play-circle">▶</div>
+            </div>
+
+            <div class="video-bottom-info">
+              <div class="audio-dots"><span></span><span></span><span></span></div>
+              <span id="label-reels">Campaña Vertical 9:16 · Conversión</span>
             </div>
           </div>
 
-          <!-- Selector de flyers y stories -->
-          <div class="col-video-selector" id="pillsFlyers">
-            <button class="video-switch-btn active" onclick="setSlideFlyers(0)">Story 1</button>
-            <button class="video-switch-btn" onclick="setSlideFlyers(1)">Story 2</button>
-            <button class="video-switch-btn" onclick="setSlideFlyers(2)">Flyer 1</button>
-            <button class="video-switch-btn" onclick="setSlideFlyers(3)">Flyer 2</button>
+          <!-- Burbujas DEBAJO de la tarjeta -->
+          <div class="video-bubbles-bar" id="bubbles-reels">
+            <button class="video-bubble active" onclick="jumpToVideo('reels', 0)">1</button>
+            <button class="video-bubble" onclick="jumpToVideo('reels', 1)">2</button>
+            <button class="video-bubble" onclick="jumpToVideo('reels', 2)">3</button>
+            <button class="video-bubble" onclick="jumpToVideo('reels', 3)">4</button>
           </div>
-          <p class="col-description" id="descFlyers">Story creativo de elaboración artesanal Sweet Factory.</p>
         </div>
 
       </div>
+
     </section>
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         4. SECCIÓN SKILLS (3 TARJETAS CON VIDA Y DETALLE CROMÁTICO)
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="skills-section">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SECCIÓN DE CIERRE: SKILLS ESPEJO CRISTALINAS (TERMINA AQUÍ)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="skills" class="skills-section">
+      
       <h2 class="section-headline">
-        <span>Skills</span>
+        <span>Skills &amp; Competencias</span>
+        <span style="font-size: 1.2rem; color: #a855f7;">✦</span>
       </h2>
 
       <div class="skills-grid">
-        <!-- Card 1: Comercial -->
-        <div class="skill-card-box card-commercial">
-          <div class="skill-top-bar">
-            <span class="skill-tag">Comercial</span>
-            <div class="skill-icon-wrap">📊</div>
+        
+        <!-- Card 1: Comercial & CRM -->
+        <div class="mirror-card card-commercial">
+          <div>
+            <div class="skill-top-bar">
+              <span class="skill-tag">Comercial &amp; CRM</span>
+              <div class="skill-icon-wrap">📊</div>
+            </div>
+            <h3>Estrategia &amp; Ventas B2B</h3>
+            <p>Prospección de leads, gestión de embudos comerciales en Salesforce y HubSpot, Meta Ads, Meta Suite y email marketing enfocado en retorno.</p>
           </div>
-          <h3>Estrategia &amp; Ventas</h3>
-          <p>Análisis de mercado, embudos comerciales, conocimiento en Meta Ads, Meta Suite, canales digitales, CRM &amp; ERP.</p>
         </div>
 
         <!-- Card 2: Audiovisual -->
-        <div class="skill-card-box card-video">
+        <div class="mirror-card card-video">
+          <div>
+            <div class="skill-top-bar">
+              <span class="skill-tag">Audiovisual</span>
+              <div class="skill-icon-wrap">🎬</div>
+            </div>
+            <h3>Edición de Video Dinámica</h3>
+            <p>Creación de contenido para TikTok, Reels y Shorts con ritmo ágil, storytelling y ganchos en los primeros 3 segundos para frenar el scroll.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Datos & Automatización IA -->
+        <div class="mirror-card card-tech">
+          <div>
+            <div class="skill-top-bar">
+              <span class="skill-tag">Datos &amp; IA</span>
+              <div class="skill-icon-wrap">🤖</div>
+            </div>
+            <h3>Análisis en Excel &amp; Automatización IA</h3>
+            <p>Análisis de métricas y KPIs comerciales en Excel. Implementación de flujos asistidos con herramientas de Inteligencia Artificial.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: 4 Años Rigor Textil (Diferencial Clave a lo Ancho) -->
+        <div class="mirror-card card-wide">
           <div class="skill-top-bar">
-            <span class="skill-tag">Audiovisual</span>
-            <div class="skill-icon-wrap">🎬</div>
+            <span class="skill-tag" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);">
+              Diferencial Operativo
+            </span>
+            <div class="skill-icon-wrap">🧵</div>
           </div>
-          <h3>Edición de Video Dinámica</h3>
-          <p>Videos para Reels, TikTok y YouTube Shorts con ritmo ágil, storytelling y alta retención para enganchar a la audiencia.</p>
+          <h3>4 Años de Trayectoria en Supervisión &amp; Calidad Textil</h3>
+          <p>
+            Experiencia previa en supervisión de líneas de producción y procesos operativos de alta exigencia técnica en el rubro textil. Esta formación aporta <strong>disciplina técnica, orden estricto, adaptabilidad bajo presión</strong> y un enfoque inquebrantable en el cumplimiento de metas comerciales y operativas.
+          </p>
         </div>
 
-        <!-- Card 3: Web & Conversión -->
-        <div class="skill-card-box card-web">
-          <div class="skill-top-bar">
-            <span class="skill-tag">Web &amp; Conversión</span>
-            <div class="skill-icon-wrap">⚡</div>
-          </div>
-          <h3>Diseño Web &amp; Landing Pages</h3>
-          <p>Páginas modernas diseñadas en Figma y desarrolladas con código limpio para convertir visitantes en clientes.</p>
-        </div>
       </div>
+
     </section>
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         5. SECCIÓN "UN POCO DE MI" (TARJETA OSCURA CON PROFUNDIDAD)
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="about-me-section">
-      <div class="about-card-dark">
-        <h2>Un poco de mi ✦</h2>
-        <p class="about-lead">
-          Detrás de cada proyecto visual y estratégico, soy alguien guiado por la curiosidad y el detalle:
-        </p>
-
-        <div class="about-bullets">
-          <div class="about-bullet-item">
-            <span class="about-bullet-icon">⚡</span>
-            <div>
-              <strong>Lo que me mueve:</strong> Crear y transformar. Disfruto tanto armar un video digital con ritmo como cortar y reconstruir ropa a mano.
-            </div>
-          </div>
-          <div class="about-bullet-item">
-            <span class="about-bullet-icon">🧠</span>
-            <div>
-              <strong>Mi mentalidad:</strong> Autodidacta, analítico y disciplinado. Me gusta entender cómo funcionan las cosas por dentro, desde un algoritmo hasta una costura.
-            </div>
-          </div>
-          <div class="about-bullet-item">
-            <span class="about-bullet-icon">🎮</span>
-            <div>
-              <strong>Fuera del monitor:</strong> Fan de los universos bien contados (videojuegos, anime y literatura), el entrenamiento diario y las conversaciones con valor.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         6. SECCIÓN PROYECTOS (TODAS LAS 17 FOTOS AMPLIABLES EN LIGHTBOX)
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="projects-section" id="proyectos">
-      <div class="projects-header-row">
-        <div>
-          <h2 class="section-headline" style="margin-bottom: 4px;">Proyectos &amp; Trabajos Destacados</h2>
-          <p style="color: var(--ink-muted); font-size: 0.95rem;">Selección curada de identidad visual, producción artesanal y campañas comerciales.</p>
-        </div>
-        <div class="gallery-counter-pill">
-          <span>✦ 9 Trabajos Seleccionados · Clic para ampliar</span>
-        </div>
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER FINAL LIMPIO
+         ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div>
+        <strong>Fabricio Jeremy Albarracín Sotelo</strong> · Portafolio 2026
       </div>
 
-      <!-- Galería con los 9 proyectos seleccionados -->
-      <div class="gallery-grid" id="galleryContainer">
-
-        <!-- 1. Kuromi Amigurumi (2.jpg) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(0)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Tejido Artesanal</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/2.jpg" alt="Amigurumi Kuromi Tejido a Mano" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-textil">Tejido Artesanal</span>
-            <h4 class="gallery-card-title">Amigurumi Kuromi</h4>
-            <p class="gallery-card-desc">Tejido artesanal a mano · Producción y detalle visual</p>
-          </div>
-        </div>
-
-        <!-- 2. Colección Amigurumis (3.jpg) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(1)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Tejido Artesanal</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/3.jpg" alt="Colección Completa de Amigurumis" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-textil">Tejido Artesanal</span>
-            <h4 class="gallery-card-title">Colección de Amigurumis</h4>
-            <p class="gallery-card-desc">Catálogo de personajes tejidos para venta directa</p>
-          </div>
-        </div>
-
-        <!-- 3. Baby Yoda Amigurumi (4.jpg) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(2)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-textil">Tejido Artesanal</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/4.jpg" alt="Amigurumi Baby Yoda Tejido a Mano" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-textil">Tejido Artesanal</span>
-            <h4 class="gallery-card-title">Amigurumi Baby Yoda</h4>
-            <p class="gallery-card-desc">Modelado en crochet con técnica de volumen artesanal</p>
-          </div>
-        </div>
-
-        <!-- 4. FUSE Brand Identity (5.png) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(3)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE Apparel</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/5.png" alt="FUSE Apparel Brand Identity & Tags" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-fuse">FUSE Apparel</span>
-            <h4 class="gallery-card-title">Brand Identity &amp; Tags</h4>
-            <p class="gallery-card-desc">Etiquetas de marca, papelería y tarjetas comerciales</p>
-          </div>
-        </div>
-
-        <!-- 5. FUSE Packaging Gift Box (Gemini_Generated_Image_ (1).png) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(4)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">FUSE Apparel</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/Gemini_Generated_Image_%20(1).png" alt="FUSE Apparel Packaging & Gift Box" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-fuse">FUSE Apparel</span>
-            <h4 class="gallery-card-title">Packaging &amp; Luxury Gift Box</h4>
-            <p class="gallery-card-desc">Empaque premium con lazo y sello de cera para prendas</p>
-          </div>
-        </div>
-
-        <!-- 6. Campaña Agua EDYAL (Gemini_Generated_Image_.png) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(5)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-fuse">Campaña Comercial</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/Gemini_Generated_Image_.png" alt="Campaña Publicitaria Agua EDYAL" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-fuse">Campaña Comercial</span>
-            <h4 class="gallery-card-title">Campaña Agua EDYAL</h4>
-            <p class="gallery-card-desc">Creativo de conversión publicitaria y distribución FMCG</p>
-          </div>
-        </div>
-
-        <!-- 7. Sweet Factory Celebración (Gemini_Generated_Image_xrah6yxrah6yxrah.png) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(6)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/Gemini_Generated_Image_xrah6yxrah6yxrah.png" alt="Sweet Factory Pastelería Fina" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-sweet">Sweet Factory</span>
-            <h4 class="gallery-card-title">Pastelería Fina de Celebración</h4>
-            <p class="gallery-card-desc">Dirección fotográfica para repostería gourmet de lujo</p>
-          </div>
-        </div>
-
-        <!-- 8. Sweet Factory Haz tu Pedido (Gemini_Generated_Image_z5zsgvz5zsgvz5zs.png) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(7)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/Gemini_Generated_Image_z5zsgvz5zsgvz5zs.png" alt="Sweet Factory Haz tu Pedido Hoy" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-sweet">Sweet Factory</span>
-            <h4 class="gallery-card-title">Haz tu Pedido Hoy (Promoción)</h4>
-            <p class="gallery-card-desc">Flyer digital con llamado directo a reservas en WhatsApp</p>
-          </div>
-        </div>
-
-        <!-- 9. Sweet Factory Story Anticipación (story.png2.png) -->
-        <div class="gallery-card" onclick="openGalleryLightbox(8)" title="Clic para ver en tamaño completo">
-          <div class="gallery-card-img">
-            <span class="card-floating-badge badge-sweet">Sweet Factory</span>
-            <div class="expand-card-indicator">🔍 Ampliar</div>
-            <img src="assets/proyectos/story.png2.png" alt="Sweet Factory Story Reserva" loading="lazy">
-          </div>
-          <div class="gallery-card-info">
-            <span class="gallery-card-cat cat-sweet">Sweet Factory</span>
-            <h4 class="gallery-card-title">Story: Reserva con Anticipación</h4>
-            <p class="gallery-card-desc">Formato vertical 9:16 optimizado para pauta en Instagram</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         7. SECCIÓN CURRICULUM
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="cv-section" id="curriculum">
-      <div class="cv-download-banner">
-        <div>
-          <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 4px; color: var(--ink);">Curriculum Vitae</h3>
-          <p style="color: var(--ink-muted); font-size: 0.95rem;">Fabricio Jeremy Albarracín Sotelo · Marketing USIL &amp; Producción Textil B2B</p>
-        </div>
-        <a href="assets/cv/CV_Fabricio_Jeremy_Albarracin.pdf" download class="btn-download-cv" onclick="if(typeof window.gtag==='function') window.gtag('event','download_cv',{'location':'bottom_banner'});">
+      <div class="footer-actions">
+        <a href="file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/cv/CV_Fabricio_Albarracin_Sotelo.pdf" target="_blank" class="mirror-pill premium-cv-btn" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">
           Descargar CV (PDF) 📥
         </a>
+
+        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="mirror-btn-contactame" style="padding: 0.5rem 1.3rem; font-size: 0.82rem;">
+          WhatsApp 💬
+        </a>
       </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         8. BOTÓN GIGANTE "CONTÁCTATE" (DISCRETO, SIN EXPOSITOR DIRECTO DEL NÚMERO)
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="cta-giant-section">
-      <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar" target="_blank" rel="noopener noreferrer" class="btn-giant-contact" onclick="if(typeof window.gtag==='function') window.gtag('event','click_whatsapp',{'location':'giant_button'});">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        Contáctate 💬
-      </a>
-      <!-- Privacidad garantizada: no expone el número en texto plano -->
-      <p class="cta-subtext">Inicia una conversación directa · Respuesta inmediata</p>
-    </section>
-
-    <footer class="footer-note">
-      <p>Fabricio Albarracín · Portafolio 2026 · Diseñado para alta conversión</p>
     </footer>
 
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       LIGHTBOX MODAL (VISUALIZACIÓN COMPLETA PARA FLYERS Y FOTOS)
+       MODAL DE VIDEO FULLSCREEN CON AUDIO REAL
        ═══════════════════════════════════════════════════════════════════ -->
-  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Visualizador en pantalla completa">
-    <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Cerrar visor">✕</button>
-    <button class="lightbox-nav-btn prev" onclick="stepLightbox(-1)" aria-label="Imagen anterior">←</button>
-    <button class="lightbox-nav-btn next" onclick="stepLightbox(1)" aria-label="Siguiente imagen">→</button>
-
-    <div class="lightbox-content-wrap" onclick="event.stopPropagation()">
-      <img id="lightboxImg" class="lightbox-image" src="" alt="Vista en alta resolución">
-      <div class="lightbox-caption-bar">
-        <span id="lightboxBadge" class="lightbox-badge badge-fuse">Categoría</span>
-        <span id="lightboxTitle" class="lightbox-title">Título de la imagen</span>
-        <span id="lightboxCounter" class="lightbox-counter">(1 / 17)</span>
+  <div id="videoModal" onclick="closeFullscreenVideo()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeFullscreenVideo()">✕</button>
+      <div style="aspect-ratio: 9/16; width: 100%; background: #000;">
+        <video id="modalVideo" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+      </div>
+      <div style="padding: 1rem 1.2rem; background: #080a14; color: #fff;">
+        <h4 id="modalTitle" style="font-size: 0.95rem; font-weight: 800;">Video</h4>
+        <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Reproduciendo con audio</p>
       </div>
     </div>
   </div>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SCRIPTS: MOTOR DUAL DE FONDO & BURBUJAS DE VIDEO INTERACTIVAS
+       ═══════════════════════════════════════════════════════════════════ -->
   <script>
-    // ═══════════════════════════════════════════════════════════════════
-    // 1. SELECTOR DE VIBE / ATMÓSFERA DE COLOR DINÁMICA
-    // ═══════════════════════════════════════════════════════════════════
-    function setVibe(themeName) {
-      document.documentElement.setAttribute('data-theme', themeName);
-      document.querySelectorAll('.vibe-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.classList.contains(themeName));
-      });
-      try {
-        localStorage.setItem('fabricio_vibe', themeName);
-      } catch (e) {}
+    // ── 1. MOTOR DE FONDOS (LLUVIA ASCENDENTE DE ESTRELLAS) ──
+    let activeBgMode = 2;
+
+    function setBgMode(mode) {
+      const wrapper = document.querySelector('.space-canvas-wrapper');
+      const vignette = document.querySelector('.space-vignette');
+      
+      // TEMA OSCURO
+      document.body.classList.remove('theme-light-nature');
+      if (vignette) vignette.style.opacity = '1';
+
+      wrapper.style.background = `
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(56, 189, 248, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 60% at 80% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 65%),
+        #04060f`;
     }
 
-    try {
-      const saved = localStorage.getItem('fabricio_vibe');
-      if (saved) setVibe(saved);
-    } catch(e) {}
+    const canvas = document.getElementById('spaceCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H;
+    let meteors = [];
+    let dust = [];
+    let constellationStars = [];
+    let grass = [];         // Fondo 3: Pasto
+    let skyStars = [];      // Fondo 3: Estrellas estáticas
+    let fireflies = [];     // Fondo 3: Luciérnagas
+    let zenLeaves = [];     // Fondo 4: Hojas botánicas que caen
+    let zenMotes = [];      // Fondo 4: Partículas tenues de luz
+    let zenClouds = [];     // Fondo 4: Nubes suaves
+    let mouse = { x: -1000, y: -1000 };
 
-    // ═══════════════════════════════════════════════════════════════════
-    // 2. LUZ AMBIENTAL SUAVE QUE SIGUE EL MOUSE
-    // ═══════════════════════════════════════════════════════════════════
-    const glowEl = document.getElementById('mouseGlow');
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animateGlow() {
-      currentX += (mouseX - currentX) * 0.08;
-      currentY += (mouseY - currentY) * 0.08;
-      if (glowEl) {
-        glowEl.style.left = `${currentX}px`;
-        glowEl.style.top = `${currentY}px`;
-      }
-      requestAnimationFrame(animateGlow);
+    function resizeCanvas() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      initSpaceObjects();
     }
-    animateGlow();
 
-    // ═══════════════════════════════════════════════════════════════════
-    // 3. DATOS & LÓGICA DE LOS 3 CAROUSELS (PITCH B2B ELIMINADO)
-    // ═══════════════════════════════════════════════════════════════════
-    const slidesIA = [
-      { src: "assets/videos/Generate_a_cinematic_advertisi.mp4", desc: "Spot Cinematográfico 16:9 con composición visual refinada." },
-      { src: "assets/videos/haz_otro_y_anadele_esta_imagen.mp4", desc: "Variación creativa de anuncio publicitario con IA." },
-      { src: "assets/proyectos/video-1191845960677382.mp4", desc: "Corte publicitario dinámico de alta conversión comercial." }
-    ];
+    // ── Rayos de sol suaves y tranquilizantes (Komorebi / luz zen) ──
+    function drawZenSunrays(frame) {
+      ctx.save();
+      const sx = W * 0.85;
+      const sy = -40;
+      for (let i = 0; i < 4; i++) {
+        const baseAngle = Math.PI * 0.56 + (i * 0.14);
+        const wave = Math.sin(frame * 0.005 + i * 1.2) * 0.025;
+        const angle = baseAngle + wave;
+        const len = Math.max(W, H) * 1.4;
+        
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        ctx.lineTo(sx + Math.cos(angle - 0.07) * len, sy + Math.sin(angle - 0.07) * len);
+        ctx.lineTo(sx + Math.cos(angle + 0.07) * len, sy + Math.sin(angle + 0.07) * len);
+        ctx.closePath();
 
-    // 5 videos de edición dinámica (nueva secuencia actualizada)
-    const slidesEdit = [
-      { src: "assets/videos/1.mp4", desc: "Edición dinámica 01: Producto artesanal y detalle visual." },
-      { src: "assets/videos/2.mp4", desc: "Edición dinámica 02: Montaje de impacto y dinamismo comercial." },
-      { src: "assets/videos/3.mp4", desc: "Edición dinámica 03: Storytelling de marca y ritmo cinematográfico." },
-      { src: "assets/videos/4.mp4", desc: "Edición dinámica 04: Creatividad audiovisual y composición." },
-      { src: "assets/videos/5.mp4", desc: "Edición dinámica 05: Ritmo acelerado y retención publicitaria." }
-    ];
-
-    const slidesFlyers = [
-      { src: "assets/proyectos/story.png", title: "Elaboración Artesanal", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Story creativo de elaboración artesanal Sweet Factory." },
-      { src: "assets/proyectos/story.png2.png", title: "Reserva con Anticipación", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Story publicitario enfocado en pedidos anticipados." },
-      { src: "assets/proyectos/Gemini_Generated_Image_cr4clicr4clicr4c.png", title: "Ingredientes de Primera Calidad", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Flyer promocional: Selección de ingredientes de primera calidad." },
-      { src: "assets/proyectos/Gemini_Generated_Image_tg8v9atg8v9atg8v.png", title: "Momentos Dulces & Postres", cat: "Sweet Factory", badgeClass: "badge-sweet", desc: "Flyer promocional: Momentos dulces y postres para eventos." }
-    ];
-
-    let currentIdxIA = 0;
-    let currentIdxEdit = 0;
-    let currentIdxFlyers = 0;
-
-    function playVideo(videoId, overlayId) {
-      const vid = document.getElementById(videoId);
-      const overlay = document.getElementById(overlayId);
-      if (!vid) return;
-
-      // Pausar el otro video si está activo
-      const otherId = (videoId === 'videoIA') ? 'videoEdit' : 'videoIA';
-      const otherVid = document.getElementById(otherId);
-      if (otherVid && !otherVid.paused) {
-        otherVid.pause();
+        const grad = ctx.createLinearGradient(sx, sy, sx + Math.cos(angle) * (len * 0.65), sy + Math.sin(angle) * (len * 0.65));
+        const alpha = 0.035 + 0.015 * Math.sin(frame * 0.008 + i * 1.5);
+        grad.addColorStop(0, `rgba(254, 240, 138, ${alpha * 1.6})`);
+        grad.addColorStop(0.5, `rgba(240, 253, 244, ${alpha})`);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.fillStyle = grad;
+        ctx.fill();
       }
+      ctx.restore();
+    }
 
-      if (vid.paused) {
-        const playPromise = vid.play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => {
-            if (overlay) overlay.classList.add('is-hidden');
-            if (typeof window.gtag === 'function') {
-              window.gtag('event', 'video_play', { 'video_id': videoId });
-            }
-          }).catch(err => {
-            console.warn('Reproducción con audio restringida, reintentando:', err);
-            vid.muted = true;
-            vid.play().then(() => {
-              if (overlay) overlay.classList.add('is-hidden');
-            }).catch(e => {
-              console.error('Error al reproducir video:', e);
-            });
-          });
-        }
+    // ── Hojas botánicas realistas con caída suave y vaivén 3D ──
+    function drawBotanicalLeaf(leaf, frame) {
+      const flip = Math.cos(frame * leaf.flipSpeed + leaf.flipPhase);
+      const swingX = Math.sin(frame * leaf.swingSpeed + leaf.swing) * leaf.swingAmp;
+
+      ctx.save();
+      ctx.translate(leaf.x + swingX, leaf.y);
+      ctx.rotate(leaf.angle);
+      ctx.scale(Math.abs(flip) * 0.82 + 0.18, 1);
+      ctx.globalAlpha = leaf.alpha;
+
+      const s = leaf.size;
+      ctx.beginPath();
+      if (leaf.type === 0) {
+        // Hoja lanceolada / olivo
+        ctx.moveTo(0, -s * 1.2);
+        ctx.bezierCurveTo(s * 0.5, -s * 0.5, s * 0.5, s * 0.5, 0, s * 1.1);
+        ctx.bezierCurveTo(-s * 0.5, s * 0.5, -s * 0.5, -s * 0.5, 0, -s * 1.2);
+      } else if (leaf.type === 1) {
+        // Hoja oval / abedul
+        ctx.moveTo(0, -s);
+        ctx.bezierCurveTo(s * 0.8, -s * 0.35, s * 0.75, s * 0.55, 0, s);
+        ctx.bezierCurveTo(-s * 0.75, s * 0.55, -s * 0.8, -s * 0.35, 0, -s);
       } else {
-        vid.pause();
-        if (overlay) overlay.classList.remove('is-hidden');
+        // Hoja suave de té / ginkgo
+        ctx.moveTo(0, s * 0.75);
+        ctx.bezierCurveTo(s * 0.85, s * 0.15, s * 0.75, -s * 0.8, 0, -s * 0.5);
+        ctx.bezierCurveTo(-s * 0.75, -s * 0.8, -s * 0.85, s * 0.15, 0, s * 0.75);
+      }
+      ctx.fillStyle = leaf.color;
+      ctx.fill();
+
+      // Nervadura central delicada
+      ctx.beginPath();
+      ctx.moveTo(0, -s * 0.85);
+      ctx.lineTo(0, s * 0.85);
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.14)';
+      ctx.lineWidth = 0.85;
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function initSpaceObjects() {
+      // ── MODO 2: LLUVIA ASCENDENTE ──
+      meteors = [];
+      const meteorCount = 18;
+      for (let i = 0; i < meteorCount; i++) {
+        meteors.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          len: Math.random() * 75 + 40,
+          speed: Math.random() * 4.5 + 2.5,
+          width: Math.random() * 1.5 + 0.6,
+          alpha: Math.random() * 0.7 + 0.25,
+          tilt: (Math.random() - 0.5) * 0.15
+        });
+      }
+      dust = [];
+      const dustCount = Math.floor((W * H) / 12000);
+      for (let i = 0; i < dustCount; i++) {
+        dust.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.2 + 0.3,
+          speed: Math.random() * 0.6 + 0.2,
+          alpha: Math.random() * 0.5 + 0.2,
+          pulse: Math.random() * Math.PI * 2
+        });
+      }
+
+      // ── MODO 1: CONSTELACIONES ──
+      constellationStars = [];
+      const cCount = Math.floor((W * H) / 9500);
+      for (let i = 0; i < cCount; i++) {
+        constellationStars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.4 + 0.3,
+          baseAlpha: Math.random() * 0.55 + 0.25,
+          twinkleSpeed: Math.random() * 0.02 + 0.005,
+          phase: Math.random() * Math.PI * 2,
+          dx: (Math.random() - 0.5) * 0.22,
+          dy: (Math.random() - 0.5) * 0.18
+        });
+      }
+
+      // ── MODO 3: NATURALEZA (CIELO Y PASTO) ──
+      grass = [];
+      const grassCount = Math.floor(W / 4.5);
+      for (let i = 0; i < grassCount; i++) {
+        grass.push({
+          x: Math.random() * W,
+          height: Math.random() * 90 + 50,
+          width: Math.random() * 3 + 2.5,
+          swaySpeed: Math.random() * 0.015 + 0.008,
+          swayAmount: Math.random() * 35 + 15,
+          phase: Math.random() * Math.PI * 2,
+          color: `hsla(${Math.random() * 35 + 100}, ${Math.random() * 30 + 50}%, ${Math.random() * 20 + 15}%, 0.85)`
+        });
+      }
+
+      skyStars = [];
+      const sCount = Math.floor((W * H) / 10000);
+      for (let i = 0; i < sCount; i++) {
+        skyStars.push({
+          x: Math.random() * W,
+          y: Math.random() * (H * 0.65),
+          r: Math.random() * 1.2 + 0.3,
+          alpha: Math.random(),
+          twinkle: Math.random() * 0.05
+        });
+      }
+
+      fireflies = [];
+      const ffCount = 35;
+      for (let i = 0; i < ffCount; i++) {
+        fireflies.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 2.2 + 1,
+          phase: Math.random() * Math.PI * 2,
+          phaseSpeed: Math.random() * 0.04 + 0.015,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.35,
+          hue: Math.random() > 0.4 ? 105 : 62
+        });
+      }
+
+      // ── MODO 4: NATURALEZA SERENA CON HOJAS BOTÁNICAS QUE CAEN Y LUZ ZEN ──
+      zenLeaves = [];
+      const leafCount = 48;
+      const leafColors = [
+        'rgba(34, 197, 94, 0.72)',   // Verde hoja viva
+        'rgba(74, 222, 128, 0.68)',  // Verde claro suave
+        'rgba(16, 185, 129, 0.65)',  // Esmeralda natural
+        'rgba(132, 204, 22, 0.7)',   // Verde oliva lima
+        'rgba(234, 179, 8, 0.65)',   // Dorado cálido
+        'rgba(245, 158, 11, 0.65)',  // Ámbar suave
+        'rgba(217, 119, 6, 0.6)'     // Terracota otoñal tenue
+      ];
+      for (let i = 0; i < leafCount; i++) {
+        zenLeaves.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          size: Math.random() * 8 + 8, // 8 a 16px
+          vy: Math.random() * 0.8 + 0.5, // Caída muy suave y tranquila
+          vx: (Math.random() - 0.5) * 0.45,
+          angle: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.02,
+          flipPhase: Math.random() * Math.PI * 2,
+          flipSpeed: Math.random() * 0.025 + 0.01,
+          swing: Math.random() * Math.PI * 2,
+          swingSpeed: Math.random() * 0.018 + 0.008,
+          swingAmp: Math.random() * 25 + 12,
+          type: Math.floor(Math.random() * 3),
+          color: leafColors[Math.floor(Math.random() * leafColors.length)],
+          alpha: Math.random() * 0.35 + 0.45
+        });
+      }
+
+      zenMotes = [];
+      const moteCount = 35;
+      for (let i = 0; i < moteCount; i++) {
+        zenMotes.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.6 + 0.6,
+          vy: -(Math.random() * 0.3 + 0.1),
+          vx: (Math.random() - 0.5) * 0.25,
+          alpha: Math.random() * 0.35 + 0.15,
+          pulse: Math.random() * Math.PI * 2
+        });
+      }
+
+      zenClouds = [];
+      const cloudCount = 5;
+      for (let i = 0; i < cloudCount; i++) {
+        zenClouds.push({
+          x: Math.random() * W,
+          y: Math.random() * (H * 0.45) - 100, // Nubes en la parte superior
+          speed: Math.random() * 0.25 + 0.1,
+          scale: Math.random() * 0.8 + 0.5,
+          opacity: Math.random() * 0.3 + 0.15,
+          puffs: [
+            { ox: 0, oy: 0, r: Math.random() * 40 + 50 },
+            { ox: -40, oy: 10, r: Math.random() * 30 + 40 },
+            { ox: 45, oy: 5, r: Math.random() * 35 + 45 },
+            { ox: -75, oy: 20, r: Math.random() * 25 + 30 },
+            { ox: 80, oy: 15, r: Math.random() * 20 + 35 }
+          ]
+        });
       }
     }
 
-    // Sincronización automática de eventos de video nativos
-    function initVideoSync() {
-      const pairs = [
-        { vidId: 'videoIA', overlayId: 'overlayIA' },
-        { vidId: 'videoEdit', overlayId: 'overlayEdit' }
-      ];
+    let frame = 0;
+    function renderSpace() {
+      ctx.clearRect(0, 0, W, H);
+      frame++;
 
-      pairs.forEach(({ vidId, overlayId }) => {
-        const vid = document.getElementById(vidId);
-        const overlay = document.getElementById(overlayId);
-        if (!vid) return;
-
-        vid.addEventListener('play', () => {
-          if (overlay) overlay.classList.add('is-hidden');
+      if (activeBgMode === 2) {
+        // ── RENDER FONDO 2: LLUVIA ASCENDENTE ──
+        dust.forEach(d => {
+          d.y -= d.speed;
+          d.pulse += 0.02;
+          if (d.y < -10) { d.y = H + 10; d.x = Math.random() * W; }
+          const currentAlpha = d.alpha * (0.65 + 0.35 * Math.sin(d.pulse));
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(186, 215, 255, ${currentAlpha})`;
+          ctx.fill();
         });
 
-        vid.addEventListener('pause', () => {
-          if (overlay) overlay.classList.remove('is-hidden');
-        });
-
-        vid.addEventListener('ended', () => {
-          if (overlay) overlay.classList.remove('is-hidden');
-        });
-
-        // Clic directo sobre el video alterna reproducción
-        vid.addEventListener('click', (e) => {
-          const rect = vid.getBoundingClientRect();
-          const clickY = e.clientY - rect.top;
-          if (clickY < rect.height - 45) {
-            playVideo(vidId, overlayId);
+        meteors.forEach(m => {
+          m.y -= m.speed;
+          m.x += m.tilt * m.speed;
+          if (m.y < -m.len) {
+            m.y = H + m.len + Math.random() * 80;
+            m.x = Math.random() * W;
+            m.speed = Math.random() * 4.5 + 2.5;
+            m.alpha = Math.random() * 0.7 + 0.25;
           }
+          const grad = ctx.createLinearGradient(m.x, m.y + m.len, m.x, m.y);
+          grad.addColorStop(0, 'rgba(56, 189, 248, 0)');
+          grad.addColorStop(0.5, `rgba(129, 140, 248, ${m.alpha * 0.5})`);
+          grad.addColorStop(1, `rgba(255, 255, 255, ${m.alpha})`);
+          ctx.beginPath();
+          ctx.moveTo(m.x - m.tilt * m.len, m.y + m.len);
+          ctx.lineTo(m.x, m.y);
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = m.width;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(m.x, m.y, m.width * 1.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${m.alpha * 0.95})`;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = '#38bdf8';
+          ctx.fill();
+          ctx.shadowBlur = 0;
         });
+
+      } else if (activeBgMode === 1) {
+        // ── RENDER FONDO 1: CONSTELACIONES ──
+        for (let i = 0; i < constellationStars.length; i++) {
+          for (let j = i + 1; j < constellationStars.length; j++) {
+            const dist = Math.hypot(constellationStars[i].x - constellationStars[j].x, constellationStars[i].y - constellationStars[j].y);
+            if (dist < 110) {
+              const lineAlpha = (1 - dist / 110) * 0.15;
+              ctx.beginPath();
+              ctx.moveTo(constellationStars[i].x, constellationStars[i].y);
+              ctx.lineTo(constellationStars[j].x, constellationStars[j].y);
+              ctx.strokeStyle = `rgba(165, 195, 255, ${lineAlpha})`;
+              ctx.lineWidth = 0.65;
+              ctx.stroke();
+            }
+          }
+          const mouseDist = Math.hypot(constellationStars[i].x - mouse.x, constellationStars[i].y - mouse.y);
+          if (mouseDist < 140) {
+            const mouseLineAlpha = (1 - mouseDist / 140) * 0.28;
+            ctx.beginPath();
+            ctx.moveTo(constellationStars[i].x, constellationStars[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(129, 140, 248, ${mouseLineAlpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+        constellationStars.forEach(s => {
+          s.x += s.dx; s.y += s.dy;
+          if (s.x < 0) s.x = W; if (s.x > W) s.x = 0;
+          if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
+          const twinkle = 0.6 + 0.4 * Math.sin(frame * s.twinkleSpeed + s.phase);
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(224, 238, 255, ${s.baseAlpha * twinkle})`;
+          ctx.fill();
+        });
+
+      } else if (activeBgMode === 3) {
+        // ── RENDER FONDO 3: CIELO Y PASTO ──
+
+        // 1. Estrellas en el cielo
+        skyStars.forEach(s => {
+          s.alpha += Math.sin(frame * s.twinkle) * 0.05;
+          const a = Math.max(0, Math.min(1, s.alpha));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${a})`;
+          ctx.fill();
+        });
+
+        // 2. Luciérnagas parpadeantes
+        fireflies.forEach(f => {
+          f.phase += f.phaseSpeed;
+          f.x += f.vx + Math.sin(f.phase * 0.7) * 0.3;
+          f.y += f.vy + Math.cos(f.phase * 0.5) * 0.25;
+          if (f.x < 0) f.x = W; if (f.x > W) f.x = 0;
+          if (f.y < 0) f.y = H; if (f.y > H) f.y = 0;
+          const glow = 0.3 + 0.7 * Math.abs(Math.sin(f.phase));
+          const alpha = glow * 0.85;
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r * 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${f.hue}, 90%, 65%, ${glow * 0.12})`;
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${f.hue}, 95%, 80%, ${alpha})`;
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = `hsl(${f.hue}, 90%, 65%)`;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        });
+
+        // 3. Pasto en movimiento (dibujado desde la base H)
+        grass.forEach(g => {
+          const sway = Math.sin(frame * g.swaySpeed + g.phase) * g.swayAmount;
+          ctx.beginPath();
+          ctx.moveTo(g.x, H + 10);
+          ctx.quadraticCurveTo(g.x + sway / 2, H - g.height / 2, g.x + sway, H - g.height);
+          ctx.quadraticCurveTo(g.x + sway / 2 + g.width, H - g.height / 2, g.x + g.width * 1.5, H + 10);
+          ctx.fillStyle = g.color;
+          ctx.fill();
+        });
+
+      } else if (activeBgMode === 4) {
+        // ── RENDER FONDO 4: NATURALEZA SERENA (NUBES, COLINAS, RAYOS DE LUZ & HOJAS) ──
+
+        // 1. Colinas verdes (Paisaje sereno)
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(0, H);
+        ctx.lineTo(0, H * 0.85);
+        ctx.bezierCurveTo(W * 0.3, H * 0.75, W * 0.7, H * 0.9, W, H * 0.8);
+        ctx.lineTo(W, H);
+        ctx.closePath();
+        let gradHill1 = ctx.createLinearGradient(0, H * 0.7, 0, H);
+        gradHill1.addColorStop(0, 'rgba(167, 243, 208, 0.4)');
+        gradHill1.addColorStop(1, 'rgba(52, 211, 153, 0.5)');
+        ctx.fillStyle = gradHill1;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(0, H);
+        ctx.lineTo(0, H * 0.9);
+        ctx.bezierCurveTo(W * 0.4, H * 0.95, W * 0.6, H * 0.82, W, H * 0.88);
+        ctx.lineTo(W, H);
+        ctx.closePath();
+        let gradHill2 = ctx.createLinearGradient(0, H * 0.8, 0, H);
+        gradHill2.addColorStop(0, 'rgba(110, 231, 183, 0.6)');
+        gradHill2.addColorStop(1, 'rgba(16, 185, 129, 0.7)');
+        ctx.fillStyle = gradHill2;
+        ctx.fill();
+        ctx.restore();
+
+        // 2. Nubes suaves en movimiento
+        zenClouds.forEach(cloud => {
+          cloud.x += cloud.speed;
+          if (cloud.x > W + 200 * cloud.scale) cloud.x = -200 * cloud.scale;
+
+          ctx.save();
+          ctx.translate(cloud.x, cloud.y);
+          ctx.scale(cloud.scale, cloud.scale);
+          ctx.fillStyle = `rgba(255, 255, 255, ${cloud.opacity})`;
+          
+          cloud.puffs.forEach(puff => {
+            ctx.beginPath();
+            ctx.arc(puff.ox, puff.oy, puff.r, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.restore();
+        });
+
+        // 3. Rayos suaves de sol matutino (Komorebi)
+        drawZenSunrays(frame);
+
+        // 4. Partículas tenues de polen / motes de luz dorada
+        zenMotes.forEach(m => {
+          m.y += m.vy;
+          m.x += m.vx;
+          m.pulse += 0.015;
+          if (m.y < -5) { m.y = H + 5; m.x = Math.random() * W; }
+          if (m.x < 0) m.x = W;
+          if (m.x > W) m.x = 0;
+          const a = m.alpha * (0.6 + 0.4 * Math.sin(m.pulse));
+          ctx.beginPath();
+          ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(16, 185, 129, ${a * 0.6})`;
+          ctx.fill();
+        });
+
+        // 3. Hojas botánicas que caen con balanceo suave y armonioso
+        zenLeaves.forEach(leaf => {
+          leaf.y += leaf.vy;
+          leaf.x += leaf.vx;
+          leaf.angle += leaf.rotSpeed;
+
+          // Reaparición suave al salir de la pantalla
+          if (leaf.y > H + 25) {
+            leaf.y = -25;
+            leaf.x = Math.random() * W;
+          }
+          if (leaf.x < -40) leaf.x = W + 30;
+          if (leaf.x > W + 40) leaf.x = -30;
+
+          drawBotanicalLeaf(leaf, frame);
+        });
+      }
+
+      requestAnimationFrame(renderSpace);
+    }
+
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    setBgMode(2);
+    renderSpace();
+
+    // ── 2. SEGUIMIENTO DE CURSOR GLOW ──
+    const cursorLight = document.getElementById('cursor-light');
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      requestAnimationFrame(() => {
+        cursorLight.style.left = `${e.clientX}px`;
+        cursorLight.style.top = `${e.clientY}px`;
+      });
+    });
+
+    // ── 3. PLAYLISTS & CAMBIO CON BURBUJAS 1, 2, 3 ACOPLADAS ──
+    const videoPlaylists = {
+      ia: [
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20ia/1.mp4', label: 'Spot Cinemático 16:9 · Dirección Visual' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20ia/2.mp4', label: 'Composición Publicitaria con IA' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20ia/3.mp4', label: 'Presentación Comercial IA' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20ia/4.mp4', label: 'Efectos Avanzados de Generación' }
+      ],
+      edit: [
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20edit/1.mp4', label: 'Cortes Comerciales de Alto Impacto' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20edit/2.mp4', label: 'Ritmo Acelerado & Sound Design' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20edit/3.mp4', label: 'Edición Dinámica · CapCut & Premiere' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/videos%20edit/4.mp4', label: 'Producto y Detalle de Calidad' }
+      ],
+      reels: [
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/Reels/1.mp4', label: 'Campaña Vertical 9:16 · Conversión' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/Reels/2.mp4', label: 'Hook en 3 Segundos · Retención' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/Reels/3.mp4', label: 'Formato TikTok / Reels de Pauta' },
+        { src: 'file:///C:/Users/Blues/OneDrive/Desktop/Flujo%20para%20figma/Reels/4.mp4', label: 'Micro-Contenido de Alto Rendimiento' }
+      ]
+    };
+
+    function jumpToVideo(category, index) {
+      const list = videoPlaylists[category];
+      if (index < 0 || index >= list.length) return;
+
+      const item = list[index];
+      const videoEl = document.getElementById(`video-${category}`);
+      const labelEl = document.getElementById(`label-${category}`);
+
+      videoEl.src = item.src;
+      videoEl.play();
+      labelEl.innerText = item.label;
+
+      // Actualizar estado activo de las burbujas
+      const bubblesContainer = document.getElementById(`bubbles-${category}`);
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+        b.classList.toggle('active', i === index);
       });
     }
-    initVideoSync();
 
-    // Columna IA
-    function setSlideIA(idx) {
-      currentIdxIA = (idx + slidesIA.length) % slidesIA.length;
-      const vid = document.getElementById('videoIA');
-      const desc = document.getElementById('descIA');
-      const overlay = document.getElementById('overlayIA');
+    // ── 4. MODAL FULLSCREEN DE VIDEO CON AUDIO ──
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalTitle = document.getElementById('modalTitle');
 
-      if (vid) {
-        vid.pause();
-        vid.currentTime = 0;
-        vid.src = slidesIA[currentIdxIA].src;
-        vid.load();
-        if (overlay) overlay.classList.remove('is-hidden');
-      }
-      if (desc) desc.textContent = slidesIA[currentIdxIA].desc;
-
-      const btns = document.querySelectorAll('#pillsIA .video-switch-btn');
-      btns.forEach((b, i) => b.classList.toggle('active', i === currentIdxIA));
+    function openFullscreenVideo(src, title) {
+      modalVideo.src = src;
+      modalTitle.innerText = title;
+      modal.classList.add('active');
+      modalVideo.play();
     }
 
-    // Columna Edit
-    function setSlideEdit(idx) {
-      currentIdxEdit = (idx + slidesEdit.length) % slidesEdit.length;
-      const vid = document.getElementById('videoEdit');
-      const desc = document.getElementById('descEdit');
-      const overlay = document.getElementById('overlayEdit');
-
-      if (vid) {
-        vid.pause();
-        vid.currentTime = 0;
-        vid.src = slidesEdit[currentIdxEdit].src;
-        vid.load();
-        if (overlay) overlay.classList.remove('is-hidden');
-      }
-      if (desc) desc.textContent = slidesEdit[currentIdxEdit].desc;
-
-      const btns = document.querySelectorAll('#pillsEdit .video-switch-btn');
-      btns.forEach((b, i) => b.classList.toggle('active', i === currentIdxEdit));
+    function closeFullscreenVideo() {
+      modalVideo.pause();
+      modalVideo.src = '';
+      modal.classList.remove('active');
     }
 
-    // Columna Flyers
-    function setSlideFlyers(idx) {
-      currentIdxFlyers = (idx + slidesFlyers.length) % slidesFlyers.length;
-      const img = document.getElementById('imgFlyers');
-      const desc = document.getElementById('descFlyers');
-
-      if (img) img.src = slidesFlyers[currentIdxFlyers].src;
-      if (desc) desc.textContent = slidesFlyers[currentIdxFlyers].desc;
-
-      const btns = document.querySelectorAll('#pillsFlyers .video-switch-btn');
-      btns.forEach((b, i) => b.classList.toggle('active', i === currentIdxFlyers));
-    }
-
-    // Flechas de carrusel
-    function stepCarousel(col, dir) {
-      if (col === 'IA') {
-        setSlideIA(currentIdxIA + dir);
-      } else if (col === 'Edit') {
-        setSlideEdit(currentIdxEdit + dir);
-      } else if (col === 'Flyers') {
-        setSlideFlyers(currentIdxFlyers + dir);
-      }
-    }
-
-    // ═══════════════════════════════════════════════════════════════════
-    // 4. DATOS DE LOS 9 PROYECTOS SELECCIONADOS & LIGHTBOX FULLSCREEN
-    // ═══════════════════════════════════════════════════════════════════
-    const galleryItems = [
-      { src: "assets/proyectos/2.jpg", cat: "Tejido Artesanal", badgeClass: "badge-textil", title: "Amigurumi Kuromi Tejido a Mano" },
-      { src: "assets/proyectos/3.jpg", cat: "Tejido Artesanal", badgeClass: "badge-textil", title: "Colección Completa de Amigurumis" },
-      { src: "assets/proyectos/4.jpg", cat: "Tejido Artesanal", badgeClass: "badge-textil", title: "Amigurumi Baby Yoda Tejido a Mano" },
-      { src: "assets/proyectos/5.png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Brand Identity & Tags" },
-      { src: "assets/proyectos/Gemini_Generated_Image_ (1).png", cat: "FUSE Apparel", badgeClass: "badge-fuse", title: "Packaging & Luxury Gift Box" },
-      { src: "assets/proyectos/Gemini_Generated_Image_.png", cat: "Campaña Comercial", badgeClass: "badge-fuse", title: "Campaña Publicitaria Agua EDYAL" },
-      { src: "assets/proyectos/Gemini_Generated_Image_xrah6yxrah6yxrah.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Pastelería Fina de Celebración" },
-      { src: "assets/proyectos/Gemini_Generated_Image_z5zsgvz5zsgvz5zs.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Haz tu Pedido Hoy (Promoción)" },
-      { src: "assets/proyectos/story.png2.png", cat: "Sweet Factory", badgeClass: "badge-sweet", title: "Story: Reserva con Anticipación" }
-    ];
-
-    let lightboxMode = 'gallery'; // 'gallery' o 'flyers'
-    let currentLightboxIdx = 0;
-
-    const modalEl = document.getElementById('lightboxModal');
-    const modalImg = document.getElementById('lightboxImg');
-    const modalBadge = document.getElementById('lightboxBadge');
-    const modalTitle = document.getElementById('lightboxTitle');
-    const modalCounter = document.getElementById('lightboxCounter');
-
-    function openFlyerLightbox() {
-      lightboxMode = 'flyers';
-      currentLightboxIdx = currentIdxFlyers;
-      renderLightbox();
-      modalEl.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function openGalleryLightbox(idx) {
-      lightboxMode = 'gallery';
-      currentLightboxIdx = idx;
-      renderLightbox();
-      modalEl.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function renderLightbox() {
-      const list = (lightboxMode === 'flyers') ? slidesFlyers : galleryItems;
-      const item = list[currentLightboxIdx];
-      if (!item) return;
-
-      modalImg.src = item.src;
-      modalTitle.textContent = item.title;
-      modalBadge.textContent = item.cat;
-      modalBadge.className = 'lightbox-badge ' + item.badgeClass;
-      modalCounter.textContent = `(${currentLightboxIdx + 1} de ${list.length})`;
-
-      // Evento de Analítica: Seguimiento del proyecto visualizado
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'view_project', {
-          'project_title': item.title,
-          'project_category': item.cat
-        });
-      }
-    }
-
-    function closeLightbox() {
-      modalEl.classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
-
-    function stepLightbox(dir) {
-      const list = (lightboxMode === 'flyers') ? slidesFlyers : galleryItems;
-      currentLightboxIdx = (currentLightboxIdx + dir + list.length) % list.length;
-      renderLightbox();
-    }
-
-    // Cerrar al hacer clic en el fondo
-    modalEl.addEventListener('click', (e) => {
-      if (e.target === modalEl) closeLightbox();
-    });
-
-    // Soporte para teclas de teclado: Escape, Flecha Izquierda, Flecha Derecha
     window.addEventListener('keydown', (e) => {
-      if (!modalEl.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') stepLightbox(-1);
-      if (e.key === 'ArrowRight') stepLightbox(1);
+      if (e.key === 'Escape') closeFullscreenVideo();
     });
 
     // ═══════════════════════════════════════════════════════════════════
-    // 5. SONIDO HÁPTICO AL CLIQUEAR (WEB AUDIO API) & MASCOTA CON CONFETI
+    // SONIDO HÁPTICO AL CLIQUEAR — IDÉNTICO AL PORTAFOLIO OFICIAL
     // ═══════════════════════════════════════════════════════════════════
-    let audioCtx = null;
-    function getAudioContext() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      return audioCtx;
+    let _audioCtx = null;
+    function _getAudioCtx() {
+      if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return _audioCtx;
     }
 
-    function playAthleticSfx(frequency, duration, type = 'sine', volume = 0.07) {
+    function playClickSfx() {
       try {
-        const ctx = getAudioContext();
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
+        const ctx = _getAudioCtx();
+        if (ctx.state === 'suspended') ctx.resume();
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
-        osc.type = type;
-        osc.frequency.setValueAtTime(frequency, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(frequency * 1.5, ctx.currentTime + duration);
-        gain.gain.setValueAtTime(volume, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(780, ctx.currentTime + 0.045);
+        gain.gain.setValueAtTime(0.06, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.045);
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start();
-        osc.stop(ctx.currentTime + duration);
-      } catch (err) {
-        // Audio opcional si el navegador requiere interacción previa
-      }
+        osc.stop(ctx.currentTime + 0.045);
+      } catch (e) { /* silencioso si el navegador bloquea */ }
     }
 
-    // Sonido táctil súper nítido al cliquear en cualquier parte de la página
+    // Escucha clicks en toda la página (excepto sobre controles nativos de video)
     window.addEventListener('mousedown', (e) => {
-      if (e.target.closest('video')) return; // No sonar sobre controles nativos de video
-      playAthleticSfx(520, 0.045, 'sine', 0.06);
+      if (e.target.closest('video')) return;
+      playClickSfx();
     });
-
-    // Cañón de confeti multicolor en Canvas puro
-    function launchConfetti(originX, originY) {
-      const canvas = document.createElement('canvas');
-      canvas.style.position = 'fixed';
-      canvas.style.inset = '0';
-      canvas.style.width = '100vw';
-      canvas.style.height = '100vh';
-      canvas.style.pointerEvents = 'none';
-      canvas.style.zIndex = '999999';
-      document.body.appendChild(canvas);
-
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const particles = [];
-      const colors = ['#E6FC04', '#FFFFFF', '#FF3B00', '#00F0FF', '#FDE68A', '#F59E0B', '#10B981', '#8B5CF6'];
-
-      for (let i = 0; i < 90; i++) {
-        particles.push({
-          x: originX || window.innerWidth - 120,
-          y: originY || window.innerHeight - 60,
-          vx: (Math.random() - 0.5) * 16,
-          vy: (Math.random() - 0.85) * 18,
-          size: Math.random() * 8 + 4,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          rotation: Math.random() * 360,
-          vRot: (Math.random() - 0.5) * 12,
-          alpha: 1,
-          gravity: 0.45
-        });
-      }
-
-      let animationFrame;
-      function updateConfetti() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        let active = 0;
-
-        particles.forEach(p => {
-          p.x += p.vx;
-          p.y += p.vy;
-          p.vy += p.gravity;
-          p.rotation += p.vRot;
-          p.alpha -= 0.012;
-
-          if (p.alpha > 0) {
-            active++;
-            ctx.save();
-            ctx.globalAlpha = p.alpha;
-            ctx.translate(p.x, p.y);
-            ctx.rotate((p.rotation * Math.PI) / 180);
-            ctx.fillStyle = p.color;
-            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
-            ctx.restore();
-          }
-        });
-
-        if (active > 0) {
-          animationFrame = requestAnimationFrame(updateConfetti);
-        } else {
-          cancelAnimationFrame(animationFrame);
-          canvas.remove();
-        }
-      }
-      updateConfetti();
-    }
-
-    // ═══════════════════════════════════════════════════════════════════
-    // 6. BOTÓN HYPE: RENDIMIENTO MÁXIMO (CONFETI & AUDIO TÁCTIL)
-    // ═══════════════════════════════════════════════════════════════════
-    const mascotPill = document.getElementById('mascot-pill');
-    const mascotText = document.getElementById('mascot-text');
-    let cheerIndex = 0;
-    const cheers = [
-      "¡Rendimiento Máximo! ⚡",
-      "¡Meta Ads en 3.8x! 🚀",
-      "Impossible is Nothing 🔥",
-      "¡A romper métricas! 🎯",
-      "Dirección Visual Activa 🎬",
-      "Storytelling de Alto Impacto ⚡",
-      "¡Conversión en cada clic! 💎"
-    ];
-
-    if (mascotPill) {
-      mascotPill.addEventListener('click', (e) => {
-        e.stopPropagation();
-        cheerIndex = (cheerIndex + 1) % cheers.length;
-        if (mascotText) mascotText.innerText = cheers[cheerIndex];
-
-        playAthleticSfx(660, 0.12, 'sine', 0.1);
-        setTimeout(() => playAthleticSfx(880, 0.15, 'sine', 0.1), 80);
-        launchConfetti(e.clientX, e.clientY);
-      });
-    }
   </script>
+
 </body>
 </html>
