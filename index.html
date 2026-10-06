@@ -1094,7 +1094,98 @@
       border-color: rgba(22, 163, 74, 0.3);
       color: #15803d;
     }
-  </style>
+        /* --- MEJORAS UX / UI --- */
+      /* Barra de progreso en burbujas */
+      .video-bubble {
+        position: relative;
+        overflow: hidden;
+      }
+      .video-bubble::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: var(--progress, 0%);
+        background: rgba(255,255,255,0.25);
+        transition: width 0.1s linear;
+        z-index: 0;
+      }
+      .video-bubble span {
+        position: relative;
+        z-index: 1;
+      }
+      body.theme-light-nature .video-bubble::before {
+        background: rgba(0,0,0,0.15);
+      }
+      
+      /* Tooltips Predictivos (Hover titles) */
+      .video-bubble::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: rgba(15, 23, 42, 0.95);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .video-bubble:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* Tilt 3D para tarjetas */
+      .video-card-mirror {
+        transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+        will-change: transform;
+        transform-style: preserve-3d;
+      }
+
+      /* Botón Sticky Flotante */
+      .sticky-fab {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: rgba(15, 23, 42, 0.85);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 999;
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-weight: 600;
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .sticky-fab:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+      }
+      .sticky-fab.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      body.theme-light-nature .sticky-fab {
+        background: #16a34a;
+        border-color: rgba(255,255,255,0.3);
+      }
+    </style>
   <!-- Microsoft Clarity Oficial -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -1102,6 +1193,87 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ykzadqlwvb");
+    // --- MEJORAS UX / UI (Instagram Stories + Tooltips + Tilt 3D + Sticky FAB) ---
+    
+    // 1. Añadir Tooltips (data-tooltip) dinámicamente a las burbujas
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const bubblesContainer = document.getElementById(ubbles-+cat);
+      if(!bubblesContainer) return;
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+         if(videoPlaylists[cat] && videoPlaylists[cat][i]) {
+            b.setAttribute('data-tooltip', videoPlaylists[cat][i].label);
+         }
+      });
+    });
+
+    // 2. Auto-Avance de Videos (Historias) y Barra de Progreso
+    const currentVideoIndex = { ia: 0, edit: 0, reels: 0 };
+    
+    // Modificar jumpToVideo para actualizar el index trackeado
+    const originalJump = jumpToVideo;
+    window.jumpToVideo = function(category, index) {
+      currentVideoIndex[category] = index;
+      originalJump(category, index);
+      // Resetear barra de progreso de las otras burbujas
+      document.querySelectorAll(#bubbles-+category+ .video-bubble).forEach(b => {
+         b.style.setProperty('--progress', '0%');
+      });
+    };
+
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const videoEl = document.getElementById(ideo-+cat);
+      if(!videoEl) return;
+      
+      // Actualizar progreso
+      videoEl.addEventListener('timeupdate', () => {
+         if(videoEl.duration) {
+            const progress = (videoEl.currentTime / videoEl.duration) * 100;
+            const activeBubble = document.querySelector(#bubbles-+cat+ .video-bubble.active);
+            if(activeBubble) {
+               activeBubble.style.setProperty('--progress', progress + '%');
+            }
+         }
+      });
+
+      // Saltar al siguiente al terminar
+      videoEl.addEventListener('ended', () => {
+         let nextIdx = currentVideoIndex[cat] + 1;
+         if(nextIdx >= videoPlaylists[cat].length) {
+            nextIdx = 0; // Vuelve al inicio (loop)
+         }
+         window.jumpToVideo(cat, nextIdx);
+      });
+    });
+
+    // 3. Efecto Tilt 3D suave en las tarjetas
+    document.querySelectorAll('.video-card-mirror').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4; // Max 4 grados
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        card.style.transform = perspective(1000px) rotateX(+rotateX+deg) rotateY(+rotateY+deg) scale3d(1.02, 1.02, 1.02);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+      });
+    });
+
+    // 4. Mostrar Sticky FAB al hacer scroll
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('sticky-fab');
+      if (window.scrollY > 400) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    });
+
   </script>
 
   <!-- Google tag (gtag.js) con Escudo Anti-Visitas Propias -->
@@ -1130,6 +1302,87 @@
     } else {
       gtag('config', 'G-PL6PV7LZWK');
     }
+    // --- MEJORAS UX / UI (Instagram Stories + Tooltips + Tilt 3D + Sticky FAB) ---
+    
+    // 1. Añadir Tooltips (data-tooltip) dinámicamente a las burbujas
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const bubblesContainer = document.getElementById(ubbles-+cat);
+      if(!bubblesContainer) return;
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+         if(videoPlaylists[cat] && videoPlaylists[cat][i]) {
+            b.setAttribute('data-tooltip', videoPlaylists[cat][i].label);
+         }
+      });
+    });
+
+    // 2. Auto-Avance de Videos (Historias) y Barra de Progreso
+    const currentVideoIndex = { ia: 0, edit: 0, reels: 0 };
+    
+    // Modificar jumpToVideo para actualizar el index trackeado
+    const originalJump = jumpToVideo;
+    window.jumpToVideo = function(category, index) {
+      currentVideoIndex[category] = index;
+      originalJump(category, index);
+      // Resetear barra de progreso de las otras burbujas
+      document.querySelectorAll(#bubbles-+category+ .video-bubble).forEach(b => {
+         b.style.setProperty('--progress', '0%');
+      });
+    };
+
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const videoEl = document.getElementById(ideo-+cat);
+      if(!videoEl) return;
+      
+      // Actualizar progreso
+      videoEl.addEventListener('timeupdate', () => {
+         if(videoEl.duration) {
+            const progress = (videoEl.currentTime / videoEl.duration) * 100;
+            const activeBubble = document.querySelector(#bubbles-+cat+ .video-bubble.active);
+            if(activeBubble) {
+               activeBubble.style.setProperty('--progress', progress + '%');
+            }
+         }
+      });
+
+      // Saltar al siguiente al terminar
+      videoEl.addEventListener('ended', () => {
+         let nextIdx = currentVideoIndex[cat] + 1;
+         if(nextIdx >= videoPlaylists[cat].length) {
+            nextIdx = 0; // Vuelve al inicio (loop)
+         }
+         window.jumpToVideo(cat, nextIdx);
+      });
+    });
+
+    // 3. Efecto Tilt 3D suave en las tarjetas
+    document.querySelectorAll('.video-card-mirror').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4; // Max 4 grados
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        card.style.transform = perspective(1000px) rotateX(+rotateX+deg) rotateY(+rotateY+deg) scale3d(1.02, 1.02, 1.02);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+      });
+    });
+
+    // 4. Mostrar Sticky FAB al hacer scroll
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('sticky-fab');
+      if (window.scrollY > 400) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    });
+
   </script>
 </head>
 <body>
@@ -1235,7 +1488,7 @@
           <div class="video-card-mirror" id="card-ia">
             
             <div class="video-player-frame">
-              <video id="video-ia" loop playsinline muted autoplay src="assets/videos_ia/1.mp4?v=6"></video>
+              <video id="video-ia" playsinline muted autoplay src="assets/videos_ia/1.mp4?v=6"></video>
             </div>
 
             <!-- Overlay Play Button -->
@@ -1270,7 +1523,7 @@
           <div class="video-card-mirror" id="card-edit">
             
             <div class="video-player-frame">
-              <video id="video-edit" loop playsinline muted autoplay src="assets/videos_edit/1.mp4?v=6"></video>
+              <video id="video-edit" playsinline muted autoplay src="assets/videos_edit/1.mp4?v=6"></video>
             </div>
 
             <!-- Overlay Play Button -->
@@ -1303,7 +1556,7 @@
           <div class="video-card-mirror" id="card-reels">
             
             <div class="video-player-frame">
-              <video id="video-reels" loop playsinline muted autoplay src="assets/reels/1.mp4?v=6"></video>
+              <video id="video-reels" playsinline muted autoplay src="assets/reels/1.mp4?v=6"></video>
             </div>
 
             <!-- Overlay Play Button -->
@@ -2029,7 +2282,94 @@
       if (e.target.closest('video')) return;
       playClickSfx();
     });
+    // --- MEJORAS UX / UI (Instagram Stories + Tooltips + Tilt 3D + Sticky FAB) ---
+    
+    // 1. Añadir Tooltips (data-tooltip) dinámicamente a las burbujas
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const bubblesContainer = document.getElementById(ubbles-+cat);
+      if(!bubblesContainer) return;
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+         if(videoPlaylists[cat] && videoPlaylists[cat][i]) {
+            b.setAttribute('data-tooltip', videoPlaylists[cat][i].label);
+         }
+      });
+    });
+
+    // 2. Auto-Avance de Videos (Historias) y Barra de Progreso
+    const currentVideoIndex = { ia: 0, edit: 0, reels: 0 };
+    
+    // Modificar jumpToVideo para actualizar el index trackeado
+    const originalJump = jumpToVideo;
+    window.jumpToVideo = function(category, index) {
+      currentVideoIndex[category] = index;
+      originalJump(category, index);
+      // Resetear barra de progreso de las otras burbujas
+      document.querySelectorAll(#bubbles-+category+ .video-bubble).forEach(b => {
+         b.style.setProperty('--progress', '0%');
+      });
+    };
+
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const videoEl = document.getElementById(ideo-+cat);
+      if(!videoEl) return;
+      
+      // Actualizar progreso
+      videoEl.addEventListener('timeupdate', () => {
+         if(videoEl.duration) {
+            const progress = (videoEl.currentTime / videoEl.duration) * 100;
+            const activeBubble = document.querySelector(#bubbles-+cat+ .video-bubble.active);
+            if(activeBubble) {
+               activeBubble.style.setProperty('--progress', progress + '%');
+            }
+         }
+      });
+
+      // Saltar al siguiente al terminar
+      videoEl.addEventListener('ended', () => {
+         let nextIdx = currentVideoIndex[cat] + 1;
+         if(nextIdx >= videoPlaylists[cat].length) {
+            nextIdx = 0; // Vuelve al inicio (loop)
+         }
+         window.jumpToVideo(cat, nextIdx);
+      });
+    });
+
+    // 3. Efecto Tilt 3D suave en las tarjetas
+    document.querySelectorAll('.video-card-mirror').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4; // Max 4 grados
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        card.style.transform = perspective(1000px) rotateX(+rotateX+deg) rotateY(+rotateY+deg) scale3d(1.02, 1.02, 1.02);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+      });
+    });
+
+    // 4. Mostrar Sticky FAB al hacer scroll
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('sticky-fab');
+      if (window.scrollY > 400) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    });
+
   </script>
+
+  <!-- Sticky FAB de Contacto -->
+  <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="sticky-fab" id="sticky-fab">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.825z"/></svg>
+    <span>Contáctame</span>
+  </a>
 
 </body>
 </html>
