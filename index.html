@@ -411,6 +411,31 @@
       filter: drop-shadow(0 0 25px rgba(129, 140, 248, 0.3));
     }
 
+    .profile-info h1 .title-cycle-badge {
+      display: inline-block;
+      vertical-align: middle;
+      white-space: nowrap;
+      font-size: 0.32em;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.45em 1em;
+      margin-left: 0.4em;
+      border-radius: 999px;
+      color: #c4b5fd;
+      background: rgba(129, 140, 248, 0.14);
+      border: 1px solid rgba(167, 139, 250, 0.45);
+      text-shadow: none;
+      position: relative;
+      top: -0.15em;
+    }
+
+    body.theme-light-nature .profile-info h1 .title-cycle-badge {
+      color: #047857;
+      background: rgba(5, 150, 105, 0.1);
+      border-color: rgba(5, 150, 105, 0.4);
+    }
+
     .profile-bio {
       font-size: clamp(1.02rem, 1.25vw, 1.15rem);
       color: #f1f5f9;
@@ -474,10 +499,10 @@
       grid-template-columns: repeat(3, 1fr);
       gap: clamp(1.2rem, 2.2vw, 2rem);
       /* Más ancho que el contenedor para videos más grandes */
-      width: min(1400px, calc(100vw - 2.5rem));
+      width: min(1300px, calc(100vw - 2.5rem));
       position: relative;
       left: 50%;
-      margin-left: calc(-1 * min(700px, calc(50vw - 1.25rem)));
+      margin-left: calc(-1 * min(650px, calc(50vw - 1.25rem)));
     }
 
     @media (max-width: 900px) {
@@ -540,7 +565,7 @@
       -webkit-backdrop-filter: blur(28px) saturate(200%);
       border-radius: 28px;
       aspect-ratio: 9 / 14;
-      max-height: 660px;
+      max-height: 570px;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -1198,7 +1223,7 @@
 
         <!-- Título Principal -->
         <h1>
-          <span>▪ Estudiante</span> <span class="gradient-text">de marketing (Último ciclo)</span>
+          <span>▪ Estudiante</span> <span class="gradient-text">de marketing</span> <span class="title-cycle-badge">Último ciclo</span>
         </h1>
 
         <!-- Introducción Resumida y Limpia -->
