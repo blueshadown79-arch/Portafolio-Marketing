@@ -395,6 +395,11 @@
     }
 
     .profile-info h1 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      column-gap: 0.25em;
+      row-gap: 0.2em;
       font-size: clamp(2.4rem, 4vw, 3.4rem);
       font-weight: 900;
       letter-spacing: -0.03em;
@@ -413,21 +418,17 @@
 
     .profile-info h1 .title-cycle-badge {
       display: inline-block;
-      vertical-align: middle;
       white-space: nowrap;
       font-size: 0.32em;
       font-weight: 800;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 0.45em 1em;
-      margin-left: 0.4em;
       border-radius: 999px;
       color: #c4b5fd;
       background: rgba(129, 140, 248, 0.14);
       border: 1px solid rgba(167, 139, 250, 0.45);
       text-shadow: none;
-      position: relative;
-      top: -0.15em;
     }
 
     body.theme-light-nature .profile-info h1 .title-cycle-badge {
