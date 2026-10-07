@@ -473,6 +473,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: clamp(1.2rem, 2.2vw, 2rem);
+      /* Más ancho que el contenedor para videos más grandes */
+      width: min(1400px, calc(100vw - 2.5rem));
+      position: relative;
+      left: 50%;
+      margin-left: calc(-1 * min(700px, calc(50vw - 1.25rem)));
     }
 
     @media (max-width: 900px) {
@@ -535,7 +540,7 @@
       -webkit-backdrop-filter: blur(28px) saturate(200%);
       border-radius: 28px;
       aspect-ratio: 9 / 14;
-      max-height: 520px;
+      max-height: 660px;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -594,6 +599,7 @@
     }
 
     .play-circle {
+      display: none !important;
       width: 62px;
       height: 62px;
       border-radius: 50%;
