@@ -1094,7 +1094,11 @@
       border-color: rgba(22, 163, 74, 0.3);
       color: #15803d;
     }
+<<<<<<< HEAD
       /* --- MEJORAS UX / UI --- */
+=======
+        /* --- MEJORAS UX / UI --- */
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
       /* Barra de progreso en burbujas */
       .video-bubble {
         position: relative;
@@ -1185,7 +1189,11 @@
         background: #16a34a;
         border-color: rgba(255,255,255,0.3);
       }
+<<<<<<< HEAD
   </style>
+=======
+    </style>
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
   <!-- Microsoft Clarity Oficial -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -1193,6 +1201,87 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ykzadqlwvb");
+    // --- MEJORAS UX / UI (Instagram Stories + Tooltips + Tilt 3D + Sticky FAB) ---
+    
+    // 1. Añadir Tooltips (data-tooltip) dinámicamente a las burbujas
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const bubblesContainer = document.getElementById(ubbles-+cat);
+      if(!bubblesContainer) return;
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+         if(videoPlaylists[cat] && videoPlaylists[cat][i]) {
+            b.setAttribute('data-tooltip', videoPlaylists[cat][i].label);
+         }
+      });
+    });
+
+    // 2. Auto-Avance de Videos (Historias) y Barra de Progreso
+    const currentVideoIndex = { ia: 0, edit: 0, reels: 0 };
+    
+    // Modificar jumpToVideo para actualizar el index trackeado
+    const originalJump = jumpToVideo;
+    window.jumpToVideo = function(category, index) {
+      currentVideoIndex[category] = index;
+      originalJump(category, index);
+      // Resetear barra de progreso de las otras burbujas
+      document.querySelectorAll(#bubbles-+category+ .video-bubble).forEach(b => {
+         b.style.setProperty('--progress', '0%');
+      });
+    };
+
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const videoEl = document.getElementById(ideo-+cat);
+      if(!videoEl) return;
+      
+      // Actualizar progreso
+      videoEl.addEventListener('timeupdate', () => {
+         if(videoEl.duration) {
+            const progress = (videoEl.currentTime / videoEl.duration) * 100;
+            const activeBubble = document.querySelector(#bubbles-+cat+ .video-bubble.active);
+            if(activeBubble) {
+               activeBubble.style.setProperty('--progress', progress + '%');
+            }
+         }
+      });
+
+      // Saltar al siguiente al terminar
+      videoEl.addEventListener('ended', () => {
+         let nextIdx = currentVideoIndex[cat] + 1;
+         if(nextIdx >= videoPlaylists[cat].length) {
+            nextIdx = 0; // Vuelve al inicio (loop)
+         }
+         window.jumpToVideo(cat, nextIdx);
+      });
+    });
+
+    // 3. Efecto Tilt 3D suave en las tarjetas
+    document.querySelectorAll('.video-card-mirror').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4; // Max 4 grados
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        card.style.transform = perspective(1000px) rotateX(+rotateX+deg) rotateY(+rotateY+deg) scale3d(1.02, 1.02, 1.02);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+      });
+    });
+
+    // 4. Mostrar Sticky FAB al hacer scroll
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('sticky-fab');
+      if (window.scrollY > 400) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    });
+
   </script>
 
   <!-- Google tag (gtag.js) con Escudo Anti-Visitas Propias -->
@@ -1221,6 +1310,87 @@
     } else {
       gtag('config', 'G-PL6PV7LZWK');
     }
+    // --- MEJORAS UX / UI (Instagram Stories + Tooltips + Tilt 3D + Sticky FAB) ---
+    
+    // 1. Añadir Tooltips (data-tooltip) dinámicamente a las burbujas
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const bubblesContainer = document.getElementById(ubbles-+cat);
+      if(!bubblesContainer) return;
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+         if(videoPlaylists[cat] && videoPlaylists[cat][i]) {
+            b.setAttribute('data-tooltip', videoPlaylists[cat][i].label);
+         }
+      });
+    });
+
+    // 2. Auto-Avance de Videos (Historias) y Barra de Progreso
+    const currentVideoIndex = { ia: 0, edit: 0, reels: 0 };
+    
+    // Modificar jumpToVideo para actualizar el index trackeado
+    const originalJump = jumpToVideo;
+    window.jumpToVideo = function(category, index) {
+      currentVideoIndex[category] = index;
+      originalJump(category, index);
+      // Resetear barra de progreso de las otras burbujas
+      document.querySelectorAll(#bubbles-+category+ .video-bubble).forEach(b => {
+         b.style.setProperty('--progress', '0%');
+      });
+    };
+
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const videoEl = document.getElementById(ideo-+cat);
+      if(!videoEl) return;
+      
+      // Actualizar progreso
+      videoEl.addEventListener('timeupdate', () => {
+         if(videoEl.duration) {
+            const progress = (videoEl.currentTime / videoEl.duration) * 100;
+            const activeBubble = document.querySelector(#bubbles-+cat+ .video-bubble.active);
+            if(activeBubble) {
+               activeBubble.style.setProperty('--progress', progress + '%');
+            }
+         }
+      });
+
+      // Saltar al siguiente al terminar
+      videoEl.addEventListener('ended', () => {
+         let nextIdx = currentVideoIndex[cat] + 1;
+         if(nextIdx >= videoPlaylists[cat].length) {
+            nextIdx = 0; // Vuelve al inicio (loop)
+         }
+         window.jumpToVideo(cat, nextIdx);
+      });
+    });
+
+    // 3. Efecto Tilt 3D suave en las tarjetas
+    document.querySelectorAll('.video-card-mirror').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4; // Max 4 grados
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        card.style.transform = perspective(1000px) rotateX(+rotateX+deg) rotateY(+rotateY+deg) scale3d(1.02, 1.02, 1.02);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+      });
+    });
+
+    // 4. Mostrar Sticky FAB al hacer scroll
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('sticky-fab');
+      if (window.scrollY > 400) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    });
+
   </script>
 </head>
 <body>
@@ -2120,12 +2290,19 @@
       if (e.target.closest('video')) return;
       playClickSfx();
     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
     // --- MEJORAS UX / UI (Instagram Stories + Tooltips + Tilt 3D + Sticky FAB) ---
     
     // 1. Añadir Tooltips (data-tooltip) dinámicamente a las burbujas
     ['ia', 'edit', 'reels'].forEach(cat => {
+<<<<<<< HEAD
       const bubblesContainer = document.getElementById(`bubbles-${cat}`);
+=======
+      const bubblesContainer = document.getElementById(ubbles-+cat);
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
       if(!bubblesContainer) return;
       const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
       bubbles.forEach((b, i) => {
@@ -2144,20 +2321,32 @@
       currentVideoIndex[category] = index;
       originalJump(category, index);
       // Resetear barra de progreso de las otras burbujas
+<<<<<<< HEAD
       document.querySelectorAll(`#bubbles-${category} .video-bubble`).forEach(b => {
+=======
+      document.querySelectorAll(#bubbles-+category+ .video-bubble).forEach(b => {
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
          b.style.setProperty('--progress', '0%');
       });
     };
 
     ['ia', 'edit', 'reels'].forEach(cat => {
+<<<<<<< HEAD
       const videoEl = document.getElementById(`video-${cat}`);
+=======
+      const videoEl = document.getElementById(ideo-+cat);
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
       if(!videoEl) return;
       
       // Actualizar progreso
       videoEl.addEventListener('timeupdate', () => {
          if(videoEl.duration) {
             const progress = (videoEl.currentTime / videoEl.duration) * 100;
+<<<<<<< HEAD
             const activeBubble = document.querySelector(`#bubbles-${cat} .video-bubble.active`);
+=======
+            const activeBubble = document.querySelector(#bubbles-+cat+ .video-bubble.active);
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
             if(activeBubble) {
                activeBubble.style.setProperty('--progress', progress + '%');
             }
@@ -2185,10 +2374,17 @@
         const rotateX = ((y - centerY) / centerY) * -4; // Max 4 grados
         const rotateY = ((x - centerX) / centerX) * 4;
         
+<<<<<<< HEAD
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
       });
       card.addEventListener('mouseleave', () => {
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+=======
+        card.style.transform = perspective(1000px) rotateX(+rotateX+deg) rotateY(+rotateY+deg) scale3d(1.02, 1.02, 1.02);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+>>>>>>> 0d02bf33d363e3ba8b2530cca0f9a8234231acec
       });
     });
 
